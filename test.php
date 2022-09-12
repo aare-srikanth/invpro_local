@@ -1,6 +1,6 @@
 <?php
 include 'config.php';
 echo JPATH_BASE;
-echo 'new mounika';
+echo 'Dokali mounika';
 
 ?>
