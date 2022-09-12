@@ -1,0 +1,44 @@
+[29-Aug-2018 10:16:32 UTC] PHP Warning:  curl_setopt(): You must pass either an object or an array with the CURLOPT_HTTPHEADER argument in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 34
+[29-Aug-2018 10:18:33 UTC] PHP Warning:  curl_setopt() expects parameter 1 to be resource, null given in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 38
+[29-Aug-2018 10:18:36 UTC] PHP Warning:  curl_setopt() expects parameter 1 to be resource, null given in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 38
+[29-Aug-2018 10:26:19 UTC] PHP Fatal error:  SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://cmcclaims.justfordemo.biz/api/CommonApi/States?CountryId=1&Activationkey=123456789' : Start tag expected, '<' not found
+ in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 49
+[29-Aug-2018 10:26:19 UTC] PHP Fatal error:  Uncaught SoapFault exception: [WSDL] SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://cmcclaims.justfordemo.biz/api/CommonApi/States?CountryId=1&Activationkey=123456789' : Start tag expected, '<' not found
+ in /home/boxonjustfordemo/public_html/classes/getCountries.php:49
+Stack trace:
+#0 /home/boxonjustfordemo/public_html/classes/getCountries.php(49): SoapClient->SoapClient('http://cmcclaim...', Array)
+#1 {main}
+  thrown in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 49
+[29-Aug-2018 10:26:31 UTC] PHP Fatal error:  SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://cmcclaims.justfordemo.biz/api/CommonApi/States?CountryId=1&Activationkey=123456789' : Start tag expected, '<' not found
+ in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 36
+[29-Aug-2018 10:26:31 UTC] PHP Fatal error:  Uncaught SoapFault exception: [WSDL] SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://cmcclaims.justfordemo.biz/api/CommonApi/States?CountryId=1&Activationkey=123456789' : Start tag expected, '<' not found
+ in /home/boxonjustfordemo/public_html/classes/getCountries.php:36
+Stack trace:
+#0 /home/boxonjustfordemo/public_html/classes/getCountries.php(36): SoapClient->SoapClient('http://cmcclaim...', Array)
+#1 {main}
+  thrown in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 36
+[29-Aug-2018 10:27:03 UTC] PHP Fatal error:  SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://cmcclaims.justfordemo.biz/api/CommonApi/States?CountryId=1&Activationkey=123456789' : Start tag expected, '<' not found
+ in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 49
+[29-Aug-2018 10:27:03 UTC] PHP Fatal error:  Uncaught SoapFault exception: [WSDL] SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://cmcclaims.justfordemo.biz/api/CommonApi/States?CountryId=1&Activationkey=123456789' : Start tag expected, '<' not found
+ in /home/boxonjustfordemo/public_html/classes/getCountries.php:49
+Stack trace:
+#0 /home/boxonjustfordemo/public_html/classes/getCountries.php(49): SoapClient->SoapClient('http://cmcclaim...', Array)
+#1 {main}
+  thrown in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 49
+[29-Aug-2018 10:29:46 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 43
+[29-Aug-2018 10:29:48 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 43
+[29-Aug-2018 10:29:50 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 43
+[29-Aug-2018 10:30:40 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 51
+[29-Aug-2018 10:30:42 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 51
+[29-Aug-2018 10:31:17 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 51
+[29-Aug-2018 10:31:18 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 51
+[29-Aug-2018 10:31:23 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 51
+[29-Aug-2018 10:32:56 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 51
+[29-Aug-2018 10:32:57 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 51
+[29-Aug-2018 10:32:59 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 51
+[29-Aug-2018 10:33:23 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 51
+[29-Aug-2018 10:34:19 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 43
+[29-Aug-2018 10:34:21 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 43
+[29-Aug-2018 10:36:48 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 45
+[29-Aug-2018 10:36:49 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/boxonjustfordemo/public_html/classes/getCountries.php on line 45
+[31-Aug-2018 05:27:18 UTC] PHP Parse error:  syntax error, unexpected 'UserName' (T_STRING) in /home/boxonjustfordemo/public_html/classes/getLogin.php on line 40
