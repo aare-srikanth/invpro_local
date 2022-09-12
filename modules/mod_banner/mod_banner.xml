@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.8.0">
+    <name>Banner</name>
+    <author>Iblesoft</author>
+    <version>3.8</version>
+    <description>Banner</description>
+    <files>
+	<filename>mod_banner.xml</filename>
+	<filename module="mod_banner">mod_banner.php</filename>
+	<filename>index.html</filename>
+	<filename>helper.php</filename>
+	<filename>tmpl/default.php</filename>
+	<filename>tmpl/index.html</filename>
+    </files>
+	<config>
+		<fields name="params">		
+		  <fieldset name="basic">  		
+		   <field name="accounttitle" type="text" default="Banner" label="Account Title" description="" size="15" />
+          </fieldset>			
+		</fields>	
+	</config>
+</extension>
