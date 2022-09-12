@@ -13,8 +13,8 @@ class JConfig {
 	public $debug_lang = '0';
 	public $dbtype = 'mysqli';
 	public $host = 'localhost';
-	public $user = 'inviewpr_invusr';
-	public $password = 'yAi@Sa1fUP?D';
+	public $user = 'root';
+	public $password = '';
 	public $db = 'inviewpr_invdb';
 	public $dbprefix = 'bnce7_';
 	public $live_site = '';
