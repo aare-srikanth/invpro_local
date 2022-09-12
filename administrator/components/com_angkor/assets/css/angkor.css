@@ -1,0 +1,91 @@
+.angkorTempate{
+	background-color:#fff;
+	width:100%;
+}
+.clear{
+	clear:both;
+}
+.icon-48-angkor{
+	background: url(../images/angkor_48.png) no-repeat;
+}
+.icon-32-translate{
+	background: url(../images/icon-32-joomfish.png) no-repeat;
+}
+.angkorTempate-inner{
+	padding:10px;
+}
+#emailsList{
+	float:left;	
+	padding:0;
+	padding-right:10px;
+	margin:0;
+	
+	min-width:270px;
+}
+#emailsList .emails{
+	border:1px solid #ccc;
+}
+#emailsList .emails .pane-sliders .panel {
+	border:none;
+}
+#emailTemplate{
+	float:left;	
+	padding:0;
+	margin:0;
+}
+
+#emailTemplate dl.tabs {
+	margin-top:0px;
+}
+.pane-sliders{
+	margin-top:0px !important;
+}
+div.languages{
+	margin-bottom:5px;
+	vertical-align:top;
+}
+.selected-email span{
+	color:#ce0000;
+	text-decoration:underline;
+}
+#emailTemplate .current{
+	min-height:480px;
+}
+.css-editor{
+	width:100%;
+}
+#previewArea{
+	width:100%;
+	height:450px;
+}
+
+#angkorMessage{
+	display:none;
+	margin:10px 0px;
+	padding:10px;	
+	border-top:1px solid #0000f1;
+	border-bottom:1px solid #0000f1;
+	background-color:#C3D2E5;
+	color:#05B;
+	font-weight:bold;
+}
+.css-warning{
+	margin:10px 0px;
+}
+#language{
+	height:40px;
+	width:100%;
+}
+#parameterArea{
+	margin:10px 0px;
+}
+table.emailsList{
+	border-spacing:0px;
+	width:100%;
+}
+table.emailsList td{
+	padding:5px;
+}
+thead tr{
+	background-color:#ccc;
+}
