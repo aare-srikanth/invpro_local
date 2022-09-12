@@ -1,0 +1,44 @@
+
+/* Shipments Page CSS Start */
+.rdo_cust { }
+.rdo_rd1 { width: 100%; float: left; clear: both; margin-bottom: 5px; }
+.rdo_rd1 label { float: left; margin-right: 10px; }
+.rdo_rd1 input[type="radio"] { float: left; margin: 3px 5px 0 0; }
+.rst_text { float: left; font-weight: bold; color:#EC1B24; }
+.rcvship-blk { float: left; width: 100%; clear: both; margin-bottom: 10px; }
+.rcvship-blk h4 { font-weight: bold; }
+.rcvship-blk .chg-address label { color:#EC1B24; cursor: pointer; }
+.spcl-ins { float: left; width: 100%; clear: both; margin-bottom: 15px; }
+.addtion-user { }
+.shipping-costtbl { }
+.shipping-costtbl td label {margin: 0;}
+.shipping-costtbl td {text-transform: uppercase; font-weight: bold; }
+.shipping-costtbl .txt-right { text-align: right;color:#EC1B24; }
+.shipping-costtbl .shp-mtd { display: inline; text-transform: capitalize; }
+.shipping-costtbl .total_cst { }
+
+/* Shipments Page CSS End */
+
+.modal .modal-body{max-height:450px; overflow:auto;}
+ul.nav.menu.nav.navbar-nav.mod-list { display: none; }
+.tbl-height{max-height:350px; overflow:auto;}
+
+#inv_view .modal-body{width:100% !important;}
+
+@media (min-width:1024px){
+#inv_view .modal-dialog {width:800px;}
+}
+
+@media (max-width:1366px)
+{
+	.modal .modal-body{max-height:450px;}
+}
+
+@media (max-width:991px){
+#inv_view .modal-dialog {width: 95%;}
+}
+
+@media (max-width: 767px){
+    #inv_view iframe{width:100% !important;}
+    .rdo_rd1{float:none;}
+}

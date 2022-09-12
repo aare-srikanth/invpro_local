@@ -1,0 +1,278 @@
+
+
+.page_content {
+    margin: 106px 0 0 0;
+}
+/* Shipments Page CSS Start */
+.rdo_cust { }
+.rdo_rd1 { width: 100%; float: left; clear: both; margin-bottom: 5px; }
+.rdo_rd1 label { float: left; margin-right: 10px; }
+.rdo_rd1 input[type="radio"] { float: left; margin: 3px 5px 0 0; }
+.rst_text { float: left; font-weight: bold; color:#EC1B24; }
+.rcvship-blk { float: left; width: 100%; clear: both; margin-bottom: 10px; }
+.rcvship-blk h4 { font-weight: bold; }
+.rcvship-blk .chg-address label { color:#EC1B24; cursor: pointer; }
+.spcl-ins { float: left; width: 100%; clear: both; margin-bottom: 15px; }
+.addtion-user { }
+.shipping-costtbl { }
+.shipping-costtbl td label {margin: 0;}
+.shipping-costtbl td {text-transform: uppercase; font-weight: bold; }
+.shipping-costtbl .txt-right { text-align: right;color:#EC1B24; }
+.shipping-costtbl .shp-mtd { display: inline; text-transform: capitalize; }
+.shipping-costtbl .total_cst { }
+
+/* Shipments Page CSS End */
+
+
+
+/*orderprocess page css start*/
+.crd-info{margin:0 auto;}
+#price {height: 40px;display: block;padding: 6px 12px;font-size: 14px;line-height: 1.42857143;color: #555;background-color: #fff;background-image: none;border: 1px solid #ccc;margin-top: 6px;border-radius: 4px;-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);box-shadow: inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;border-color: #000;}
+.crd-info .label {display: inline;padding: 0;font-size: 14px;font-weight: 700;line-height: 1;color: #1d1a1a;text-align: center;white-space: nowrap;vertical-align: baseline;border-radius: .25em;}
+.ElementsApp {
+  font-size: 14px;
+  line-height: 1.2em;
+  height: auto !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.CardField-input-wrapper.is-ready-to-slide {
+  height: auto !important;
+    overflow: initial !important;
+  line-height: 70px;
+}
+
+.CardBrandIcon-container {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  width: 1.5em;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+}
+.InputElement.is-empty.Input.Input--empty {
+  height: 40px;
+   overflow: initial !important;
+  z-index: -37;
+}
+#card-element iframe {
+  height: 200px !important;
+}
+.ElementsApp {
+  font-size: 14px;
+  line-height: 1.2em;
+  height: auto !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.InputElement.is-empty.Input.Input--empty {
+  border: 1px solid #000 !important;
+  height: 40px !important;
+  border-radius: 4px !important;
+    overflow: initial !important;
+}
+.InputContainer .InputElement::placeholder {
+  color: #000;
+}
+.InputContainer .InputElement::placeholder {
+  -webkit-text-fill-color: currentColor;
+}
+.InputContainer .InputElement::placeholder {
+  -webkit-text-fill-color: currentColor;
+}
+element {
+}
+.InputContainer .InputElement {
+  position: absolute;
+  top: 0;
+}
+.CardField-number .CardField-number-fakeNumber, .CardField-number input {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.CardField-cvc input, .CardField-cvc input:autofill, .CardField-expiry input, .CardField-expiry input:autofill, .CardField-number .CardField-number-fakeNumber, .CardField-number input, .CardField-number input:autofill {
+  transition: background-color 0s 100000000s,opacity .3s cubic-bezier(.25,.46,.45,.94);
+}
+
+.ElementsApp input {
+  background-color: transparent;
+  border: 1px solid #000 !important;
+  display: block;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-size: 1em;
+  line-height: 1.2em;
+  height: 40px;
+  overflow: initial;
+}
+.CardField-input-wrapper {
+  overflow: initial !important;
+}
+.dvPaymentInformation {
+    /*max-width: 700px;*/
+    background-color: #fff;
+margin: 0 0;
+  margin-bottom: 0px;
+padding: 2px;
+border:1px solid #23bbed;
+margin-bottom: 20px;
+border-radius: 4px;
+    /* color: #4c4e56;*/
+}
+
+.dvPaymentInformation label {
+    /*width: 100%;*/
+    margin-bottom: 10px;
+}
+
+
+.dvPaymentInformation .payment .form-group {
+    float: left;
+    margin-bottom: 15px;
+}
+
+.dvPaymentInformation .payment .form-control {
+    line-height: 40px;
+    height: auto;
+    padding: 0 16px;
+}
+.clearfix{
+    clear:both;
+}
+
+.dvPaymentInformation .owner {
+    width: 63%;
+    margin-right: 10px;
+}
+
+
+.error.paygaterrormsg{
+    margin: 0px 0 12px 0 !important;
+    word-break: break-all;
+    color: #fb0e0e;
+}
+
+.dvPaymentInformation #pay-now {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.dvPaymentInformation .payment .btn {
+    width: 100%;
+    margin-top: 3px;
+    font-size: 24px;
+    background-color: #2ec4a5;
+    color: white;
+}
+
+.dvPaymentInformation .payment select {
+    padding: 10px;
+    margin-right: 15px;
+}
+
+.transparent {
+    opacity: 0.2;
+}
+
+@media(max-width: 650px) {
+    .dvPaymentInformation .owner,
+    .dvPaymentInformation .CVV,
+    .dvPaymentInformation #expiration-date,
+    .dvPaymentInformation #credit_cards {
+        width: 100%;
+    }
+    
+}
+
+
+/*  Examples Section */
+
+.examples {
+	max-width: 700px;
+	background-color: #fff;
+	margin: 0 auto 75px;
+	padding: 30px 50px;
+	color: #4c4e56;
+}
+
+.examples-note{
+    text-align: center;
+    font-size: 14px;
+    max-width: 370px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+    color: #7a7a7a;
+}
+
+.examples table {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+}
+
+/*orderprocess page css end*/
+
+.modal .modal-body{max-height:450px; overflow:auto;}
+ul.nav.menu.nav.navbar-nav.mod-list { display: none; }
+.tbl-height{max-height:350px; overflow:auto;}
+
+#inv_view .modal-body{width:100% !important;}
+
+@media (min-width:1024px){
+#inv_view .modal-dialog {width:800px;}
+}
+
+@media (max-width:1366px)
+{
+   .row.rows.row-mob label{
+    min-height:auto;
+}
+}
+
+@media (max-width:991px){
+#inv_view .modal-dialog {width: 95%;}
+.row.rows.row-mob label{
+    min-height:auto;
+}
+
+}
+
+@media (max-width: 767px){
+    #inv_view iframe{width:100% !important;}
+   .dvPaymentInformation #credit_cards{
+      text-align: left !important;
+   }
+   .row.rows.row-mob label{
+    min-height:auto;
+}
+
+#credit_cards {
+    position: relative;
+    left: -177px;
+}
+    
+    /*.rdo_rd1{float:none;}*/
+}
+@media (max-width: 768px) {
+    #credit_cards img {
+  position: relative;
+  width: 9%;
+  top: -243px;
+  left:441px !important;
+}
+.row.rows.row-mob label{
+    min-height:auto !important;
+}
+}
+@media (max-width: 1024px) {
+    .row.rows.row-mob label{
+    min-height:40px;
+}
+}
