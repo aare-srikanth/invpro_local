@@ -923,7 +923,7 @@ $joomla(document).ready(function() {
       <div class="row">
         <div class="col-sm-12 tab_view">
           <ul class="nav nav-tabs">
-            <li> <a class="active" ><?php echo Jtext::_($prealert_text);?><?php echo $assArr['my_Pre_Alerts'];?></a></li>
+            <li> <a class="active" ><?php echo $assArr['my_Pre_Alerts'];?></a></li>
             <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=orderprocess"><?php echo $assArr['ready_to_ship'];?></a> </li>
            <!--  <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=cod">COD</a> </li>-->
             <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=shiphistory"><?php echo $assArr['shipment_History'];?></a> </li>
