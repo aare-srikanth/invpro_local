@@ -143,9 +143,18 @@ $joomla(document).ready(function() {
       $joomla('#Discountstr').val(loops[8]);
       $joomla('#InhouseIdk').html(loops[9]);
       $joomla('#InhouseIdkstr').val(loops[9]);
-      $joomla('#amtStr').val(loops[7]);
-      $joomla('input[name="amount"]').val(loops[7]);
-      $joomla('#InvoiceNo').val(loops[10]);
+      
+      var totamount = parseFloat(loops[7])-parseFloat(loops[3]);
+      
+      // new code
+      
+      $joomla('#amtStr').val(totamount);
+      $joomla('input[name="amount"]').val(totamount);
+      $joomla('#DueAmount').html(totamount.toFixed(2));
+      
+       // new code end
+      
+     $joomla('#InvoiceNo').val(loops[10]);
       
       $joomla("input[name='return']").val('<?php echo JURI::base(); ?>index.php?option=com_userprofile&&view=user&layout=response&page=cod&invoice='+loops[10]+'&pay=<?php echo base64_encode(date("m/d/0Y"));?>');
          
@@ -381,9 +390,10 @@ $joomla(document).ready(function() {
               <table class="table table-bordered theme_table" id="j_table">
                 <thead>
                   <tr>
-                    <th class="action_btns"  width=100><?php echo $assArr['action']; ?></th>
+                    <th class="action_btns"  width=100><?php echo $assArr['actions']; ?></th>
                     <th><?php echo $assArr['shipping#'];?></th>
                     <th><?php echo $assArr['warehouse_Receipt#']; ?></th>
+                    <th><?php echo 'Payment Type' ;?></th>
                     <th><?php echo $assArr['total_cost'] ;?></th>
                   </tr>
                 </thead>
@@ -393,6 +403,10 @@ $joomla(document).ready(function() {
     
    
     foreach($ordersPendingView as $rg){
+        
+        $totalCost = $rg->TotalFinalCost-$rg->TotalAmountPaid;
+        
+        if($totalCost >0){
       			
       echo '<tr>
       		<td class="action_btns"  width=100>
@@ -400,8 +414,10 @@ $joomla(document).ready(function() {
       		</td>
       		<td>'.$rg->InHouseNo.'</td>
       		<td>'.$rg->bill_form_no.'</td>
-      		<td>'.$rg->TotalFinalCost.'</td>
-      		</tr>';
+      		<td>'.$rg->paymentType.'</td>
+      		<td>'.number_format($totalCost, 2).'</td>
+     		</tr>';
+        }
     }
     ?>
                 </tbody>
@@ -516,6 +532,14 @@ $joomla(document).ready(function() {
                     <tr class="total_cst">
                       <td><label><?php echo Jtext::_('COM_USERPROFILE_TOTAL_BUY_FOR_TODAY');?></label></td>
                       <td class="txt-right"><div id="TotalFinalCost"></div></td>
+                    </tr>
+                    <tr class="">
+                      <td><label><?php echo Jtext::_('Total Amount Paid');?></label></td>
+                      <td class="txt-right"><div id="TotalAmountPaid"></div></td>
+                    </tr>
+                    <tr class="">
+                      <td><label><?php echo Jtext::_('Due Amount');?></label></td>
+                      <td class="txt-right"><div id="DueAmount"></div></td>
                     </tr>
 
                   </table>
