@@ -8,6 +8,7 @@
  */
 // No direct access
 $document = JFactory::getDocument();
+$session = JFactory::getSession();
 $document->setTitle("Change Password in Boxon Pobox Software");
 defined('_JEXEC') or die;
 
