@@ -1312,7 +1312,7 @@ function validation(){
 					<th><?php echo $assArr['height'];  ?></th>
 					<th><?php echo $assArr['gROSS_WT/ITEM'];  ?></th>
 					<th><?php echo $assArr['gROSS_WT'];  ?></th>
-					<th><?php echo $assArr['vOLUME(FT�)'];  ?></th>
+					<th><?php echo $assArr['vOLUME'];  ?></th>
 					<th><?php echo $assArr['vOLUMETRIC_WT'];  ?></th>
 				  </tr>
                 </thead>
@@ -1438,10 +1438,11 @@ function validation(){
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label><?php echo $assArr['first_Name'];   ?><span class="error">*</span></label>
+                <label><?php echo $assArr['first_name'];   ?><span class="error">*</span></label>
                 <input type="text" class="form-control" name="fnameTxt" id="fnameTxt" maxlength="25">
               </div>
             </div>
+            
             <div class="col-md-6">
               <div class="form-group">
                 <label><?php echo $assArr['last_Name'];  ?><span class="error">*</span></label>
@@ -1531,7 +1532,7 @@ function validation(){
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label><?php echo $assArr['id'];?>  ?> <span class="error">*</span></label>
+                <label><?php echo $assArr['id'];?><span class="error">*</span></label>
                 <input type="text" class="form-control"  name="useridTxt" value="<?php echo UserprofileHelpersUserprofile::getPickupOderConsigneeId(1);?>" readonly>
               </div>
             </div>
@@ -1539,7 +1540,7 @@ function validation(){
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label><?php echo $assArr['first_Name'];  ?><span class="error">*</span></label>
+                <label><?php echo $assArr['first_name'];  ?><span class="error">*</span></label>
                 <input type="text" class="form-control" name="fnameTxt" id="fnameTxt" maxlength="25">
               </div>
             </div>
@@ -1633,7 +1634,7 @@ function validation(){
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label><?php echo Jtext::_('COM_USERPROFILE_ORDER_PICKUP_POPUP_ID')  ?> <span class="error">*</span></label>
+                <label><?php echo $assArr['id'];?> <span class="error">*</span></label>
                 <input type="text" class="form-control"  name="useridTxt" value="<?php echo UserprofileHelpersUserprofile::getPickupOderThirdpartyId(1);?>" readonly>
               </div>
             </div>
@@ -1641,7 +1642,7 @@ function validation(){
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label><?php echo $assArr['first_Name'];  ?><span class="error">*</span></label>
+                <label><?php echo $assArr['first_name'];  ?><span class="error">*</span></label>
                 <input type="text" class="form-control" name="fnameTxt" id="fnameTxt" maxlength="25">
               </div>
             </div>

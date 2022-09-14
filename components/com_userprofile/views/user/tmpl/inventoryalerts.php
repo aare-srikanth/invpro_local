@@ -1238,7 +1238,7 @@ $joomla(document).ready(function() {
           <div class="row">
             <div class="col-sm-12 col-md-4">
               <div class="form-group">
-                <label><?php echo $assArr['merchant_name']; ?><span class="error">*</span></label>
+                <label><?php echo $assArr['merchants_Name']; ?><span class="error">*</span></label>
                 <input class="form-control" name="mnameTxt" id="mnameTxt" maxlength="40">
               </div>
             </div>
@@ -1305,7 +1305,7 @@ $joomla(document).ready(function() {
             </div>
             <div class="col-sm-12 col-md-2">
               <div class="form-group">
-                <label><?php echo $assArr['declared_Value_(USD)'];?>  <span class="error">*</span> </label>
+                <label><?php echo $assArr['Declared Value (USD)'];?>  <span class="error">*</span> </label>
                 <input class="form-control" name="declaredvalueTxt[]" id="3" maxlength="10" >
               </div>
             </div>
@@ -1445,7 +1445,7 @@ $joomla(document).ready(function() {
             <table class="table table-bordered theme_table" id="O_table" data-page-length='25'>
               <thead>
                 <tr>
-                  <th><?php echo $assArr['merchant_name']; ?></th>
+                  <th><?php echo $assArr['merchants_Name']; ?></th>
                   <th><?php echo $assArr['article_name']; ?></th>
                   <th><?php echo $assArr['order_date']; ?></th>
                   <th><?php echo $assArr['quantity']; ?></th>
@@ -1582,7 +1582,7 @@ $joomla(document).ready(function() {
           <div class="row">
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
-                <label><?php echo $assArr['merchant_name'];?> <span class="error">*</span></label>
+                <label><?php echo $assArr['merchants_Name'];?> <span class="error">*</span></label>
                 <input type="text" class="form-control" name="txtMerchantName"  readonly>
               </div>
             </div>
@@ -1715,7 +1715,7 @@ $joomla(document).ready(function() {
           <div class="row">
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
-                <label><?php echo $assArr['merchant_name'];?><span class="error">*</span></label>
+                <label><?php echo $assArr['merchants_Name'];?><span class="error">*</span></label>
                 <input type="text" class="form-control" name="txtMerchantName" readonly>
               </div>
             </div>
@@ -1770,7 +1770,7 @@ $joomla(document).ready(function() {
             </div>
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
-                <label><?php echo $assArr['declared_Value_(USD)'];?><span class="error">*</span></label>
+                <label><?php echo $assArr['Declared Value (USD)'];?><span class="error">*</span></label>
                 <input type="text" placeholder="0.00" class="form-control"  name="txtDvalue">
               </div>
             </div>

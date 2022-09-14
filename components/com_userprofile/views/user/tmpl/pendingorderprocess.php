@@ -1253,12 +1253,12 @@ function isNumber(evt) {
               <thead>
                 <tr>
                   <th><?php echo $assArr['sNo'];?></th>
-                  <th><?php echo $assArr['merchant_name'];?></th>
+                  <th><?php echo $assArr['merchants_Name'];?></th>
                   <th><?php echo $assArr['article_name'];?></th>
                   <th><?php echo $assArr['order_date'];?></th>
                   <th><?php echo $assArr['quantity'];?></th>
                   <th><?php echo $assArr['tracking#'];?></th>
-                  <th><?php echo $assArr['declared_Value_(USD)'];?></th>
+                  <th><?php echo $assArr['Declared Value (USD)'];?></th>
                   <th><?php echo $assArr['order_ID'];?></th>
                   <th><?php echo $assArr['rMA_Value'];?></th>
                   <th><?php echo $assArr['status'];?></th>

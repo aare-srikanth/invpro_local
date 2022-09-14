@@ -601,7 +601,7 @@ function validation(){
 			    <div class="col-sm-12 col-md-6">
 			        <div class="form-group">
 			        	<!--<label class="invisable d-block">&nbsp;</label>-->
-			            <label><?php echo $assArr['destination_Country']; ?>:&nbsp;<span class="error">*</span></label>
+			            <label><?php echo $assArr['destination_country']; ?>:&nbsp;<span class="error">*</span></label>
 			            <select class="form-control" name="txtDestinationCntry" id="txtDestinationCntry">
 			                <option value="">Select</option>
 			                <?php
@@ -727,7 +727,7 @@ function validation(){
 								<th><?php echo $assArr['height'];  ?></th>
 								<th><?php echo $assArr['gROSS_WT/ITEM']; ?></th>
 								<th><?php echo $assArr['gROSS_WT'];  ?></th>
-								<th><?php echo  $assArr['vOLUME(FT�)'];?></th>
+								<th><?php echo  $assArr['vOLUME'];?></th>
 								<th><?php echo $assArr['vOLUMETRIC_WT'];  ?></th>
 							</tr>
 	        			</thead>

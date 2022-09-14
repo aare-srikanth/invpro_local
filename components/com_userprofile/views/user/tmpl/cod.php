@@ -381,7 +381,7 @@ $joomla(document).ready(function() {
               <table class="table table-bordered theme_table" id="j_table">
                 <thead>
                   <tr>
-                    <th class="action_btns"  width=100><?php echo $assArr['actions#']; ?></th>
+                    <th class="action_btns"  width=100><?php echo $assArr['action']; ?></th>
                     <th><?php echo $assArr['shipping#'];?></th>
                     <th><?php echo $assArr['warehouse_Receipt#']; ?></th>
                     <th><?php echo $assArr['total_cost'] ;?></th>

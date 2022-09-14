@@ -916,7 +916,7 @@ $joomla(document).ready(function(){
 			    <div class="col-sm-6 col-md-6">
 			        <div class="form-group">
 			        	<label class="invisable d-block">&nbsp;</label>
-			            <label><?php echo $assArr['vOLUME(FT�)'];?>:&nbsp;</label> <span id="divVolume"></span>
+			            <label><?php echo $assArr['vOLUME'];?>:&nbsp;</label> <span id="divVolume"></span>
 			            <br>
 			            <label><?php echo $assArr['vOLUMETRIC_WT'];?>:&nbsp;</label> <span id="divVolumetricWeight"></span>
 			        </div>

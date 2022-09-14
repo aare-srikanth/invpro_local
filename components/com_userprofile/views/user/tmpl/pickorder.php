@@ -1281,7 +1281,7 @@ function validation(){
 					<th><?php echo $assArr['height'];  ?></th>
 					<th><?php echo $assArr['gROSS_WT/ITEM'];  ?></th>
 					<th><?php echo $assArr['gROSS_WT'];  ?></th>
-					<th><?php echo $assArr['vOLUME(FT�)'];  ?></th>
+					<th><?php echo $assArr['vOLUME'];  ?></th>
 					<th><?php echo $assArr['vOLUMETRIC_WT'];  ?></th>
 				  </tr>
                 </thead>

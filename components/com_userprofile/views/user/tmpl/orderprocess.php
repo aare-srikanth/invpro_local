@@ -3427,11 +3427,11 @@ margin: 0 auto;
                   if($menuCustType == "CUST" || ($menuCustType == "COMP" && $maccarr['FulFillment'] == "False") ){  ?>
                   <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=orderprocessalerts"><?php echo Jtext::_($prealert_text);?></a> </li>
                   <?php }else if($menuCustType == "COMP" && $maccarr['FulFillment'] == "True"){  ?>
-                  <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=inventoryalerts"><?php echo Jtext::_('COM_USERPROFILE_SHIP_COMP_TITLE1');?></a> </li>
+                  <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=inventoryalerts"><?php echo $assArr['my_Pre_Alerts'];?></a> </li>
                   <?php } ?>
-                  <li> <a class="active" href="index.php?option=com_userprofile&view=user&layout=orderprocess"><?php echo Jtext::_('COM_USERPROFILE_SHIP_TITLE2');?></a> </li>
+                  <li> <a class="active" href="index.php?option=com_userprofile&view=user&layout=orderprocess"><?php echo $assArr['ready_to_ship'];?></a> </li>
                   <!--<li> <a class="" href="index.php?option=com_userprofile&view=user&layout=cod">COD</a> </li>-->
-                  <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=shiphistory"><?php echo Jtext::_('COM_USERPROFILE_SHIP_TITLE3');?></a> </li>
+                  <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=shiphistory"><?php echo $assArr['shipment_History'];;?></a> </li>
                </ul>
             </div>
          </div>
@@ -4650,7 +4650,7 @@ margin: 0 auto;
                <div class="row">
                   <div class="col-md-6">
                      <div class="form-group">
-                        <label><?php echo $assArr['first_Name'];?>  <span class="error">*</span></label>
+                        <label><?php echo $assArr['first_name'];?>  <span class="error">*</span></label>
                         <input type="text" class="form-control" name="fnameTxt" id="fnameTxt" maxlength="25">
                      </div>
                   </div>

@@ -1258,7 +1258,7 @@ $joomla('#typeuserTxt').on('change',function(){
               </div>
               
               <div class="form-group">
-                <label><?php $assArr['fax']; ?></label>
+                <label><?php echo $assArr['fax']; ?></label>
                 <input type="text" class="form-control"   name="faxTxt" id="faxTxt" value="<?php echo $UserView->Fax;?>" minlength="10" maxlength="20">
               </div>
             </div>
@@ -1443,7 +1443,7 @@ $joomla('#typeuserTxt').on('change',function(){
 							<th><?php echo $assArr['address_2'];?></th>
 							<th><?php echo $assArr['identification_type'];?></th>
 							<th><?php echo $assArr['identification_value'];?></th>
-							<th><?php echo $assArr['actions'];;?></th>
+							<th><?php echo $assArr['action'];;?></th>
 							
 						</tr>
         			</thead>
@@ -1804,7 +1804,7 @@ $joomla('#typeuserTxt').on('change',function(){
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label><?php echo $assArr['first_Name']; ?>  <span class="error">*</span></label>
+                <label><?php echo $assArr['first_name']; ?>  <span class="error">*</span></label>
                 <input type="text" class="form-control" name="fnameTxt" id="fnameTxt" maxlength="25">
               </div>
             </div>
@@ -1824,7 +1824,7 @@ $joomla('#typeuserTxt').on('change',function(){
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label><?php echo $assArr['address_2']; ?> 2</label>
+                <label><?php echo $assArr['address_2']; ?> </label>
                 <textarea type="text" class="form-control" name="address2Txt" id="address2Txt" maxlength="35"></textarea>
               </div>
             </div>

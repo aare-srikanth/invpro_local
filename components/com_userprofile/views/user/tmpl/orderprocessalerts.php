@@ -923,10 +923,10 @@ $joomla(document).ready(function() {
       <div class="row">
         <div class="col-sm-12 tab_view">
           <ul class="nav nav-tabs">
-            <li> <a class="active" ><?php echo Jtext::_($prealert_text);?></a> </li>
-            <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=orderprocess"><?php echo Jtext::_('COM_USERPROFILE_ALERTS_TITLE2');?></a> </li>
+            <li> <a class="active" ><?php echo Jtext::_($prealert_text);?><?php echo $assArr['my_Pre_Alerts'];?></a></li>
+            <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=orderprocess"><?php echo $assArr['ready_to_ship'];?></a> </li>
            <!--  <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=cod">COD</a> </li>-->
-            <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=shiphistory"><?php echo Jtext::_('COM_USERPROFILE_ALERTS_TITLE3');?></a> </li>
+            <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=shiphistory"><?php echo $assArr['shipment_History'];?></a> </li>
           </ul>
         </div>
       </div>
@@ -1181,12 +1181,12 @@ $joomla(document).ready(function() {
               <thead>
                 <tr>
                   <th><?php echo $assArr['sNo'];?></th>
-                  <th><?php echo $assArr['merchant_name']; ?></th>
+                  <th><?php echo $assArr['merchants_Name']; ?></th>
                   <th><?php echo $assArr['article_name']; ?></th>
                   <th><?php echo $assArr['order_date']; ?></th>
                   <th><?php echo $assArr['quantity']; ?></th>
                   <th><?php echo $assArr['tracking_ID_of_the_operator']; ?> #</th>
-                  <th><?php echo $assArr['declared_Value_(USD)']; ?></th>
+                  <th><?php echo $assArr['Declared Value (USD)']; ?></th>
                   <th><?php echo $assArr['order_ID']; ?></th>
                   <th><?php echo $assArr['rMA_Value']; ?></th>
                   <th><?php echo $assArr['status'];?></th>
@@ -1234,7 +1234,7 @@ $joomla(document).ready(function() {
           <div class="row">
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
-                <label><?php echo $assArr['merchant_name'];?> <span class="error">*</span></label>
+                <label><?php echo $assArr['merchants_Name'];?> <span class="error">*</span></label>
                 <input type="text" class="form-control" name="txtMerchantName" maxlength="32" >
               </div>
             </div>
@@ -1307,7 +1307,7 @@ $joomla(document).ready(function() {
           <div class="row">
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
-                  <label><?php echo $assArr['declared_Value_(USD)']; ?> <span class="error">*</span></label>
+                  <label><?php echo $assArr['Declared Value (USD)']; ?> <span class="error">*</span></label>
                   <input type="text" placeholder="0.00" readonly="readonly" class="form-control"  name="txtTotalPrice">
               </div>
             </div>
@@ -1355,8 +1355,8 @@ $joomla(document).ready(function() {
           
           <div class="row">
             <div class="col-md-12 text-center">
-              <input type="submit" value="<?php echo Jtext::_('COM_USERPROFILE_ALERTS_UPDATE');?>" class="btn btn-primary">
-              <input type="button" value="<?php echo Jtext::_('COM_USERPROFILE_ALERTS_CLOSE');?>" data-dismiss="modal" class="btn btn-danger">
+              <input type="submit" value="<?php echo $assArr['update'];?>" class="btn btn-primary">
+              <input type="button" value="<?php echo $assArr['close'];?>" data-dismiss="modal" class="btn btn-danger">
             </div>
           </div>
         </div>

@@ -671,14 +671,14 @@ function createCookie(name, value, days) {
             <div class="col-sm-12 col-md-4">
               <div class="form-group">
                 <!--<label><?php //echo Jtext::_('COM_USERPROFILE_SHOPPER_ASSIST_MERCHANT_NAME');?> <span class="error">*</span> </label>-->
-                <label><?php echo $assArr['merchant_name'];?><?php if($elem['MerchantName'][2]){ ?><span class="error">*</span><?php } ?></label>
+                <label><?php echo $assArr['merchants_Name'];?><?php if($elem['MerchantName'][2]){ ?><span class="error">*</span><?php } ?></label>
                 <input type="text" class="form-control"  name="txtMerchantName" value="<?php if($elem['MerchantName'][3]){  echo $elem['MerchantName'][4];  } ?>"    maxlength="32" <?php if($elem['MerchantName'][2]){ echo "required"; }  ?> >
               </div>
             </div>
              <?php }if($elem['MerchantWebsite'][1] == "ACT"){  ?>  
             <div class="col-sm-12 col-md-4">
               <div class="form-group">
-                <label><?php echo $assArr["merchant's_website"];?><?php if($elem['MerchantWebsite'][2]){ ?><span class="error">*</span><?php } ?></label>
+                <label><?php echo $assArr["merchants_website"];?><?php if($elem['MerchantWebsite'][2]){ ?><span class="error">*</span><?php } ?></label>
                 <input type="text" class="form-control" name="txtMerchantWebsite" value="<?php if($elem['MerchantWebsite'][3]){  echo $elem['MerchantWebsite'][4];  } ?>" maxlength="250" <?php if($elem['MerchantWebsite'][2]){ echo "required"; }  ?> >
               </div>
             </div>
@@ -830,7 +830,7 @@ function createCookie(name, value, days) {
               <thead>
                 <tr>
                   <th><?php echo $assArr['select'];?></th>
-                  <th><?php echo $assArr['merchant_name'];?></th>
+                  <th><?php echo $assArr['merchants_Name'];?></th>
                   <th><?php echo $assArr['item_name'];?></th>
                   <th><?php echo $assArr['quantity'];?></th>
                   <th><?php echo $assArr['item_Price_(USD)'];?></th>
@@ -970,8 +970,8 @@ function createCookie(name, value, days) {
                         <tr>
                           <th><?php echo $assArr['item_name'];?></th>
                           <th><?php echo $assArr['quantity'];?></th>
-                          <th><?php echo Jtext::_('COM_USERPROFILE_SHOPPER_ASSIST_K_TABLE_ITEM_COST');?></th>
-                          <th><?php echo $assArr['declared_Value (USD)'];?></th>
+                          <th><?php echo $assArr['item_price'];?></th>
+                          <th><?php echo $assArr['Declared Value (USD)'];?></th>
                           <th><?php echo "Invoice"; ?></th>
                         </tr>
                       </thead>
