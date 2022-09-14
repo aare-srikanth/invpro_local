@@ -1,6 +1,6 @@
 <?php
 include 'config.php';
 echo JPATH_BASE;
-echo 'welcome mounika';
+echo 'hii  mounika';
 
 ?>
