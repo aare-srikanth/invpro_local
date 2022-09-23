@@ -233,7 +233,7 @@ $joomla(document).ready(function() {
             
             
             if($menuCustType == "CUST" || ($menuCustType == "COMP" && $maccarr['FulFillment'] == "False") ){  ?>
-                <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=orderprocessalerts"><?php echo Jtext::_($prealert_text);?><?php echo $assArr['my_Pre_Alerts'];?></a> </li>
+                <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=orderprocessalerts"><?php echo $assArr['my_Pre_Alerts'];?></a> </li>
             <?php }else if($menuCustType == "COMP" && $maccarr['FulFillment'] == "True"){  ?>
                 <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=inventoryalerts"><?php echo $assArr['ready_to_ship'];?></a> </li>
             <?php } ?>

@@ -15,7 +15,11 @@ class JConfig {
 	public $host = 'localhost';
 	public $user = 'root';
 	public $password = '';
+<<<<<<< HEAD
 	public $db = 'logistic_saasdb';
+=======
+	public $db = 'inviewpr_invdb';
+>>>>>>> 52388bf9fc434efafc0e3c56a4277fba3ef5b4c4
 	public $dbprefix = 'bnce7_';
 	public $live_site = '';
 	public $secret = 'dCzZyLDHNEW0AJU0';
