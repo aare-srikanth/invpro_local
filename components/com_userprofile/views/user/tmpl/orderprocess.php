@@ -319,7 +319,7 @@ margin: 0 auto;
                         ajaxurl = "<?php echo JURI::base(); ?>index.php?option=com_userprofile&task=user.get_ajax_data&amount="+$joomla('input[name="amount"]').val()+"&cardnumberStr="+$joomla('input[name="cardnumberStr"]').val()+"&txtccnumberStr="+$joomla('input[name="txtccnumberStr"]').val()+"&MonthDropDownListStr="+$joomla('select[name="MonthDropDownListStr"]').val()+"&YearDropDownListStr="+$joomla('select[name="YearDropDownListStr"]').val()+"&invidkStr="+$joomla('input[name="invidkStr"]').val()+"&qtyStr="+$joomla('input[name="qtyStr"]').val()+"&wherhourecStr="+$joomla('input[name="wherhourecStr"]').val()+"&user="+$joomla('input[name="user"]').val()+"&txtspecialinsStr="+$joomla('input[name="txtspecialinsStr"]').val()+"&cc=PPD&paymentgateway=Stripe&shipservtStr="+$joomla('input[name="shipservtStr"]').val()+"&consignidStr="+$joomla('input[name="consignidStr"]').val()+"&invf=&filenameStr=&articleStr="+articlestrs+"&priceStr="+pricestrs;
                         $joomla.ajax({
                        			url: ajaxurl,
-                       			data: { "paymentgatewayflag":1,"ratetypeStr": $joomla('input[name="ratetypeStr"]').val(),"Conveniencefees":$joomla('input[name="Conveniencefees"]').val(),"addSerStr":$joomla('input[name="addSerStr"]').val(),"addSerCostStr":$joomla('input[name="addSerCostStr"]').val(),"companyId":$joomla('input[name="companyId"]').val(),"insuranceCost":$joomla('input[name="insuranceCost"]').val(),"extAddSer":$joomla('input[name="extAddSer"]').val(),"paypalinvoice":$joomla('input[name="paypalinvoice"]').val(),"length":$joomla("#lengthStr").val(),"width":$joomla("#widthStr").val(),"height":$joomla("#heightStr").val(),"grosswt":$joomla("#weightStr").val(),"volume":$joomla("#volStr").val(),"volumetwt":$joomla("#volmetStr").val(),"totalDecVal":$joomla('#totalDecVal').val(),"shipmentCost":$joomla('input[name=shipmentCost]').val(),"couponCodeStr":$joomla('#couponCodeStr').val(),"couponDiscAmt":$joomla('input[name=couponDiscAmt]').val()},
+                       			data: { "paymentgatewayflag":1,"ratetypeStr": $joomla('input[name="ratetypeStr"]').val(),"Conveniencefees":$joomla('input[name="Conveniencefees"]').val(),"addSerStr":$joomla('input[name="addSerStr"]').val(),"addSerCostStr":$joomla('input[name="addSerCostStr"]').val(),"companyId":$joomla('input[name="companyId"]').val(),"insuranceCost":$joomla('input[name="insuranceCost"]').val(),"extAddSer":$joomla('input[name="extAddSer"]').val(),"paypalinvoice":$joomla('input[name="paypalinvoice"]').val(),"length":$joomla("#lengthStr").val(),"width":$joomla("#widthStr").val(),"height":$joomla("#heightStr").val(),"grosswt":$joomla("#weightStr").val(),"volume":$joomla("#volStr").val(),"volumetwt":$joomla("#volmetStr").val(),"totalDecVal":$joomla('#totalDecVal').val(),"shipmentCost":$joomla('input[name=shipmentCost]').val(),"couponCodeStr":$joomla('#couponCodeStr').val(),"couponDiscAmt":$joomla('input[name=couponDiscAmt]').val(),"repackLblStr":$joomla('#repackLblStr').val()},
                        			dataType:"text",
                        			type: "get",
                                 beforeSend: function() {
@@ -2104,6 +2104,8 @@ margin: 0 auto;
                 var sno=1;
                 var vol=[];
                 var volmetwt=[];
+                var rplables=[];
+
                 $joomla.each($joomla("input[name='txtId']:checked"), function(){
                    if($joomla(this).val()){
                    var loops=$joomla(this).val();
@@ -2248,6 +2250,9 @@ margin: 0 auto;
                         if(i==30){
                            volmetwt.push(loop[i]);
                         }
+                        if(i==31){
+                           rplables.push(loop[i]);
+                        }
                         
        
                        j++;
@@ -2264,6 +2269,7 @@ margin: 0 auto;
                  bustype.join(", ");
                  vol.join(", ");
                  volmetwt.join(", ");
+                 rplables.join(", ");
    
                  lg.join(", ");
                  wd.join(", ");
@@ -2284,6 +2290,7 @@ margin: 0 auto;
                  $joomla('#mrunitsStr').val(mrunits);
                  $joomla('#volStr').val(vol);
                  $joomla('#volmetStr').val(volmetwt);
+                 $joomla('#repackLblStr').val(rplables);
                  
                  
                  $joomla('#lengthStr').val(lg);
@@ -3296,7 +3303,7 @@ margin: 0 auto;
        
        // select all
     
-     $joomla('.check_all_items').on('click',function(e){
+     $joomla(document).on('click','.check_all_items',function(e){
          wrhsno = $joomla(this).attr("data-id");
          
          if($joomla(this).is(':checked') == true ){
@@ -3766,13 +3773,15 @@ margin: 0 auto;
                                        echo '<tr style="display:none;">
                                                 <td></td>
                                         		<td class="action_btns">
-                                        		<input type="checkbox"  name="txtId" class="txtId selinpt-chksub" data-sno="item_wr_'.$i.'"  value="'.$rg->ItemName.':'.$res->BillFormNo.':'.$rg->ItemQuantity.':'.$res->TrackingId.':'.$rg->ItemIdk.':'.$rg->cost.':'.$rg->cost.':'.$idf.':'.$volres.':'.$res->ServiceType.':'.$res->Source.':'.$res->Dest_Cntry.':'.$res->MeasureUnits.':'.$res->Length.':'.$res->Width.':'.$res->Height.':'.$res->Weight.':'.$res->WeightUnit.':'.$sim.':'.$res->ShipmentType.':'.$res->SourceHub.':'.$res->DestinationCountryName.':'.$res->DestinationHubName.':'.$rg->Insurance.':'.$rg->ItemPrice.':'.$sim1.':'.$sim2.':'.$sim3.':'.$res->BusinessType.':'.$rg->Volume.':'.$rg->VolumetricWeight.'">
-                                        		 <input type="button" name="ship" class="ship" data-sno="'.$idf.'" data-id="'.$rg->ItemName.':'.$res->BillFormNo.':'.$rg->ItemQuantity.':'.$res->TrackingId.':'.$rg->ItemIdk.':'.$rg->cost.':'.$rg->cost.':'.$idf.':'.$volres.':'.$res->ServiceType.':'.$res->Source.':'.$res->Dest_Cntry.':'.$res->MeasureUnits.':'.$res->Length.':'.$res->Width.':'.$res->Height.':'.$res->Weight.':'.$res->WeightUnit.':'.$sim.':'.$res->ShipmentType.':'.$res->SourceHub.':'.$res->DestinationCountryName.':'.$res->DestinationHubName.':'.$rg->Insurance.':'.$rg->ItemPrice.':'.$sim1.':'.$sim2.':'.$sim3.':'.$res->BusinessType.':'.$rg->Volume.':'.$rg->VolumetricWeight.'" data-target="#ord_ship" title="'.Jtext::_('COM_USERPROFILE_SHIP_HISTORY_STATUS_SHIP').'">';
+                                        		<input type="checkbox"  name="txtId" class="txtId selinpt-chksub" data-sno="item_wr_'.$i.'"  value="'.$rg->ItemName.':'.$res->BillFormNo.':'.$rg->ItemQuantity.':'.$res->TrackingId.':'.$rg->ItemIdk.':'.$rg->cost.':'.$rg->cost.':'.$idf.':'.$volres.':'.$res->ServiceType.':'.$res->Source.':'.$res->Dest_Cntry.':'.$res->MeasureUnits.':'.$res->Length.':'.$res->Width.':'.$res->Height.':'.$res->Weight.':'.$res->WeightUnit.':'.$sim.':'.$res->ShipmentType.':'.$res->SourceHub.':'.$res->DestinationCountryName.':'.$res->DestinationHubName.':'.$rg->Insurance.':'.$rg->ItemPrice.':'.$sim1.':'.$sim2.':'.$sim3.':'.$res->BusinessType.':'.$rg->Volume.':'.$rg->VolumetricWeight.':'.$rg->InhouseRepacklbl.':'.$res->ServiceId.'">
+                                        		 <input type="button" name="ship" class="ship" data-sno="'.$idf.'" data-id="'.$rg->ItemName.':'.$res->BillFormNo.':'.$rg->ItemQuantity.':'.$res->TrackingId.':'.$rg->ItemIdk.':'.$rg->cost.':'.$rg->cost.':'.$idf.':'.$volres.':'.$res->ServiceType.':'.$res->Source.':'.$res->Dest_Cntry.':'.$res->MeasureUnits.':'.$res->Length.':'.$res->Width.':'.$res->Height.':'.$res->Weight.':'.$res->WeightUnit.':'.$sim.':'.$res->ShipmentType.':'.$res->SourceHub.':'.$res->DestinationCountryName.':'.$res->DestinationHubName.':'.$rg->Insurance.':'.$rg->ItemPrice.':'.$sim1.':'.$sim2.':'.$sim3.':'.$res->BusinessType.':'.$rg->Volume.':'.$rg->VolumetricWeight.':'.$rg->InhouseRepacklbl.':'.$res->ServiceId.'" data-target="#ord_ship" title="'.Jtext::_('COM_USERPROFILE_SHIP_HISTORY_STATUS_SHIP').'">';
                                         			if($elem['Hold'][1] == "ACT")
                                         			echo '<input type="button" name="Return" class="return" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-id="'.$res->BillFormNo.':'.$rg->ItemId.':'.$rg->ItemQuantity.'" data-target="#ord_return"" title="'.Jtext::_('COM_USERPROFILE_SHIP_HISTORY_STATUS_RETURN').'">';
                                         			if($elem['Return'][1] == "ACT")
                                         			echo '<input type="button" name="Keep" class="keep" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-id="'.$res->BillFormNo.':'.$rg->ItemId.':'.$rg->ItemQuantity.'" data-target="#ord_keep" " title="'.Jtext::_('COM_USERPROFILE_SHIP_HISTORY_STATUS_HOLD').'">';
-                                        		    echo '</td>
+                                                echo '<input type="button" name="unpack"   value="unpack" data-target="#ord_unpack" data-toggle="modal" class="btn btn-warning shipsubmit">';
+
+                                                echo '</td>
                                         		<td>'.$rg->ItemName.'</td>
                                         		<td>'.$rg->ItemQuantity.'</td>
                                         		<td><input type="hidden" name="ItemIdkTxt" value="'.$rg->ItemIdk.'"><input type="hidden" name="ItemQtyTxt" value="'.$rg->ItemQuantity.'"><input type="hidden" name="ItemQtyEdit" value="'.$rg->ItemQuantity.'">
@@ -3830,7 +3839,10 @@ margin: 0 auto;
                   </div>
                   <div class="row">
                      <div class="col-md-12 text-center btn-grp1">
-                        <input type="button" value="<?php echo Jtext::_('COM_USERPROFILE_SHIP_JTABLE_NEXT_BTN');?>" class="btn btn-primary shipsubmit" data-target="#ord_ship" data-toggle="modal" data-backdrop="static" data-keyboard="false">
+                     <input type="button" value="<?php echo Jtext::_('Ship');?>" class="btn btn-primary shipsubmit" data-target="#ord_ship" data-toggle="modal" data-backdrop="static" data-keyboard="false">
+                        <input type="button" name="repack_btn" id="repack_btn"  value="repack" data-target="#ord_repack" data-toggle="modal" class="btn btn-success shipsubmit">
+                        <input type="button" name="consolidation"  data-target="#ord_consolid" data-toggle="modal"  value="consolidation" class="btn btn-success shipsubmit">
+                        <input type="button" name="unpack"   value="unpack" data-target="#ord_unpack" data-toggle="modal" class="btn btn-warning shipsubmit">
                         <input type="button" value="<?php echo Jtext::_('COM_USERPROFILE_SHIP_JTABLE_CLOSE_BTN');?>" data-dismiss="modal" class="btn btn-danger">
                      </div>
                   </div>
@@ -3959,6 +3971,7 @@ margin: 0 auto;
    <input type="hidden" name="idk" id="idk2" />
    <input type="hidden" name="user" value="<?php echo $user;?>" />
 </form>
+
 <!-- Modal -->
 <form name="userprofileFormFour" id="userprofileFormFour" method="post" action="" enctype="multipart/form-data">
    <div id="ord_delete" class="modal fade" role="dialog">
@@ -4101,6 +4114,97 @@ margin: 0 auto;
       </div>
    </div>
 </div>
+
+<!-- repack Modal  -->
+
+<div id="ord_repack" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-sm">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h4 class="modal-title"><strong><?php echo Jtext::_('Repack Confirmation');  ?></strong></h4>
+            </div>
+            <div class="modal-body2"></div>
+            <div class="modal-body">
+               <div class="row">
+                  <div class="col-sm-12">
+                     <div class="form-group">
+                        <label><?php echo 'Are You Sure?';  ?></label>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-sm-12 text-center">
+                     <input type="submit" value="<?php echo Jtext::_('Yes');  ?>" id="repack" class="btn btn-primary">
+                     <input type="button" value="<?php echo Jtext::_('No');  ?>" data-dismiss="modal" class="btn btn-danger">
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- End  -->
+
+   <!-- Consolidation Modal  -->
+
+<div id="ord_consolid" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-sm">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h4 class="modal-title"><strong><?php echo Jtext::_('Consolidation Confirmation');  ?></strong></h4>
+            </div>
+            <div class="modal-body2"></div>
+            <div class="modal-body">
+               <div class="row">
+                  <div class="col-sm-12">
+                     <div class="form-group">
+                        <label><?php echo 'Are You Sure?';  ?></label>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-sm-12 text-center">
+                     <input type="submit" value="<?php echo Jtext::_('Yes');  ?>" id="consolidation" class="btn btn-primary">
+                     <input type="button" value="<?php echo Jtext::_('No');  ?>" data-dismiss="modal" class="btn btn-danger">
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- End  -->
+
+   <!-- Unpack Modal  -->
+
+<div id="ord_unpack" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-sm">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h4 class="modal-title"><strong><?php echo Jtext::_('Unpack Confirmation');  ?></strong></h4>
+            </div>
+            <div class="modal-body2"></div>
+            <div class="modal-body">
+               <div class="row">
+                  <div class="col-sm-12">
+                     <div class="form-group">
+                        <label><?php echo 'Are You Sure?';  ?></label>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-sm-12 text-center">
+                     <input type="submit" value="<?php echo Jtext::_('Yes');  ?>" id="unpack" class="btn btn-primary">
+                     <input type="button" value="<?php echo Jtext::_('No');  ?>" data-dismiss="modal" class="btn btn-danger">
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- End  -->
+
 <!-- Modal -->
 <div id="logModal" class="modal fade" role="dialog">
    <div class="modal-dialog modal-md">
@@ -4313,6 +4417,7 @@ margin: 0 auto;
                   <input type="hidden" id="mrunitsStr" name="mrunitsStr">
                   <input type="hidden" id="volStr" name="volStr">
                   <input type="hidden" id="volmetStr" name="volmetStr">
+                  <input type="hidden" id="repackLblStr" name="repackLblStr">
                   <input type="hidden" id="shipmentCost" name="shipmentCost">
                   <input type="hidden" id="totalDecVal" name="totalDecVal">
                   <input type="hidden" id="invidkStr" name="invidkStr">
@@ -4963,6 +5068,95 @@ $joomla(document).keyup('#cvv,#cardNumber',function() {
             $joomla("#cvv-error").html("<?php echo Jtext::_('COM_USERPROFILE_ENTER_THREE_DIGITS_ERROR'); ?>");
         }
     });
+
+    // repack
+
+    $joomla(document).on('click','#repack,#consolidation',function() {
+
+               var requrl="<?php echo JURI::base(); ?>index.php?option=com_userprofile&task=user.get_ajax_data&jpath=<?php echo urlencode  (JPATH_SITE); ?>&pseudoParam="+new Date().getTime();
+               var statusRequest = $joomla(this).attr('id');
+               var shipval = $joomla('.txtId:checked').val();
+               var txtIdVals= shipval.split(":");
+               var custSer = txtIdVals[32];
+
+               wrhStr = $joomla("#wherhourecStr").val();
+               invidkStr = $joomla("#invidkStr").val();
+               qtyStr = $joomla("#qtyStr").val();
+
+
+               var articleStrs=[];
+               $joomla.each($joomla("input[name='articleStr[]']"), function(){
+                  articleStrs.push($joomla(this).val());
+               });    
+               var priceStrs=[];
+               $joomla.each($joomla("input[name='priceStr[]']"), function(){
+                  priceStrs.push($joomla(this).val());
+               }); 
+
+
+$joomla.ajax({
+  url: requrl,
+  data: { "repackflag":1,"wrhStr":wrhStr,"invidkStr":invidkStr,"qtyStr":qtyStr,"articlestrs":articleStrs,"pricestrs":priceStrs,"statusRequest":statusRequest,"user":"<?php echo $user; ?>","custSer":custSer},
+  dataType:"html",
+  type: "get",
+        beforeSend: function() {
+         
+           $joomla("#ord_repack").modal('hide');
+           $joomla("#ord_consolid").modal('hide');
+           $joomla(".page_loader").show();
+        },
+        success: function(data){
+         var res = data.split(":");
+
+         if(res[0]){
+            //alert(res[1]);
+            //window.location.reload();
+         }else{
+            alert(res[1]);
+         }
+        
+       }
+    });   
+  
+ });
+
+// end
+
+// unpack  or deconsolidation
+
+$joomla(document).on('click','#unpack',function() {
+   var repackId = '';
+   $joomla('.txtId:checked').each(function(){
+      var shipval = $joomla(this).val();
+      var txtIdVals= shipval.split(":");
+          repackId = txtIdVals[31];
+      });
+
+     
+      var wrhs = $joomla("#wherhourecStr").val();
+      var requrl="<?php echo JURI::base(); ?>index.php?option=com_userprofile&task=user.get_ajax_data&jpath=<?php echo urlencode  (JPATH_SITE); ?>&pseudoParam="+new Date().getTime();
+
+      $joomla.ajax({
+      url: requrl,
+      data: { "unpackflag":0,"wrhs":wrhs,"repackId":repackId},
+      dataType:"html",
+      type: "get",
+            beforeSend: function() {
+               $joomla("#ord_unpack").modal('hide');
+               $joomla(".page_loader").show();
+            },
+            success: function(data){
+               var res = data.split(":");
+               if(res[0]){
+                  alert(res[1]);
+                  window.location.reload();
+               }
+            }
+      });  
+
+
+   
+});
     
     
 </script>

@@ -525,7 +525,36 @@ class ModProjectrequestformHelper {
         
         $msg=json_decode($result);
         return $msg->Data;
-    }     
+    }   
+    
+    /**
+     * Gets the edit permission for an user
+     *
+     * @param   mixed  $item  The item
+     *
+     * @return  bool
+     */
+    
+    public static function getUsersorderscount($user)
+    {
+        mb_internal_encoding('UTF-8');  
+        
+        $CompanyId = Controlbox::getCompanyId();
+        $content_params =JComponentHelper::getParams( 'com_userprofile' );
+        $url=$content_params->get( 'webservice' ).'/api/dashboardapi/GetCustomerDetailsByCustId?CustId='.$user.'&ActivationKey=123456789&CompanyID='.$CompanyId;
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+        $result=curl_exec($ch);
+        
+        // echo $url;
+        // var_dump($result);
+        // exit;
+        
+        $msg=json_decode($result);
+        return $msg->Data;
+    }       
     
    
 

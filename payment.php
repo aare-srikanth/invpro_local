@@ -57,6 +57,7 @@ $shipmentCost = $_POST['shipmentCost'];
 $totalDecVal = $_POST['totalDecVal']; 
 $couponCodeStr = $_POST['couponCodeStr']; 
 $couponDiscAmt = $_POST['couponDiscAmt']; 
+$repackLblStr = $_POST['repackLblStr']; 
 
 // var_dump($lengthStr);
 // exit;
@@ -205,7 +206,7 @@ if(!empty($_POST['cardnumberStr']) && !empty($_POST['MonthDropDownListStr']) && 
                             $priceStr=$exp[7];
                             $pg = "authorize.net";
                             
-                            $status=Controlbox::submitpayment($itemPrice,$card_number,$txtccnumberStr,$card_exp_month,$txtNameonCardStr,$card_exp_year,$invidkStr,$qtyStr,$wherhourecStr,$CustId,$specialinstructionStr,$cc,$pg,$shipservtStr,$consignidStr,$file,$filenameStr,$articleStr,$priceStr,$transaction_id,$Inhouse,$InhouseIdk,$rateType,$Conveniencefees,$addSerStr,$addSerCost,$CompanyId,$insuranceCost,$extAddSer,$lengthStr,$widthStr,$heightStr,$grosswtStr,$volumeStr,$volumetwtStr,$shipmentCost,$totalDecVal,$couponCodeStr,$couponDiscAmt);
+                            $status=Controlbox::submitpayment($itemPrice,$card_number,$txtccnumberStr,$card_exp_month,$txtNameonCardStr,$card_exp_year,$invidkStr,$qtyStr,$wherhourecStr,$CustId,$specialinstructionStr,$cc,$pg,$shipservtStr,$consignidStr,$file,$filenameStr,$articleStr,$priceStr,$transaction_id,$Inhouse,$InhouseIdk,$rateType,$Conveniencefees,$addSerStr,$addSerCost,$CompanyId,$insuranceCost,$extAddSer,$lengthStr,$widthStr,$heightStr,$grosswtStr,$volumeStr,$volumetwtStr,$shipmentCost,$totalDecVal,$couponCodeStr,$couponDiscAmt,$repackLblStr);
                    
                             
                 }else if($_POST['page'] == "shopperassist"){
@@ -267,7 +268,7 @@ if(!empty($_POST['cardnumberStr']) && !empty($_POST['MonthDropDownListStr']) && 
                     $insuranceCost="";
                     $extAddSer="";
                     
-                    $status=Controlbox::submitpayment($itemPrice,$card_number,$txtccnumberStr,$card_exp_month,$txtNameonCardStr,$card_exp_year,$invidkStr,$qtyStr,$wherhourecStr,$CustId,$specialinstructionStr,$cc,$pg,$shipservtStr,$consignidStr,$file,$filenameStr,$articleStr,$priceStr,$transaction_id,$Inhouse,$InhouseIdk,$rateType,$Conveniencefees,$addSerStr,$addSerCost,$CompanyId,$insuranceCost,$extAddSer,'','','','','','','','');
+                    $status=Controlbox::submitpayment($itemPrice,$card_number,$txtccnumberStr,$card_exp_month,$txtNameonCardStr,$card_exp_year,$invidkStr,$qtyStr,$wherhourecStr,$CustId,$specialinstructionStr,$cc,$pg,$shipservtStr,$consignidStr,$file,$filenameStr,$articleStr,$priceStr,$transaction_id,$Inhouse,$InhouseIdk,$rateType,$Conveniencefees,$addSerStr,$addSerCost,$CompanyId,$insuranceCost,$extAddSer,'','','','','','','','','','','');
                    
                 }
                 

@@ -23,11 +23,14 @@
 
 defined('_JEXEC') or die('Restricted access');   
 $session = JFactory::getSession();
+$user=$session->get('user_casillero_id');
 $domainDetails = ModProjectrequestformHelper::getDomainDetails();
 $enabledLangsList = ModProjectrequestformHelper::getLanguageList($domainDetails[0]->CompanyId);
 $domainname = $domainDetails[0]->Domain;
-
 $dynamicpages= ModProjectrequestformHelper::dynamicpages($domainDetails[0]->CompanyId);
+$alerts= ModProjectrequestformHelper::getUsersorderscount($user);
+
+
 
 $dynpage=array();
    foreach($dynamicpages as $dpage){
@@ -104,15 +107,38 @@ if($session->get('user_casillero_id')){
         ?>
         
         
-      <li class=""><a href="<?php echo JRoute::_('index.php?option=com_userprofile&view=user'); ?>"><?php  echo $dashboard; ?></a></li>
-      <li class=""><a href="<?php echo JRoute::_('index.php?option=com_userprofile&view=user&layout=personalinformation'); ?>"><?php  echo $myAcc; ?></a></li>
-      <?php if($dynpage["ChangePassword"][1]=="ACT"){ ?>
-      <li class=""><a href="<?php echo JRoute::_('index.php?option=com_userprofile&view=user&layout=changepassword'); ?>"><?php  echo $changePass ?></a></li>
-      <?php } if($dynpage["SupportTickets"][1]=="ACT"){ ?>
-      <li class=""><a href="<?php echo JRoute::_('index.php?option=com_userprofile&&view=user&layout=support_ticket'); ?>"><?php  echo $tickets; ?></a></li>
+      <li class="loader"><a href="<?php echo JRoute::_('index.php?option=com_userprofile&view=user'); ?>" ><?php  echo $dashboard; ?></a></li>
+      <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#"> User Profile<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li class="loader"><a href="<?php echo JRoute::_('index.php?option=com_userprofile&view=user&layout=personalinformation'); ?>"><?php  echo $myAcc; ?></a></li>
+          <?php if($dynpage["ChangePassword"][1]=="ACT"){ ?>
+          <li class="loader"><a href="<?php echo JRoute::_('index.php?option=com_userprofile&view=user&layout=changepassword'); ?>"><?php  echo $changePass ?></a></li>
+          <?php } ?>
+          <li class="loader"><a href="<?php echo JRoute::_('index.php?option=com_userprofile&task=user.logout'); ?>"><?php  echo $logout ?></a></li>
+       </ul>
+      </li>
+     
+      <?php if($dynpage["SupportTickets"][1]=="ACT"){ ?>
+      <li class="loader"><a href="<?php echo JRoute::_('index.php?option=com_userprofile&&view=user&layout=support_ticket'); ?>"><?php  echo $tickets; ?></a></li>
       <?php } ?>
       <li class="" ><a target="_blank" class="helpLink" href="https://lms.iblesoft.com/">Help</a></li>
-      <li class=""><a href="<?php echo JRoute::_('index.php?option=com_userprofile&task=user.logout'); ?>"><?php  echo $logout ?></a></li>
+      <li class="">
+      <div class="dropdown">
+            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Alerts <span class="caret"></span>
+            </button>           
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li class="rnotify_sm_list"><a href="#">Repack<span class="badge badge-warning"></a></li>
+                <li><a href="#">Inprogress <span class="badge badge-warning"><?php echo $alerts->RepackorConsolidationInprogressCount; ?></span></a></li>
+                <li><a href="#">Completed <span class="badge badge-success"><?php echo $alerts->RepackorConsolidationInprogressCount; ?></span></a></li>
+              <li class="cnotify_sm_list"><a href="#">Consolidation </a></li>
+              <li><a href="#">Inprogress <span class="badge badge-warning"><?php echo $alerts->RepackorConsolidationCompletedCount; ?></span></a></li>
+              <li><a href="#">Completed <span class="badge badge-success"><?php echo $alerts->RepackorConsolidationCompletedCount; ?></span></a></li>
+            </ul>           
+        </div>
+      </li>
+      
    
     </ul>
   </div>

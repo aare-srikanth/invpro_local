@@ -1430,7 +1430,7 @@ class Controlbox{
       /**
      * Insert payment for cod,stripe and paypal
      */
-    public static function submitpayment($amtStr,$cardnumberStr,$txtccnumberStr,$MonthDropDownListStr,$txtNameonCardStr,$YearDropDownListStr,$invidkStr,$qtyStr,$wherhourecStr,$CustId,$specialinstructionStr,$cc,$pg,$shipservtStr,$consignidStr,$invf,$filenameStr,$articleStr,$priceStr,$tid,$inhouse,$inhouseid,$ratetype,$Conveniencefees,$addSerStr,$addSerCostStr,$CompanyId,$insuranceCost,$extAddSer,$lengthStr,$widthStr,$heightStr,$grosswtStr,$volumeStr,$volumetwtStr,$shipmentCost,$totalDecVal,$couponCodeStr,$couponDiscAmt)
+    public static function submitpayment($amtStr,$cardnumberStr,$txtccnumberStr,$MonthDropDownListStr,$txtNameonCardStr,$YearDropDownListStr,$invidkStr,$qtyStr,$wherhourecStr,$CustId,$specialinstructionStr,$cc,$pg,$shipservtStr,$consignidStr,$invf,$filenameStr,$articleStr,$priceStr,$tid,$inhouse,$inhouseid,$ratetype,$Conveniencefees,$addSerStr,$addSerCostStr,$CompanyId,$insuranceCost,$extAddSer,$lengthStr,$widthStr,$heightStr,$grosswtStr,$volumeStr,$volumetwtStr,$shipmentCost,$totalDecVal,$couponCodeStr,$couponDiscAmt,$repackLblStr)
     {
         // echo '<pre>';
         // var_dump($couponCodeStr."##".$couponDiscAmt);
@@ -1492,13 +1492,15 @@ class Controlbox{
 		$qtyarr=explode(",",$qtyStr);
 		$artstrarr=explode(",",$articleStr);
 		$pricestrarr=explode(",",$priceStr);
+        $repackstrarr=explode(",",$repackLblStr);
+
 		$wrhs = array();
 		for($i=0;$i< count($wrhstrarr);$i++){
 		    
 		    if(!array_key_exists($wrhstrarr[$i],$wrhs)){
-		        $wrhs[$wrhstrarr[$i]] = array([$invidkarr[$i],$qtyarr[$i],$artstrarr[$i],$pricestrarr[$i]]);
+		        $wrhs[$wrhstrarr[$i]] = array([$invidkarr[$i],$qtyarr[$i],$artstrarr[$i],$pricestrarr[$i],$repackstrarr[$i]]);
 		    }else{
-		        array_push($wrhs[$wrhstrarr[$i]],array($invidkarr[$i],$qtyarr[$i],$artstrarr[$i],$pricestrarr[$i]));
+		        array_push($wrhs[$wrhstrarr[$i]],array($invidkarr[$i],$qtyarr[$i],$artstrarr[$i],$pricestrarr[$i],$repackstrarr[$i]));
 		    }
 		    
 		}
@@ -1509,6 +1511,7 @@ class Controlbox{
 		    $qntstrwr = '';
 		    $artstrwr = '';
 		    $pricestrwr = '';
+            
 		    foreach($value as $val){
 		        if($val[0]!=""){
 		        $idkstrwr .= $val[0].",";
@@ -1522,10 +1525,14 @@ class Controlbox{
 		        if($val[3]!=""){
 		        $pricestrwr .= $val[3].",";
 		        }
+                $replblstrwr = $val[4];
 		    }
+
+            $artstrwr = rtrim($artstrwr,",");
 		    
-		    $wrhsloop .= '{"BillFormNo":"'.$key.'","idks":"'.$idkstrwr.'","qtys":"'.$qntstrwr.'","itemNames":"'.$artstrwr.'","totalPrices":"'.$pricestrwr.'"},';
+		    $wrhsloop .= '{"BillFormNo":"'.$key.'","idks":"'.$idkstrwr.'","qtys":"'.$qntstrwr.'","itemNames":"'.$artstrwr.'","totalPrices":"'.$pricestrwr.'","inhouseRepackLbl":"'.$replblstrwr.'"},';
 		}
+
 		$wrhsloop = rtrim($wrhsloop,",");
 		
 // 		$invfLoop = '';
@@ -1550,9 +1557,10 @@ if($priceStr != ""){
 
 
     // paypal service
-        
-    //  $req='{"CompanyID":"'.$CompanyId.'","paymentOption":{"_amt":"'.$amtStr.'","_cardno":"'.$cardnumberStr.'","_ccno":"'.$txtccnumberStr.'","_index":"1","_month":"'.$MonthDropDownListStr.'","_nameoncard":"'.$txtNameonCardStr.'","_year":"'.$YearDropDownListStr.'"},"billFormIdsList":['.$wrhsloop.'],"idks":"'.$invidkStr.'","qtys":"'.$qtyStr.'","billFormIds":"'.$wherhourecStr.',","ShippingCost":"'.$amtStr.'","ConsigneeId":"'.$consignidStr.'","Comments":"'.$specialinstructionStr.'","PaymentType":"'.$cc.'","CustId":"'.$CustId.'","id_serv":"'.$shipservtStr.'","paymentgateway":"'.$pg.'","TransactionID":"'.$tid.'","UploadedFile":"'.$invf.'","fileName":"'.$nameStr.'","fileExtension":"'.$extStr.'","InHouseNo":"'.$inhouse.'","InhouseId":"'.$inhouseid.'","EachItemName":"'.$articleStr.'","EachItemQty":"'.$qtyStr.'","TotalitemsPrice":"'.$priceStr.'","id_rate_type":"'.$ratetype.'","Conveniencefees":"'.$Conveniencefees.'","InsuranceCost":"'.$insuranceCost.'","domainname":"'.$domainname.'","domainurl":"'.$domainurl.'","PromoCouponDiscountAmt":"'.$couponDiscAmt .'","PromoCouponCode":"'.$couponCodeStr.'"}';
-    //  echo $req."##".$msg->InvoiceId;
+
+    //   $req='{"CompanyID":"'.$CompanyId.'","paymentOption":{"_amt":"'.$amtStr.'","_cardno":"'.$cardnumberStr.'","_ccno":"'.$txtccnumberStr.'","_index":"1","_month":"'.$MonthDropDownListStr.'","_nameoncard":"'.$txtNameonCardStr.'","_year":"'.$YearDropDownListStr.'"},"billFormIdsList":['.$wrhsloop.'],"idks":"'.$invidkStr.'","qtys":"'.$qtyStr.'","billFormIds":"'.$wherhourecStr.',","ShippingCost":"'.$amtStr.'","ConsigneeId":"'.$consignidStr.'","Comments":"'.$specialinstructionStr.'","PaymentType":"'.$cc.'","CustId":"'.$CustId.'","id_serv":"'.$shipservtStr.'","paymentgateway":"'.$pg.'","TransactionID":"'.$tid.'","UploadedFile":"'.$invf.'","fileName":"'.$nameStr.'","fileExtension":"'.$extStr.'","InHouseNo":"'.$inhouse.'","InhouseId":"'.$inhouseid.'","EachItemName":"'.$articleStr.'","EachItemQty":"'.$qtyStr.'","TotalitemsPrice":"'.$priceStr.'","id_rate_type":"'.$ratetype.'","Conveniencefees":"'.$Conveniencefees.'","InsuranceCost":"'.$insuranceCost.'","domainname":"'.$domainname.'","domainurl":"'.$domainurl.'","PromoCouponDiscountAmt":"'.$couponDiscAmt .'","PromoCouponCode":"'.$couponCodeStr.'"}';
+    //  echo $req."##".$url;git pull
+    
     //  var_dump($result);
     //  exit;
         
@@ -1571,7 +1579,7 @@ if($priceStr != ""){
 		$result=curl_exec($ch);
 		$msg=json_decode($result);
 
-	 
+   
 	 
         
         
@@ -2880,9 +2888,9 @@ if($priceStr != ""){
 		$result=curl_exec($ch);
 		
 		/** Debug **/
-// 		echo $url;
-// 		echo '{"CompanyID":"'.$CompanyId.'","CustomerId":"'.strtoupper($CustId).'","SupplierId":"'.$mnameTxt.'","CarrierId":"'.$carrierTxt.'","TrackingId":"'.$carriertrackingTxt.'", "OrderDate":"'.$orderdateTxt.'","Dest_Cntry":"'.$countryTxt.'","Dest_Hub":"'.$stateTxt.'","ItemUrl":"Joomla","ActivationKey":"123456789","liInventoryPurchasesVM":['.$loop.'],"domainurl":"'.$domainurl.'","type_busines":"'.$business_type.'"}';
-//         var_dump($result);exit;
+		// echo $url;
+		// echo '{"CompanyID":"'.$CompanyId.'","CustomerId":"'.strtoupper($CustId).'","SupplierId":"'.$mnameTxt.'","CarrierId":"'.$carrierTxt.'","TrackingId":"'.$carriertrackingTxt.'", "OrderDate":"'.$orderdateTxt.'","Dest_Cntry":"'.$countryTxt.'","Dest_Hub":"'.$stateTxt.'","ItemUrl":"Joomla","ActivationKey":"123456789","liInventoryPurchasesVM":['.$loop.'],"domainurl":"'.$domainurl.'","type_busines":"'.$business_type.'"}';
+        // var_dump($result);exit;
         
         $msg=json_decode($result);
         return $msg->Description;
@@ -3597,13 +3605,13 @@ if($priceStr != ""){
         curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
 		$result=curl_exec($ch);
 		
-// 		echo $url;
-// 		echo '{"CompanyID":"'.$CompanyId.'","CustomerId":"'.$user.'","CmdType":"getinvoicedetails","ActivationKey":"123456789"}';
-//         var_dump($result);
-//         exit;
+		// echo $url;
+		// echo '{"CompanyID":"'.$CompanyId.'","CustomerId":"'.$user.'","CmdType":"getinvoicedetails","ActivationKey":"123456789"}';
+        // var_dump($result);
+        // exit;
         
         $msg=json_decode($result);
-        return $msg->Data;
+        return $msg->InvoiceDetails;
    }
    
     public static function getInvoicedetailsListCsv($user)
@@ -5641,7 +5649,135 @@ if($priceStr != ""){
         
         return $respStr;
     }
+
     
+    public static function repackRequest($user,$wrhStr,$invidkStr,$qtyStr,$artstrarr,$pricestrarr,$statusRequest,$custSer)
+    {
+        $articleStr = implode(",",$artstrarr);
+        $priceStr = implode(",",$pricestrarr);
+
+        $wrhstrarr=explode(",",$wrhStr);
+		$invidkarr=explode(",",$invidkStr);
+		$qtyarr=explode(",",$qtyStr);
+        
+        $uploadFiles = "";
+        for($i=0;$i<count($invidkarr);$i++){
+            $uploadFiles .= "0,";
+        }
+		
+		$wrhs = array();
+		for($i=0;$i< count($wrhstrarr);$i++){
+		    
+		    if(!array_key_exists($wrhstrarr[$i],$wrhs)){
+		        $wrhs[$wrhstrarr[$i]] = array([$invidkarr[$i],$qtyarr[$i],$artstrarr[$i],$pricestrarr[$i]]);
+		    }else{
+		        array_push($wrhs[$wrhstrarr[$i]],array($invidkarr[$i],$qtyarr[$i],$artstrarr[$i],$pricestrarr[$i]));
+		    }
+		    
+		}
+		$wrhsloop = '';
+		
+		foreach($wrhs as $key => $value){
+		    $idkstrwr = '';
+		    $qntstrwr = '';
+		    $artstrwr = '';
+		    $pricestrwr = '';
+		    foreach($value as $val){
+		        if($val[0]!=""){
+		        $idkstrwr .= $val[0].",";
+		        }
+		        if($val[1]!=""){
+		        $qntstrwr .= $val[1].",";
+		        }
+		        if($val[2]!=""){
+		        $artstrwr .= $val[2].",";
+		        }
+		        if($val[3]!=""){
+		        $pricestrwr .= $val[3].",";
+		        }
+		    }
+
+            $artstrwr = rtrim($artstrwr,",");
+		    
+		    $wrhsloop .= '{"BillFormNo":"'.$key.'","idks":"'.$idkstrwr.'","qtys":"'.$qntstrwr.'","itemNames":"'.$artstrwr.'","totalPrices":"'.$pricestrwr.'","inhouseRepackLbl":""},';
+		}
+		$wrhsloop = rtrim($wrhsloop,",");
+
+        mb_internal_encoding('UTF-8');
+        $content_params =JComponentHelper::getParams( 'com_userprofile' );
+        $CompanyId = Controlbox::getCompanyId();
+        $url=$content_params->get( 'webservice' ).'/api/ShipmentsAPI/InsertRepackingorConsolidation';
+
+
+        $req = '{
+            "CompanyID": "'.$CompanyId.'",
+            "billFormIdsList": ['.$wrhsloop.'],
+            "idks": "'.$invidkStr.',",
+            "qtys": "'.$qtyStr.',",  
+            "billFormIds": "'.$wrhStr.',",  
+            "ShippingCost": "0.00",
+            "ConsigneeId": "'.$user.'",
+            "Comments": "",
+            "PaymentType": "COD",
+            "CustId": "'.$user.'",
+            "id_serv": "'.$custSer.'",
+            "UploadedFile": "'.$uploadFiles.'",
+            "fileName": "'.$uploadFiles.'",
+            "fileExtension": "'.$uploadFiles.'",
+            "InHouseNo": "",
+            "InhouseId": "",
+            "EachItemName": "'.$articleStr.',",
+            "EachItemQty": "'.$qtyStr.',",
+            "TotalitemsPrice": "'.$priceStr.',",
+            "domainname": "iblesoft",
+            "domainurl": "inviewpro.com",
+            "StatusRequest": "'.$statusRequest.'"
+          }';
+
+          
+        /** Debug **/
+
+		$ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS,$req);
+        curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+		$result=curl_exec($ch);
+		$msg=json_decode($result);
+
+        echo $url."##".$req;
+        var_dump($result);
+        exit;
+       
+        return $msg;
+		
+    }
+
+    // unpack request
+
+    public static function unpackRequest($wrhs,$repackId){
+
+        mb_internal_encoding('UTF-8');
+        $content_params =JComponentHelper::getParams( 'com_userprofile' );
+        $CompanyId = Controlbox::getCompanyId();
+        $url=$content_params->get( 'webservice' ).'/api/ShipmentsAPI/UnpackorDeConsolidation?warehouseno='.$wrhs.',&inhouseRepackLbl='.$repackId.'&companyId='.$CompanyId;
+        
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+        curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+		$result=curl_exec($ch);
+		$msg=json_decode($result);
+
+        // echo $url;
+        // var_dump($result);
+        // exit;
+       
+        return $msg;
+
+    }
    
     
     

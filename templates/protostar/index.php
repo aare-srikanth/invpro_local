@@ -35,6 +35,8 @@ $params = $app->getTemplate(true)->params;
 
 $domainDetails = ModProjectrequestformHelper::getDomainDetails();
 
+
+
 // echo '<pre>';
 // var_dump($domainDetails);
 // exit;
@@ -205,7 +207,9 @@ else
 // Logo file or site title param
 
 if($CompanyLogo !=''){
-    $logo = '<img src="'.$CompanyLogo.'" alt="' . $sitename . '" />';
+    //$logo = '<img src="'.$CompanyLogo.'" alt="' . $sitename . '" />';
+	$logo = '<img src="https://www.boxonlogistics.com/wp-content/themes/ta-pluton/images/logo.png" alt="' . $sitename . '" />';
+
 }
 else if ($this->params->get('logoFile'))
 {
@@ -414,7 +418,7 @@ else
                 });
         }
         
-    $joomla('.custommenu a, .dash_option_blck a, .navbar-nav a, .nav-tabs li a, .pageloader_link, .lang_menu a, .support_ticket .create_ticket,.support_ticket .edit_ticket').not( '.nav-tabs li a.docpage').on('click',function(){
+    $joomla('.loader, .dash_option_blck a,  .pageloader_link, .lang_menu a, .support_ticket .create_ticket,.support_ticket .edit_ticket').not( '.nav-tabs li a.docpage').on('click',function(){
         
         $joomla('.page_loader').show();
         var eleClass = $joomla(this).attr("class");

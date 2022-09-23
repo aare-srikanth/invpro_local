@@ -1153,6 +1153,7 @@ class UserprofileControllerUser extends JControllerLegacy
         $totalDecVal = JRequest::getVar('totalDecVal', '', 'post');
         $couponCodeStr = JRequest::getVar('couponCodeStr', '', 'post');
         $couponDiscAmt = JRequest::getVar('couponDiscAmt', '', 'post');
+        $repackLblStr = JRequest::getVar('repackLblStr', '', 'post');
         
         jimport('joomla.filesystem.file');
         $TARGET=$this->GUIDv4();
@@ -1266,7 +1267,7 @@ class UserprofileControllerUser extends JControllerLegacy
             $Conveniencefees = 0;
         }
         $shipservtStr = JRequest::getVar('shipservtStr', '', 'post');
-        $status=Controlbox::submitpayment($amtStr,$cardnumberStr,$txtccnumberStr,$MonthDropDownListStr,$txtNameonCardStr,$YearDropDownListStr,$invidkStr,$qtyStr,$wherhourecStr,$CustId,$specialinstructionStr,$cc,$paymentgateway,$shipservtStr,$consignidStr,$invf,$filenameStr,$articleStr,$priceStr,$a,$b,$c,$ratetypeStr,$Conveniencefees,$addSerStr,$addSerCostStr,$companyId,$insuranceCost,$extAddSer,$lengthStr,$widthStr,$heightStr,$grosswtStr,$volumeStr,$volumetwtStr,$shipmentCost,$totalDecVal,$couponCodeStr,$couponDiscAmt);
+        $status=Controlbox::submitpayment($amtStr,$cardnumberStr,$txtccnumberStr,$MonthDropDownListStr,$txtNameonCardStr,$YearDropDownListStr,$invidkStr,$qtyStr,$wherhourecStr,$CustId,$specialinstructionStr,$cc,$paymentgateway,$shipservtStr,$consignidStr,$invf,$filenameStr,$articleStr,$priceStr,$a,$b,$c,$ratetypeStr,$Conveniencefees,$addSerStr,$addSerCostStr,$companyId,$insuranceCost,$extAddSer,$lengthStr,$widthStr,$heightStr,$grosswtStr,$volumeStr,$volumetwtStr,$shipmentCost,$totalDecVal,$couponCodeStr,$couponDiscAmt,$repackLblStr);
 
         $input = JFactory::getApplication()->input;
         $input->set('invoice', $status);
@@ -2535,8 +2536,7 @@ function PPHttpPost($methodName, $nvpStr) {
         $couponCodeStr = JRequest::getVar('couponCodeStr', '', 'get');
         $couponDiscAmt = JRequest::getVar('couponDiscAmt', '', 'get');
         $TxnId = JRequest::getVar('TxnId', '', 'get');
-        
-      
+        $repackLblStr = JRequest::getVar('repackLblStr', '', 'get');
         
         $elfe=explode(",",$invidkStr);
         $mgsr='';
@@ -2607,7 +2607,7 @@ function PPHttpPost($methodName, $nvpStr) {
         }
         
        
-        $status=Controlbox::submitpayment($amtStr,$cardnumberStr,$txtccnumberStr,$MonthDropDownListStr,$txtNameonCardStr,$YearDropDownListStr,$invidkStr,$qtyStr,$wherhourecStr,$CustId,$specialinstructionStr,$cc,$paymentgateway,$shipservtStr,$consignidStr,$invf,$filenameStr,$articleStr,$priceStr,$TxnId,$inhouseNo,'',$ratetypeStr,$Conveniencefees,$addSerStr,$addSerCostStr,$companyId,$insuranceCost,$extAddSer,$lengthStr,$widthStr,$heightStr,$grosswtStr,$volumeStr,$volumetwtStr,$shipmentCost,$totalDecVal,$couponCodeStr,$couponDiscAmt);
+        $status=Controlbox::submitpayment($amtStr,$cardnumberStr,$txtccnumberStr,$MonthDropDownListStr,$txtNameonCardStr,$YearDropDownListStr,$invidkStr,$qtyStr,$wherhourecStr,$CustId,$specialinstructionStr,$cc,$paymentgateway,$shipservtStr,$consignidStr,$invf,$filenameStr,$articleStr,$priceStr,$TxnId,$inhouseNo,'',$ratetypeStr,$Conveniencefees,$addSerStr,$addSerCostStr,$companyId,$insuranceCost,$extAddSer,$lengthStr,$widthStr,$heightStr,$grosswtStr,$volumeStr,$volumetwtStr,$shipmentCost,$totalDecVal,$couponCodeStr,$couponDiscAmt,$repackLblStr);
         $input = JFactory::getApplication()->input;
         $input->set('invoice', $status);
         
@@ -2737,6 +2737,38 @@ function PPHttpPost($methodName, $nvpStr) {
             $result=Controlbox::getPromoCodes($user,$amount,$volmetStr,$volStr,$qtyStr,$wtStr,$shippingCost);
             echo $result;
             exit;
+        }
+
+        // repack
+
+        $repackflag = JRequest::getVar('repackflag', '', 'get');
+        if($repackflag!=""){
+
+            $user = JRequest::getVar('user', '', 'get');
+            $wrhStr = JRequest::getVar('wrhStr', '', 'get');
+            $invidkStr = JRequest::getVar('invidkStr', '', 'get');
+            $qtyStr = JRequest::getVar('qtyStr', '', 'get');
+            $articlestrs = JRequest::getVar('articlestrs', '', 'get');
+            $pricestrs = JRequest::getVar('pricestrs', '', 'get');
+            $statusRequest = JRequest::getVar('statusRequest', '', 'get');
+            $custSer = JRequest::getVar('custSer', '', 'get');
+
+            $result=Controlbox::repackRequest($user,$wrhStr,$invidkStr,$qtyStr,$articlestrs,$pricestrs,$statusRequest,$custSer);
+            echo $result->ResCode.":".$result->Msg;
+            exit;
+        }
+
+        // unpack
+
+        $unpackflag = JRequest::getVar('unpackflag', '', 'get');
+        if($unpackflag!=""){
+            $wrhs = JRequest::getVar('wrhs', '', 'get');
+            $repackId = JRequest::getVar('repackId', '', 'get');
+
+            $result=Controlbox::unpackRequest($wrhs,$repackId);
+            echo $result->ResCode.":".$result->Msg;
+            exit;
+
         }
 
 

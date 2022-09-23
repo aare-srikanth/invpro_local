@@ -874,14 +874,14 @@
                                     $countryView= RegisterHelpersRegister::getCountriesList();
                                     $arr = json_decode($countryView); 
                                                   $countries='';
-                                                  if($arr->ResCode ==1 ){
+                                                 // if($arr->ResCode ==1 ){
                                                      
                                                   foreach($arr->Data as $rg){
                                         
                                                      $countries.= '<option  value="'.$rg->CountryCode.':'.preg_replace('/[^0-9]/', '', $rg->CountryDailCodes).'" >'.$rg->CountryDesc.'</option>';
                                                   }
                                                   
-                                                  }
+                                                //  }
                                                    
                                     ?>
                                  <select class="form-control" id="countryTxt" name="countryTxt" <?php if($elem['COUNTRY'][2]){ ?> required <?php } ?> >

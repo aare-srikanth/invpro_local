@@ -154,8 +154,7 @@ $joomla(document).ready(function() {
       
        // new code end
       
-     $joomla('#InvoiceNo').val(loops[10]);
-      
+      $joomla('#InvoiceNo').val(loops[10]);
       $joomla("input[name='return']").val('<?php echo JURI::base(); ?>index.php?option=com_userprofile&&view=user&layout=response&page=cod&invoice='+loops[10]+'&pay=<?php echo base64_encode(date("m/d/0Y"));?>');
          
     });    
@@ -570,7 +569,7 @@ $joomla(document).ready(function() {
                  
                 <div class="modal-body pagshipup" style="display:none"><img src='/components/com_userprofile/images/loader.gif' height="400"></div>
                   
-                <div class="dvPaymentInformation col-md-6 col-sm-12 col-xs-12" style="display:none">
+        <div class="dvPaymentInformation col-md-6 col-sm-12 col-xs-12" style="display:none">
             <div class="heading">
                 <h3 class="text-center">Confirm Purchase</h3>
             </div>

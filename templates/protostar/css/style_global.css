@@ -28,16 +28,40 @@ header .top_header .social_icons ul { list-style: none; padding: 0; margin: 0; }
 header .top_header .social_icons ul li { display: inline-block; }
 header .top_header .social_icons ul li a { color: #fff; font-size: 18px; margin: 5px 5px; width: 25px; display: block; text-align: center; }
 header .top_header .social_icons ul li a:hover .fa { color: #0e0e0e; }
-header .theme_nav { background: #fff; /*box-shadow: 0 8px 6px -6px #d8d8d8;*/ /* border-bottom: 1px solid #ccc;*/ border-radius: 0; min-height: initial; margin-bottom: 0px; padding:0px; }
+header .theme_nav { background: #fff; /*box-shadow: 0 8px 6px -6px #d8d8d8;*/ /* border-bottom: 1px solid #ccc;*/ border-radius: 0; min-height: initial; margin-bottom: 0px; padding:5px 0px; }
 header .theme_nav.fixed { position: fixed; top: 0; width: 100%; z-index: 9999; }
-header .theme_nav .navbar-collapse { padding: 0 8px 0 8px; }
+header .theme_nav .navbar-collapse {margin-top: 5px; }
 header .theme_nav .navbar-header img {height: 60px; margin-top: 10px; }
-header .theme_nav .navbar-nav li { margin: 0 0 0 5px; }
-header .theme_nav .navbar-nav li a { color: #212121; text-transform: uppercase; font-weight: 600; padding:10px 5px; }
+header .theme_nav .navbar-nav li { margin:0 0 0 8px; }
+header .theme_nav .navbar-nav li a { color: #212121; text-transform: uppercase; padding:10px 5px; letter-spacing: 1px; }
 header .theme_nav .navbar-nav li a:hover, header .theme_nav .navbar-nav li:focus { background: transparent; color: #27b8eb; text-decoration: underline; }
 header .theme_nav .navbar-nav li.active a { color: #27b8eb; text-decoration: underline; }
 header .theme_nav .navbar-toggle { border-color: #292929; margin-right: 0; }
 header .theme_nav .navbar-toggle .icon-bar { background: #292929; }
+header .theme_nav .navbar-nav li ul li{margin: 0;;}
+header .theme_nav .navbar-nav li ul li a {
+    padding:5px 8px;
+    margin-bottom: 2px;
+    background-color: #f2f2f2;
+}
+/* Repack Consolidation Alert CSS start */
+header .theme_nav .navbar-nav li.rnotify_sm_list a, header .theme_nav .navbar-nav li.cnotify_sm_list a {
+    background-color: #31b0d5;
+    color: #fff;
+}
+header .theme_nav .navbar-nav li ul li a .badge {
+    vertical-align: top;
+    font-size: 10px;
+    letter-spacing:2px;
+}
+header .theme_nav .navbar-nav li ul li a .badge.badge-success {
+    background: #588d05;
+}
+header .theme_nav .navbar-nav li ul li a .badge.badge-warning {
+    background: #fb8c19;
+}
+header .theme_nav .navbar-nav li ul.dropdown-menu{padding: 0;}
+/* Repack Consolidation Alert CSS End */
 /* Header */
 
 /* Language Menu */
@@ -545,6 +569,15 @@ table.shipping-costtbl{margin-bottom:30px;}
 .pp_load {position: fixed;z-index: 99999;background: rgba(0,0,0,0.8);width: 100%;height: 100%;left: 0;top: 0;border: 0;right: 0;overflow: hidden;}
 .pp_load span{color: #ccc; position: absolute; left: 35%; top: 45%; font-size: 20px; text-align: center;}
 .btn-mrgn1{margin-bottom:20px;}
+
+.inhouse_paynow a.label-warning {
+    background-color: #ffc107;
+    border-radius: 20px;
+    padding: 5px 15px;
+    color: #333;
+    font-weight: bold;
+}
+
 /* Responsive Start  */
 @media (max-width:1024px) {
 .footer_logo { padding: 50px 30px; }
