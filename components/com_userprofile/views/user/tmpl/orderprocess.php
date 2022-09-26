@@ -5109,8 +5109,8 @@ $joomla.ajax({
          var res = data.split(":");
 
          if(res[0]){
-            //alert(res[1]);
-            //window.location.reload();
+            alert(res[1]);
+            window.location.reload();
          }else{
             alert(res[1]);
          }
