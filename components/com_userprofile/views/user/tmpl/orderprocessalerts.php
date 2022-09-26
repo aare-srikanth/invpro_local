@@ -166,6 +166,7 @@ $joomla(document).ready(function() {
     $joomla("input[name=txtQty]").css("width","80px");
     
     if($joomla( "#orderdateTxt" )) 
+     $joomla( "#orderdateTxt" ).datepicker({ onClose : function() { this.focus(); } });
     $joomla( "#orderdateTxt" ).datepicker({ maxDate: new Date });
    
     var tmp='';
@@ -276,7 +277,7 @@ $joomla(document).ready(function() {
     },
     // Specify validation error messages
     messages: {
-      mnameTxt: {required:"<?php echo $assArr['merchant_name_error'];?>"},
+      mnameTxt: {required:"<?php echo $assArr['merchants_Name_error'];?>"},
       carrierTxt: {required:"<?php echo $assArr['carrier_error'];?>",alphanumeric:"<?php echo Jtext::_('COM_USERPROFILE_ALERTS_ALPHABET_ERROR');?>"},
       carriertrackingTxt: "<?php echo $assArr['tracking_ID_of_the_operator_error'];?>",
       orderdateTxt: "<?php echo $assArr['order_date_error'];?>",
@@ -625,9 +626,9 @@ $joomla(document).ready(function() {
         },
         // Specify validation error messages
         messages: {
-          txtMerchantName: {required:"<?php echo $assArr['merchant_name_error'];?>",alphanumeric:"<?php echo Jtext::_('COM_USERPROFILE_ALERTS_ALPHABET_ERROR');?>"},
-          txtOrderDate: "<?php echo $assArr['merchant_name_error'];?>",
-          txtArticleName: {required:"<?php echo $assArr['merchant_name_error'];?>"},
+          txtMerchantName: {required:"<?php echo $assArr['merchants_Name_error'];?>",alphanumeric:"<?php echo Jtext::_('COM_USERPROFILE_ALERTS_ALPHABET_ERROR');?>"},
+          txtOrderDate: "<?php echo $assArr['order_date_error'];?>",
+          txtArticleName: {required:"<?php echo $assArr['article_name_error'];?>"},
           txtDvalue: "<?php echo $assArr['item_Price_(USD)_error'];?>",
           txtCarrierName: "<?php echo $assArr['carrier_error'];?>",
           txtTracking: "<?php echo $assArr['tracking_ID_of_the_operator_error'];?>",
@@ -926,6 +927,7 @@ $joomla(document).ready(function() {
             <li> <a class="active" ><?php echo $assArr['my_Pre_Alerts'];?></a></li>
             <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=orderprocess"><?php echo $assArr['ready_to_ship'];?></a> </li>
            <!--  <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=cod">COD</a> </li>-->
+           <li> <a class=""  href="index.php?option=com_userprofile&view=user&layout=cod"> <?php echo $assArr['cOD'];?> </a> </li>
             <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=shiphistory"><?php echo $assArr['shipment_History'];?></a> </li>
           </ul>
         </div>
