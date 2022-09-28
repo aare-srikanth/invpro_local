@@ -512,7 +512,7 @@ $joomla(document).ready(function() {
         e.preventDefault();
         var res=$joomla(this).data('id');
         var reshtml=$joomla(this);
-        var cf=confirm("<?php echo Jtext::_('COM_USERPROFILE_SHOPPER_ASSIST_CONFIRM_DELETE');?>");
+        var cf=confirm("<?php echo $assArr['delete_alert'];?>");
         if(cf==true){
             $joomla.ajax({
     			url: "<?php echo JURI::base(); ?>index.php?option=com_userprofile&task=user.get_ajax_data&orderdeletetype="+res +"&orderdeleteflag=1&jpath=<?php echo urlencode  (JPATH_SITE); ?>&pseudoParam="+new Date().getTime(),

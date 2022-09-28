@@ -615,8 +615,6 @@ margin: 0 auto;
         
          $joomla(document).on('click','.discardShip',function(){
              
-            
-             
              var wrhsStr = $joomla(this).closest("tr").find(".warehouseStr").html();
              var disSno = $joomla(this).attr("data-sno");
              var discardRes = false;
@@ -1089,6 +1087,9 @@ margin: 0 auto;
        });
        
       $joomla('.btn-close1,#step1 .btn-danger,#step2 .btn-danger,#step3 .btn-danger,.not_same_error').on("click",function(){
+            $joomla(".cupn-cde p").hide();
+            $joomla(".cupn-cde a").show();
+            $joomla(".cupn-cdes").hide();
           $joomla(".paypalCreditDebit").hide();
           if($joomla("#exampleModal").css('display')=="block"){
               console.log('exampleModal');
@@ -2664,7 +2665,7 @@ margin: 0 auto;
        			}
        		});*/
                $joomla('#ord_keep .modal-body').hide();
-               $joomla('#ord_keep .modal-body2').html('<img src="/components/com_userprofile/images/loader.gif">');
+               $joomla('#ord_keep .modal-body2').html('<img src="<?php echo JURI::base(); ?>/components/com_userprofile/images/loader.gif">');
              form.submit();
            }
            });    
@@ -2716,16 +2717,6 @@ margin: 0 auto;
        });
        
        
-       
-       
-   
-      
-           
-      
-       
-       
-       
-   
       $joomla("input[name='priceStr[]']").live('keypress',function (e) {
        if(e.which == 46){
            if($joomla(this).val().indexOf('.') != -1) {
@@ -2880,9 +2871,10 @@ margin: 0 auto;
    	
    	// getcouponcodes data and promocodes
    	
-   $joomla('.cupn-cde a').on('click',function(e){
+   $joomla(document).on('click','.cupn-cde a',function(e){
    	    e.preventDefault();
    	    $joomla('.cupn-cde p').show();
+   	    
    	   $joomla.ajax({
    	        url: "<?php echo JURI::base(); ?>index.php?option=com_userprofile&task=user.get_ajax_data&jpath=<?php echo urlencode(JPATH_SITE); ?>&pseudoParam="+new Date().getTime(),
    			data: { "getcouponcodeflag":1,"user":"<?php echo $user; ?>","amount":$joomla("input[name='amount']").val(),"volmetStr":$joomla("input[name='volmetStr']").val(),"volStr":$joomla("input[name='volStr']").val(),"qtyStr":$joomla("input[name='qtyStr']").val(),"wtStr":$joomla("input[name='weightStr']").val(),"shippingCost":$joomla("input[name='shipmentCost']").val()},
@@ -2893,11 +2885,27 @@ margin: 0 auto;
                    },    
    			success: function(data){
    			    $joomla(".page_loader").hide();
+   			    $joomla(".cupn-cdes").show();
    			    $joomla(".cupn-cdes").html(data);
    			}
    		}); 
    		$joomla(this).hide();
    	});
+   	
+   	//get alert
+  
+
+ 
+ 
+
+//  $joomla("#j_table").on('click','.discardShip',function(){
+//       $joomla(this).closest('td').remove();
+//      });
+
+
+ 
+  
+
    	
    	
            // Initialize form validation on the registration form.
@@ -3437,6 +3445,7 @@ margin: 0 auto;
                   <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=inventoryalerts"><?php echo $assArr['my_Pre_Alerts'];?></a> </li>
                   <?php } ?>
                   <li> <a class="active" href="index.php?option=com_userprofile&view=user&layout=orderprocess"><?php echo $assArr['ready_to_ship'];?></a> </li>
+                  <li> <a class=""  href="index.php?option=com_userprofile&view=user&layout=cod"> <?php echo $assArr['cOD'];?> </a> </li>
                   <!--<li> <a class="" href="index.php?option=com_userprofile&view=user&layout=cod">COD</a> </li>-->
                   <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=shiphistory"><?php echo $assArr['shipment_History'];;?></a> </li>
                </ul>
@@ -4482,8 +4491,8 @@ margin: 0 auto;
                            <p> <?php echo Jtext::_('COM_USERPROFILE_SHIP_POPUP_INCLUDES');?>:</p>
                            <br/>
                           <div class="cupn-cde">
-                               <a href="">Apply Coupons</a>
-                               <p style="display:none;">Apply Coupons</p>
+                               <a href="">Apply Coupons/Promocodes</a>
+                               <p style="display:none;">Available Coupons/Promocodes</p>
                            </div>
                            <div class="cupn-detals">
                            <div class="cupn-cdes">
@@ -5163,6 +5172,98 @@ $joomla(document).on('click','#unpack',function() {
 
    
 });
+<<<<<<< HEAD
+=======
+    
+    // repack
+
+    $joomla(document).on('click','#repack,#consolidation',function() {
+
+               var requrl="<?php echo JURI::base(); ?>index.php?option=com_userprofile&task=user.get_ajax_data&jpath=<?php echo urlencode  (JPATH_SITE); ?>&pseudoParam="+new Date().getTime();
+               var statusRequest = $joomla(this).attr('id');
+               var shipval = $joomla('.txtId:checked').val();
+               var txtIdVals= shipval.split(":");
+               var custSer = txtIdVals[32];
+
+               wrhStr = $joomla("#wherhourecStr").val();
+               invidkStr = $joomla("#invidkStr").val();
+               qtyStr = $joomla("#qtyStr").val();
+
+
+               var articleStrs=[];
+               $joomla.each($joomla("input[name='articleStr[]']"), function(){
+                  articleStrs.push($joomla(this).val());
+               });    
+               var priceStrs=[];
+               $joomla.each($joomla("input[name='priceStr[]']"), function(){
+                  priceStrs.push($joomla(this).val());
+               }); 
+
+
+$joomla.ajax({
+  url: requrl,
+  data: { "repackflag":1,"wrhStr":wrhStr,"invidkStr":invidkStr,"qtyStr":qtyStr,"articlestrs":articleStrs,"pricestrs":priceStrs,"statusRequest":statusRequest,"user":"<?php echo $user; ?>","custSer":custSer},
+  dataType:"html",
+  type: "get",
+        beforeSend: function() {
+         
+           $joomla("#ord_repack").modal('hide');
+           $joomla("#ord_consolid").modal('hide');
+           $joomla(".page_loader").show();
+        },
+        success: function(data){
+         var res = data.split(":");
+
+         if(res[0]){
+            alert(res[1]);
+            window.location.reload();
+         }else{
+            alert(res[1]);
+         }
+        
+       }
+    });   
+  
+ });
+
+// end
+
+// unpack  or deconsolidation
+
+$joomla(document).on('click','#unpack',function() {
+   var repackId = '';
+   $joomla('.txtId:checked').each(function(){
+      var shipval = $joomla(this).val();
+      var txtIdVals= shipval.split(":");
+          repackId = txtIdVals[31];
+      });
+
+     
+      var wrhs = $joomla("#wherhourecStr").val();
+      var requrl="<?php echo JURI::base(); ?>index.php?option=com_userprofile&task=user.get_ajax_data&jpath=<?php echo urlencode  (JPATH_SITE); ?>&pseudoParam="+new Date().getTime();
+
+      $joomla.ajax({
+      url: requrl,
+      data: { "unpackflag":0,"wrhs":wrhs,"repackId":repackId},
+      dataType:"html",
+      type: "get",
+            beforeSend: function() {
+               $joomla("#ord_unpack").modal('hide');
+               $joomla(".page_loader").show();
+            },
+            success: function(data){
+               var res = data.split(":");
+               if(res[0]){
+                  alert(res[1]);
+                  window.location.reload();
+               }
+            }
+      });  
+
+
+   
+});
+>>>>>>> ada041235e5803ded53779380fc00c68ee090b4c
     
     
 </script>
