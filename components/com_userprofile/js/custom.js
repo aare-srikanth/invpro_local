@@ -116,6 +116,7 @@ function initPayPalButton() {
     // Apply couponcodes
     
     $joomla(document).on('click','.applyCode',function() {
+        
         $joomla(".applyCode").parent().hide();
         $joomla(this).parent().show();
         $joomla("#couponCodeStr").val($joomla(this).attr("data-code"));
