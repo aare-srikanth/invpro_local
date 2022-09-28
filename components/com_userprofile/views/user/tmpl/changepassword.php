@@ -55,7 +55,7 @@ $joomla(document).ready(function() {
        && /\d/.test(value) // has a digit
        && /[#?!@$%^&*-]/.test(value) // has a special char
 		},
-		"<?php echo JText::_('Enter Valid Password');?>"
+		"<?php echo $assArr['New_Password_rule1'];?>"
 	);
 	
 		// Initialize form validation on the registration form.
@@ -84,7 +84,7 @@ $joomla(document).ready(function() {
 			  passwordTxt: "<?php echo $assArr['current_Password_error'];?>",
 			  newpasswordTxt: {
                   required: "<?php echo $assArr['new_Password_error'];?>",
-                  minlength: "Your password must be at least 8 characters long"
+                  minlength: "<?php echo $assArr['New_Password_rule1'];?>"
               },
               cnewpasswordTxt: "<?php echo $assArr['Confirm_new_password_error'];?>"
       
@@ -115,9 +115,9 @@ $joomla(document).ready(function() {
       var newpass = $joomla(this).val();
       
       if(carpass == newpass){
-          alert("New Password should not be equal to Current Password");
+          alert("<?php echo $assArr['current_new_password_alert'];?>");
           $joomla(this).val("");
-          $joomla(this).focus();
+          $joomla(this).focusout();
       }
        
    });
@@ -134,7 +134,7 @@ $joomla(document).ready(function() {
       <div class="container">
         <div class="loggin_view chng-pswd">
           <div class="main_panel">
-            <div class="main_heading"> <?php echo Jtext::_('COM_USERPROFILE_CHANGEPASS_TITLE');?> </div>
+            <div class="main_heading"> <?php echo $assArr['cHANGE_THE_PASSWORD'];?> </div>
             <div class="panel-body">
               <div class="form-group">
                 <label><?php echo $assArr['current_Password'];?> <span class="error">*</span></label>
@@ -145,11 +145,11 @@ $joomla(document).ready(function() {
                         <label><?php echo $assArr['new_Password'];?> <span class="error">*</span></label>
                         <div class="tooltip"><img src="<?php echo JUri::base(); ?>/templates/protostar/images/i-icon.png">
                             <span class="tooltiptext">
-                                <i class="fa fa-check" aria-hidden="true"></i> Atleast 1 uppercase letter <br>
-                                <i class="fa fa-check" aria-hidden="true"></i> Atleast 1 digit <br>
-                                <i class="fa fa-check" aria-hidden="true"></i> Atleast 1 special character <br>
-                                <i class="fa fa-check" aria-hidden="true"></i> Atleast 8 charecters<br>
-                                <i class="fa fa-check" aria-hidden="true"></i> Maximum 32 charecters<br>
+                                <i class="fa fa-check" aria-hidden="true"></i> <?php echo $assArr['New_Password_rule3'];?> <br>
+                                <i class="fa fa-check" aria-hidden="true"></i><?php echo $assArr['New_Password_rule4'];?>  <br>
+                                <i class="fa fa-check" aria-hidden="true"></i> <?php echo $assArr['New_Password_rule5']?> <br>
+                                <i class="fa fa-check" aria-hidden="true"></i><?php echo $assArr['New_Password_rule6'];?><br>
+                                <i class="fa fa-check" aria-hidden="true"></i> <?php echo $assArr['New_Password_rule7'];?><br>
                             </span>
                         </div>
                         
@@ -167,7 +167,7 @@ $joomla(document).ready(function() {
               </div>
               <div class="form-group newpswdbtn">
                 <button type="submit" class="btn btn-primary"><?php echo $assArr['submit'];?></button>
-                <button class="btn btn-danger" type="reset"><?php echo Jtext::_('COM_USERPROFILE_CHANGEPASS_CLEAR');?></button>
+                <button class="btn btn-danger" type="reset"><?php echo $assArr['clear'];?></button>
               </div>
             </div>
           </div>
