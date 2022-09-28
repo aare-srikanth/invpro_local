@@ -161,7 +161,7 @@ if (strcmp ($res, "VERIFIED") == 0) {
         
         require_once JPATH_ROOT.'/components/com_userprofile/helpers/userprofile.php';
 
-        $v=Controlbox::submitpayment($amtStr,$cardnumberStr,$txtccnumberStr, $MonthDropDownListStr,  $txtNameonCardStr, $YearDropDownListStr,$invidkStr,$qtyStr,$wherhourecStr, $CustId,$specialinstructionStr, $cc, $pg, $shipservtStr,$consignidStr,$file,$nameStr,$articleStr,$priceStr,$tid,$Inhouse,$InhouseIdk,$rateType,$Conveniencefees,$addSerStr,$addSerCost,$CompanyId,'','');
+        $v=Controlbox::submitpayment($amtStr,$cardnumberStr,$txtccnumberStr, $MonthDropDownListStr,  $txtNameonCardStr, $YearDropDownListStr,$invidkStr,$qtyStr,$wherhourecStr, $CustId,$specialinstructionStr, $cc, $pg, $shipservtStr,$consignidStr,$file,$nameStr,$articleStr,$priceStr,$tid,$Inhouse,$InhouseIdk,$rateType,$Conveniencefees,$addSerStr,$addSerCost,$CompanyId,'','','','','','','','','','','','');
 
          file_put_contents($file_print,$v);
 
