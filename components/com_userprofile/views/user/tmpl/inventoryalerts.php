@@ -116,7 +116,7 @@ $joomla(document).ready(function() {
     	// Specify validation error messages
     	messages: {
     	   pnameTxt:{
-    		required: "Please enter Project Name"
+    		required: "<?php echo $assArr['Project Name_error'];?>"
     	  }/*,
     	  fnskuTxt: {
     		required: "Please enter FNSKU Number"
@@ -125,10 +125,10 @@ $joomla(document).ready(function() {
     		required: "<?php echo $assArr['quantity'];?>"
           },
     	  cnameTxt: {
-    		required: "Please enter Account Name"
+    		required: "<?php echo $assArr['Account Name_error'];?>"
           },
     	  addinvoiceTxt: {
-    		required: "Please Upload Csv File"
+    		required: "<?php echo $assArr['addinvoice_error'];?>"
           }
     
     	},
@@ -168,19 +168,19 @@ $joomla(document).ready(function() {
     	// Specify validation error messages
     	messages: {
     	   pnameTxt:{
-    		required: "Please enter Project Name"
+    		required: "<?php echo $assArr['Project Name_error'];?>"
     	  }/*,
     	  fnskuTxt: {
     		required: "Please enter FNSKU Number"
           }*/,
     	  quantityTxt: {
-    		required: "Please enter Quantity"
+    		required: "<?php echo $assArr['quAntity_error'];?>"
           },
     	  cnameTxt: {
-    		required: "Please enter Account Name"
+    		required: "<?php echo $assArr['Account Name_error'];?>"
           },
     	  addinvoiceTxt: {
-    		required: "Please Upload Inventory File"
+    		required: "<?php echo $assArr['add_inventory_invoice_error'];?>"
           }
     
     	},
@@ -365,7 +365,7 @@ $joomla(document).ready(function() {
     },
     // Specify validation error messages
     messages: {
-      mnameTxt: {required:"<?php echo $assArr['merchant_name_error'];?>",alphanumeric:"Please enter alpha characters"},
+      mnameTxt: {required:"<?php echo $assArr['merchants_Name_error'];?>",alphanumeric:"Please enter alpha characters"},
       carrierTxt: {required:"<?php echo $assArr['carrier_error'];?>",alphanumeric:"Please enter alpha characters"},
       carriertrackingTxt: "<?php echo $assArr['tracking_ID_of_the_operator_error'];?>",
       orderdateTxt: "<?php echo $assArr['order_date_error'];?>",
@@ -865,7 +865,7 @@ $joomla(document).ready(function() {
         // Specify validation error messages
         messages: {
           /*txtFNSKUName: "Please enter FNSKU Name",*/
-          txtSKUName: "Please enter SKU Name",
+          txtSKUName: "<?php echo $assArr['SKU Name_error'];?>",
           txtMerchantName: {required:"<?php echo $assArr['merchant_name_error'];?>",alphanumeric:"Please enter Merchant Name must alphabet characters only"},
           txtOrderDate: "<?php echo $assArr['order_date_error'];?>",
           txtArticleName: {required:"<?php echo $assArr['article_name_error'];?>",alphanumeric:"Please enter Article Name must alphabet characters only"},
@@ -1068,16 +1068,16 @@ $joomla(document).ready(function() {
                     <div class="row">
                       <!-- <div class="col-sm-4"> -->
                         <label class="radio-inline">
-                        <input type="radio" <?php if($_GET[r]==""){?>checked<?php }?><?php if($_GET[r]==1){?>checked<?php }?> name="alertTxt" id="alertTxt" value=1>IPS/RAR
+                        <input type="radio" <?php if($_GET[r]==""){?>checked<?php }?><?php if($_GET[r]==1){?>checked<?php }?> name="alertTxt" id="alertTxt" value=1><?php echo $assArr['IPS/RAR'];?>
                         </label>
                       <!-- </div>
                       <div class="col-sm-4"> -->
                         <label class="radio-inline">
-                        <input type="radio" name="alertTxt" id="alertTxt" value=2 >WITHOUT FBA FORM</label>
+                        <input type="radio" name="alertTxt" id="alertTxt" value=2 ><?php echo $assArr['wITHOUT_FBA_FORM'];?></label>
                       <!-- </div>
                       <div class="col-sm-4"> -->
                         <label class="radio-inline">
-                        <input type="radio" <?php if($_GET[r]==2){?>checked<?php }?> name="alertTxt" id="alertTxt" value=3 >AIR
+                        <input type="radio" <?php if($_GET[r]==2){?>checked<?php }?> name="alertTxt" id="alertTxt" value=3 ><?php echo $assArr['air'];?>
                         </label>
                       <!-- </div>-->
                     </div>
@@ -1089,7 +1089,7 @@ $joomla(document).ready(function() {
           <div class="row">
             <div class="col-sm-12 col-md-4">
               <div class="form-group">
-                <label>Project Name <span class="error">*</span></label>
+                <label><?php echo $assArr['Project_Name'];?> <span class="error">*</span></label>
                 <select class="form-control" name="pnameTxt" id="pnameTxt" >
                     <option value="">Please select option</option>
                     <?php echo Controlbox::getProjectdetails($user); ?>
@@ -1099,7 +1099,7 @@ $joomla(document).ready(function() {
             <input type="hidden" class="form-control" name="inventoryTxt" id="inventoryTxt">
             <div class="col-sm-12 col-md-4">
               <div class="form-group">
-                <label>Product Name </label>
+                <label><?php echo $assArr['Product_Name'];?></label>
                 <input class="form-control" name="productnameTxt" id="productnameTxt">
               </div>
             </div>
@@ -1109,10 +1109,10 @@ $joomla(document).ready(function() {
                 <table class="table table-bordered theme_table" id="Otable" style="display:none" data-page-length='25'>
                   <thead>
                     <tr>
-                      <th>FNSKU No</th>
+                      <th><?php echo $assArr['FNSKU_Number'];?></th>
                       <th><?php echo $assArr['quantity'];?></th>
-                      <th>UPC</th>
-                      <th>SKU</th>
+                      <th><?php echo $assArr['upc'];?></th>
+                      <th><?php echo $assArr['SKU'];?></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -1124,15 +1124,15 @@ $joomla(document).ready(function() {
           <div class="row">
             <div class="col-sm-12 col-md-4">
               <div class="form-group">
-                <label>Account Name<span class="error">*</span></label>
+                <label><?php echo $assArr['Account_Name'];?><span class="error">*</span></label>
                 <input class="form-control" name="cnameTxt" id="cnameTxt">
               </div>
             </div>
              <div class="col-sm-12 col-md-4">
               <div class="form-group">
-                <label>Add Inventory<span class="error">*</span></label>
+                <label><?php echo $assArr['Add_Inventory'];?><span class="error">*</span></label>
                 <input type="file" class="form-control" name="addinvoiceTxt" id="addinvoiceTxt">
-                <label>Upload CSV Below 2Mb file <a href="<?php echo JUri::base(); ?>/index.php?option=com_userprofile&task=user.downloadfile&val=fba" target="_blank">Download Sample</a></label>
+                <label><?php $assArr['Add_csv_Inventory_error'];?> <a href="<?php echo JUri::base(); ?>/index.php?option=com_userprofile&task=user.downloadfile&val=fba" target="_blank"><?php echo $assArr['upload_error']?></a></label>
                </div>
             </div>
            </div>
@@ -1155,13 +1155,13 @@ $joomla(document).ready(function() {
           <div class="row">
             <div class="col-sm-12 col-md-4">
               <div class="form-group">
-                <label>Project Name <span class="error">*</span></label>
+                <label><?php echo $assArr['Project_Name'];?> <span class="error">*</span></label>
                 <input type="text" class="form-control" name="pnameTxt" id="pnameTxt" maxlength="50">
               </div>
             </div>
             <div class="col-sm-12 col-md-4">
               <div class="form-group">
-                <label>FNSKU Number </label>
+                <label><?php echo $assArr['FNSKU_Number'];?> </label>
                 <input class="form-control" name="fnskuTxt" id="fnskuTxt" maxlength="20">
               </div>
             </div>
@@ -1175,15 +1175,15 @@ $joomla(document).ready(function() {
           <div class="row">
             <div class="col-sm-12 col-md-4">
               <div class="form-group">
-                <label>Account Name<span class="error">*</span></label>
+                <label><?php echo $assArr['Account_Name'];?><span class="error">*</span></label>
                 <input class="form-control" name="cnameTxt" id="cnameTxt" value="<?php echo $user;?>" readonly>
               </div>
             </div>
              <div class="col-sm-12 col-md-4">
               <div class="form-group">
-                <label>Add Inventory<span class="error">*</span></label>
+                <label><?php echo $assArr['Add_Inventory'];?><span class="error">*</span></label>
                 <input type="file" class="form-control" name="addinvoiceTxt" id="addinvoiceTxt">
-                <label>Upload CSV Below 2Mb file <a href="<?php echo JUri::base(); ?>/index.php?option=com_userprofile&task=user.downloadfile&val=ips" target="_blank">Download Sample</a></label>
+                <label><?php $assArr['Add_csv_Inventory_error'];?> <a href="<?php echo JUri::base(); ?>/index.php?option=com_userprofile&task=user.downloadfile&val=ips" target="_blank">Download Sample</a></label>
               </div>
             </div>
             <div class="col-sm-12 col-md-4">                   
@@ -1224,7 +1224,7 @@ $joomla(document).ready(function() {
             <input type="hidden" name="business_type" value="Air">
           <div class="row">
             <div class="col-sm-6">
-              <h3 class="m-0"><strong>Create an Pre Alert</strong></h3>
+              <h3 class="m-0"><strong><?php echo $assArr['Create_an_Pre_Alert'];?></strong></h3>
             </div>
             <!--<div class="col-sm-6 text-right">
               <button class="btn btn-primary">Add Purchase Order</button>
@@ -1286,7 +1286,7 @@ $joomla(document).ready(function() {
               <div class="form-group">
                 <label><?php echo $assArr['upload'];?></label>
                 <input type="file" class="form-control" name="addinvoice3Txt"  id="addinvoice3Txt">
-                <label>Upload extension type csv Below 2Mb file. <a href="<?php echo JUri::base(); ?>/index.php?option=com_userprofile&task=user.downloadfile&val=air" target="_blank">Download Sample</a></label>
+                <label><?php echo $assArr['upload_error_file'];?></label> <a href="<?php echo JUri::base(); ?>/index.php?option=com_userprofile&task=user.downloadfile&val=air" target="_blank"><?echo $assArr['upload_error'];?></a></label>
               </div>
             </div>
           </div>
@@ -1363,7 +1363,7 @@ $joomla(document).ready(function() {
                     </span> </span> 
                 </div>-->
                 <input type="file" class="form-control"   name="addinvoiceTxtMul_1[]" id="addinvoiceTxtMul_1" class="addinvoiceTxtMul" multiple  required >
-                <label>Upload extension type png,jpg,gif and pdf Below 2Mb file</label>
+                <label><?php echo $assArr['file_error'];?></label>
               </div>
             </div>
             <!-- End -->
@@ -1393,7 +1393,7 @@ $joomla(document).ready(function() {
         <div  style="display:none">
             <div class="row">
               <div class="col-sm-12">
-                <h3 class="mx-1"><strong>Project Requests</strong></h3>
+                <h3 class="mx-1"><strong><?php echo $assArr['Project_Requests'];?></strong></h3>
               </div>
             </div>
             <div class="row">
@@ -1401,11 +1401,11 @@ $joomla(document).ready(function() {
                 <table class="table table-bordered theme_table" id="N_table" data-page-length='25'>
                   <thead>
                     <tr>
-                      <th>Project Name</th>
-                      <th>FNSKU No</th>
+                      <th><?php echo $assArr['Project_Name'];?></th>
+                      <th><?php echo $assArr['FNSKU_Number'];?></th>
                       <th><?php echo $assArr['quantity'];?></th>
-                      <th>Account Name</th>
-                      <th>Inventory</th>
+                      <th><?php echo $assArr['Account_Name'];?></th>
+                      <th><?php echo $assArr['Add_Inventory'];?></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -1502,7 +1502,7 @@ $joomla(document).ready(function() {
                   <th><?php echo $assArr['order_date']; ?></th>
                   <th><?php echo $assArr['quantity']; ?></th>
                   <th><?php echo $assArr['tracking#']; ?></th>
-                  <th><?php echo Jtext::_('COM_USERPROFILE_INVWFORM_FNSKU_NUMBER'); ?></th>
+                  <th><?php echo  $assArr['FNSKU_Number'];?></th>
                   <th><?php echo Jtext::_('COM_USERPROFILE_INVWFORM_SKU_NUMBER'); ?>#</th>
                   <th><?php echo Jtext::_('COM_USERPROFILE_INVWFORM_INV_TYPE'); ?></th>
                   <th><?php echo $assArr['order_ID']; ?></th>
@@ -1544,13 +1544,13 @@ $joomla(document).ready(function() {
       <div class="modal-content">
         <div class="modal-header">         
           <input type="button" data-dismiss="modal"  value="x" class="btn-close1" >       
-          <h4 class="modal-title"><strong>Update My Pre Alerts</strong></h4>
+          <h4 class="modal-title"><strong><?php echo $assArr['update_my_pre_alerts'];?></strong></h4>
         </div>
         <div class="modal-body">
           <div class="row">
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
-                <label>FNSKU Number </label>
+                <label><?php echo $assArr['FNSKU_Number'];?> </label>
                 <input type="text" class="form-control" name="txtFNSKUName" >
               </div>
             </div>
@@ -1616,9 +1616,9 @@ $joomla(document).ready(function() {
             </div>
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
-                <label>Invoice </label>
+                <label><?php echo $assArr['invoices'];?> </label>
                 <input type="file" class="form-control"  name="txtFile">
-                Upload extension type png,jpg,gif and pdf Below 2Mb file<div id="orderimage"></div>
+               <?php echo $assArr['file_error'];?><div id="orderimage"></div>
               </div>
             </div>
             
@@ -1644,7 +1644,7 @@ $joomla(document).ready(function() {
             </div>
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
-                <label>Item Status</label>
+                <label><?php echo $assArr['item_status'];?></label>
                 <select class="form-control" name="txtStatus" disabled="true">
                   <?php 
                     
@@ -1709,7 +1709,7 @@ $joomla(document).ready(function() {
       <div class="modal-content">
         <div class="modal-header">         
           <input type="button" data-dismiss="modal"  value="x" class="btn-close1" >       
-          <h4 class="modal-title"><strong>Update My Pre Alerts</strong></h4>
+          <h4 class="modal-title"><strong><?php echo $assArr['update_my_pre_alerts'];?></strong></h4>
         </div>
         <div class="modal-body">
           <div class="row">
