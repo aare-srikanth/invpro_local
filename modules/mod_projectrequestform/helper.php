@@ -169,6 +169,10 @@ class ModProjectrequestformHelper {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLINFO_HEADER_OUT, true);
         $result=curl_exec($ch);
+        
+        //   echo $url;
+        // var_dump($result);exit;
+        
         $msg = json_decode($result); 
         $skillData = array(); 
         foreach($msg->Data as $rg){
@@ -211,6 +215,10 @@ class ModProjectrequestformHelper {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLINFO_HEADER_OUT, true);
         $result=curl_exec($ch);
+        
+        // echo $url;
+        // var_dump($result);exit;
+        
         
         $msg = json_decode($result); 
         $skillData = array(); 
@@ -281,9 +289,9 @@ class ModProjectrequestformHelper {
             curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
     		$result=curl_exec($ch);
     		
-    		echo $url;
-    		echo '{"CompanyID":"'.$companyId.'","ProjectId":"'.$projectid.'","AccountNumber":"'.$txtAccountnumber.'","AccountName":"'.$txtAccountname.'","InventoryNeworOverstock":"'.$txtInventory.'","ProjectName":"'.$txtProjectname.'","FNSKUNo":"'.$txtFnsku.'","QuantityperFNSKU":"'.$txtFnskuquanity.'","RequestedDate":"'.$dateTxt.'","CreatedBy":"CUST","ProductName":"'.$txtProductTitle.'","SKUNo":"'.$txtUPC.'","UPC":"'.$txtSKU.'","ActivationKey":"123456789"}';
-            var_dump($result);exit;
+    // 		echo $url;
+    // 		echo '{"CompanyID":"'.$companyId.'","ProjectId":"'.$projectid.'","AccountNumber":"'.$txtAccountnumber.'","AccountName":"'.$txtAccountname.'","InventoryNeworOverstock":"'.$txtInventory.'","ProjectName":"'.$txtProjectname.'","FNSKUNo":"'.$txtFnsku.'","QuantityperFNSKU":"'.$txtFnskuquanity.'","RequestedDate":"'.$dateTxt.'","CreatedBy":"CUST","ProductName":"'.$txtProductTitle.'","SKUNo":"'.$txtUPC.'","UPC":"'.$txtSKU.'","ActivationKey":"123456789"}';
+    //         var_dump($result);exit;
             
             $msg=json_decode($result);
             
