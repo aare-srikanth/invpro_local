@@ -271,19 +271,22 @@ h1.breadcrumb_title{font-size : 24px !important;}.cls-add-ico .btn-danger {font-
 .csvDownload.export-csv:hover{text-decoration:none;}
 .item-cnt p{padding:10px;}
  .cupn-slct{float:right;}
-.cupn-cde{background: #eee;border: 1px solid #eee;padding: 12px;border-radius: 6px;margin-bottom: 20px;margin-bottom: 20px;}
+.cupn-cde a{/*background: #eee;*/background:#ddd;border: 1px solid #eee;padding: 12px;border-radius: 6px;margin-bottom: 20px;margin-bottom: 20px; width:100%; display:block;}
+.cupn-cde p{margin-bottom: 0;font-size: 18px;font-weight:bold;}
 .shipping-costtbl {margin-top: 20px !important;}
 .cupn-detals span{font-size: 14px;color: #23bbed;display: block;margin-bottom: 10px;}
-.cupn-cdes a{float:right;}
+.cupn-cdes a{float: right;background-color: #23BBEF;padding: 7px 16px 7px;font-size: 12px;color: #fff;text-align: center;border-radius: 20px;margin: -12px 0 0 0;}
+.cupn-cdes a:hover{text-decoration:none;}
+.removeCode i {color: #565656;font-size: 18px;padding-left: 10px;vertical-align:middle;font-weight: normal;}
 .cupn-detals .modal-title {margin: 15px 0 30px;}
 .cupon-cde-lst {margin-bottom: 30px;}
 .cupn-serch a{position: absolute;top: 8px;right: 25px;}
 .cupn-serch {box-shadow: 0 1px 10px #c3c3c3;margin-top: 20px;padding: 20px;}
-.cupn-cde-lst-bg-gray h4{border: 1px dashed #7c7c7c;max-width: fit-content;padding: 10px;font-size: 16px;}
+.cupn-cde-lst-bg-gray h4{border: 1px dashed #7c7c7c;max-width: fit-content;padding: 5px 5px;font-size: 14px;}
 .cupn-cde-lst-bg-light-gry h4{border: 1px dashed #7c7c7c;max-width: fit-content;padding: 10px;font-size: 16px;}
 .cupn-cde-lst-bg-light-gry{background: #f1f1f1;padding: 10px;margin: 14px 0 14px;border: 1px solid #ddd;border-radius: 5px;}
 .cupn-serch .form-control{padding: 0 60px 0 10px;}
-.cupn-cde-lst-bg-gray{background-color:#f7f7f7;border: 1px solid #efe9e9;padding: 10px;border-radius: 5px;margin: 20px 0 0;}
+.cupn-cde-lst-bg-gray{background-color:#f7f7f7;border: 1px solid #efe9e9;padding:0px 8px;border-radius: 5px;margin: 10px 0 0;}
 .wrhuse-grid {background-color: #919293!important;color: #fff;font-weight: bold;}
 .wrhuse-grid th{background-color: #919293!important;color: #fff;font-weight: bold;font-size: 12px;}
 .wrhuse-grid td{font-size:12px;border:1px solid #ccc;}
