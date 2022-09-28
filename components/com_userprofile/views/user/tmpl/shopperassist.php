@@ -71,6 +71,7 @@ if($_GET['r']==1){
 <?php include 'dasboard_navigation.php' ?>
 <script type="text/javascript" src="<?php echo JUri::base(true); ?>/components/com_userprofile/js/jquery.validate.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="<?php echo JUri::base(true); ?>/components/com_userprofile/assets/css/styles.css">
 <link rel="stylesheet" href="<?php echo JUri::base(true); ?>/components/com_userprofile/assets/css/demo.css">
@@ -295,12 +296,12 @@ function createCookie(name, value, days) {
         },
         // Specify validation error messages
         messages: {
-          txtMerchantName:{ required:"<?php echo $assArr['merchant_name_error'];  ?>",alphanumeric:"Enter alphabet characters"},
-          txtMerchantWebsite:{ required:"<?php echo $assArr["merchant's_website_error"];  ?>",alphanumeric2:"Please enter alphanumeric characters"},
+          txtMerchantName:{ required:"<?php echo $assArr['merchants_Name_error'];  ?>",alphanumeric:"Enter alphabet characters"},
+          txtMerchantWebsite:{ required:"<?php echo $assArr["merchants_website_error"];  ?>",alphanumeric2:"Please enter alphanumeric characters"},
           "txtItemName[]":{ required:"<?php echo $assArr['item_name_error'];  ?>",alphanumeric:"Please enter alphabet characters"},
-          "txtItemRefference[]":{ required:"<?php echo $assArr['merchant_name_error'];  ?>",alphanumeric3:"Please enter alphanumeric characters"},
+          "txtItemRefference[]":{ required:"<?php echo $assArr['item_Reference (SKU)_error'];  ?>",alphanumeric3:"Please enter alphanumeric characters"},
           "txtQuantity[]": "<?php echo $assArr['quAntity_error'];  ?>",
-          "txtDvalue[]": "<?php echo $assArr['declared_Value_(USD)_error'];  ?>",
+          "txtDvalue[]": "<?php echo $assArr['item_Price_(USD)_error']; ?>",
           "txtTprice[]": "<?php echo $assArr['item_Price_(USD)_error'];  ?>",
           "txtItemurl[]":{ required:"<?php echo $assArr['article_URL_error'];  ?>",alphanumeric2:"Please enter alphanumeric characters"},
           "txtItemdescription[]": "<?php echo $assArr['item_Description_error'];  ?>",
@@ -653,6 +654,17 @@ function createCookie(name, value, days) {
     });
     
 });
+
+//*** MulInvoices alert
+
+$joomla(document).on('change','.mulinvoices', function(){
+ //alert(this.files.length);
+ if(this.files.length > 4){
+alert('max files exceeded');
+$joomla(this).val('');
+return false;
+}
+});
 </script>
 
 <div class="container">
@@ -766,7 +778,8 @@ function createCookie(name, value, days) {
             <div class="col-sm-12 col-md-3">
               <div class="form-group">
                 <label><?php echo $assArr['add_Invoice '];?></label>
-                <input type="file" class="form-control" id="addinvoiceTxtMul_1" multiple  name="addinvoiceTxtMul_1[]" value="" >
+              <input type="file" class="form-control mulinvoices" id="addinvoiceTxtMul_1" multiple  name="addinvoiceTxtMul_1[]" value="" >
+                
               </div>
             </div>
             
@@ -1156,6 +1169,7 @@ $joomla(document).keyup('#cvv,#cardNumber',function() {
             $joomla("#cvv-error").html("<?php echo Jtext::_('COM_USERPROFILE_ENTER_THREE_DIGITS_ERROR'); ?>");
         }
     });
+   
     $joomla("#cvv,#cardNumber").on('blur',function() {
        
         $joomla("#cvv-error").html("");

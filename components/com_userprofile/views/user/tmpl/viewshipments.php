@@ -118,7 +118,7 @@ $joomla(document).ready(function() {
         <div class="row">
                <div class="col-sm-12 inventry-item">
                    <div class="col-sm-6">
-                        <h3 class=""><strong><?php echo Jtext::_('View Shipments Details');?></strong></h3>
+                        <h3 class=""><strong><?php echo $assArr['view_Shipments_Details'];?></strong></h3>
                      </div>
                     <div class="col-sm-6 form-group text-right">
                         <a style="color:white;" href="<?php echo $assArr['eXPORT_CSV']; ?>/csvdata/viewshipments_list.csv" class="btn btn-primary csvDownload export-csv"><?php echo $assArr['eXPORT_CSV'];?></a>
