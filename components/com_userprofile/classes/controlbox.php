@@ -1330,9 +1330,9 @@ class Controlbox{
         curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
 		$result=curl_exec($ch);
 		
-		echo $url;
-		echo '{"CompanyID":"'.$CompanyId.'","MUnits":"'.$txtMeasurementUnits.'","Shipment_Id":"'.$txtTypeOfShipperName.'","ServiceType_Id":"'.$txtServiceType.'","RateId":"'.$txtIdrate.'","Source":"'.$txtSourceCntry.'","Destination":"'.$txtDestinationCntry.'","WUnits":"'.$txtWeightUnits.'","Total_Cost":"'.$txtquotationCost.'","discount":"'.$discount.'","Final_Cost":"'.$txtfinalCost.'","addtServiceCost":"'.$addservcost.'","addtServiceId":"'.$addservid.'","itemQty": "'.$txtqty.'","isShowInh": "0,0,","isShowOtherChrg": "0,0,","IdCust":"'.$CustId.'","Quote_Id":"'.$quotid.'","Note":"'.$txtNotes.'","IdServ":"'.$txtIdServ.'","Status":"'.$txtIns.'","TypeBusiness":"'.$bustype.'","ActivationKey":"123456789","Items_List":['.substr($rows,0,-1).']}';
-		var_dump($result);exit;
+// 		echo $url;
+// 		echo '{"CompanyID":"'.$CompanyId.'","MUnits":"'.$txtMeasurementUnits.'","Shipment_Id":"'.$txtTypeOfShipperName.'","ServiceType_Id":"'.$txtServiceType.'","RateId":"'.$txtIdrate.'","Source":"'.$txtSourceCntry.'","Destination":"'.$txtDestinationCntry.'","WUnits":"'.$txtWeightUnits.'","Total_Cost":"'.$txtquotationCost.'","discount":"'.$discount.'","Final_Cost":"'.$txtfinalCost.'","addtServiceCost":"'.$addservcost.'","addtServiceId":"'.$addservid.'","itemQty": "'.$txtqty.'","isShowInh": "0,0,","isShowOtherChrg": "0,0,","IdCust":"'.$CustId.'","Quote_Id":"'.$quotid.'","Note":"'.$txtNotes.'","IdServ":"'.$txtIdServ.'","Status":"'.$txtIns.'","TypeBusiness":"'.$bustype.'","ActivationKey":"123456789","Items_List":['.substr($rows,0,-1).']}';
+// 		var_dump($result);exit;
 		
         $msg=json_decode($result);
         return $msg->Description;
@@ -1551,10 +1551,12 @@ if($priceStr != ""){
 
     // paypal service
         
+        
     //  $req='{"CompanyID":"'.$CompanyId.'","paymentOption":{"_amt":"'.$amtStr.'","_cardno":"'.$cardnumberStr.'","_ccno":"'.$txtccnumberStr.'","_index":"1","_month":"'.$MonthDropDownListStr.'","_nameoncard":"'.$txtNameonCardStr.'","_year":"'.$YearDropDownListStr.'"},"billFormIdsList":['.$wrhsloop.'],"idks":"'.$invidkStr.'","qtys":"'.$qtyStr.'","billFormIds":"'.$wherhourecStr.',","ShippingCost":"'.$amtStr.'","ConsigneeId":"'.$consignidStr.'","Comments":"'.$specialinstructionStr.'","PaymentType":"'.$cc.'","CustId":"'.$CustId.'","id_serv":"'.$shipservtStr.'","paymentgateway":"'.$pg.'","TransactionID":"'.$tid.'","UploadedFile":"'.$invf.'","fileName":"'.$nameStr.'","fileExtension":"'.$extStr.'","InHouseNo":"'.$inhouse.'","InhouseId":"'.$inhouseid.'","EachItemName":"'.$articleStr.'","EachItemQty":"'.$qtyStr.'","TotalitemsPrice":"'.$priceStr.'","id_rate_type":"'.$ratetype.'","Conveniencefees":"'.$Conveniencefees.'","InsuranceCost":"'.$insuranceCost.'","domainname":"'.$domainname.'","domainurl":"'.$domainurl.'","PromoCouponDiscountAmt":"'.$couponDiscAmt .'","PromoCouponCode":"'.$couponCodeStr.'"}';
     //  echo $req."##".$msg->InvoiceId;
     //  var_dump($result);
     //  exit;
+    
         
 		mb_internal_encoding('UTF-8');
         $content_params =JComponentHelper::getParams( 'com_userprofile' );
@@ -1571,7 +1573,10 @@ if($priceStr != ""){
 		$result=curl_exec($ch);
 		$msg=json_decode($result);
 
-	 
+// 	  $req='{"CompanyID":"'.$CompanyId.'","paymentOption":{"_amt":"'.$amtStr.'","_cardno":"'.$cardnumberStr.'","_ccno":"'.$txtccnumberStr.'","_index":"1","_month":"'.$MonthDropDownListStr.'","_nameoncard":"'.$txtNameonCardStr.'","_year":"'.$YearDropDownListStr.'"},"billFormIdsList":['.$wrhsloop.'],"idks":"'.$invidkStr.'","qtys":"'.$qtyStr.'","billFormIds":"'.$wherhourecStr.',","ShippingCost":"'.$amtStr.'","ConsigneeId":"'.$consignidStr.'","Comments":"'.$specialinstructionStr.'","PaymentType":"'.$cc.'","CustId":"'.$CustId.'","id_serv":"'.$shipservtStr.'","paymentgateway":"'.$pg.'","TransactionID":"'.$tid.'","UploadedFile":"'.$invf.'","fileName":"'.$nameStr.'","fileExtension":"'.$extStr.'","InHouseNo":"'.$inhouse.'","InhouseId":"'.$inhouseid.'","EachItemName":"'.$articleStr.'","EachItemQty":"'.$qtyStr.'","TotalitemsPrice":"'.$priceStr.'","id_rate_type":"'.$ratetype.'","Conveniencefees":"'.$Conveniencefees.'","InsuranceCost":"'.$insuranceCost.'","domainname":"'.$domainname.'","domainurl":"'.$domainurl.'","PromoCouponDiscountAmt":"'.$couponDiscAmt .'","PromoCouponCode":"'.$couponCodeStr.'"}';
+//      echo $req."##".$msg->InvoiceId;
+//      var_dump($result);
+//      exit;
 	 
         
         
@@ -1981,7 +1986,9 @@ if($priceStr != ""){
         //curl_setopt($ch, CURLOPT_POSTFIELDS,'{"Destination":"'.$dt.'","GrossWeight":"'.$gwt.'","Source":"'.$source.'","VolumetricWeight":"'.$vmetric.'","ActivationKey":"123456789","ShippingType":"'.$stype.'"}');
         curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
 		$result=curl_exec($ch);
-		var_dump($result);exit;
+		
+		//var_dump($result);exit;
+		
         $msg=json_decode($result);
         if($msg->Data[0]->ShippingCost)
         return $msg->Data[0]->ChargeableWeight.":".$msg->Data[0]->ShippingCost;
@@ -2040,6 +2047,10 @@ if($priceStr != ""){
   "fileExtension2": "'.$filext[2].'",
   "fileExtension3": "'.$filext[3].'",
   "fileExtension4": ""}';
+  
+//     	echo $url;
+//         echo '{"CompanyID":"'.$CompanyId.'","objCardDetails":{"_amt":"'.$amtStr.'","_cardno":"'.$cardnumberStr.'","_ccno":"'.$txtccnumberStr.'","_index":1,"_month":"'.$MonthDropDownListStr.'","_nameoncard":"'.$txtNameonCardStr.'","_year":"'.$YearDropDownListStr.'"},"Comments":"'.$txtSpecialInStr.'","CreatedBy":"portal","CustomerId":"'.$CustId.'","LocalShipCost":"'.$txtShippChargesStr.'","LocalTax":"'.$txtTaxesStr.'","PurchseType":"0","Status":"yes","paymenttype":"'.$txtPaymentMethod.'","paymentgateway":"'.$paymentgateway.'","TransactionID":"'.$tid.'","CorrelationID":"'.$corid.'","ACK":"'.$ack.'","liInventoryPurchasesVM": ['.$liInventoryPurchasesVM.']}';
+//  		var_dump($result);exit;
       
     
         $content_params =JComponentHelper::getParams( 'com_userprofile' );
@@ -2052,9 +2063,7 @@ if($priceStr != ""){
         curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
 		$result=curl_exec($ch);
 		
-//  		echo $url;
-//          echo '{"CompanyID":"'.$CompanyId.'","objCardDetails":{"_amt":"'.$amtStr.'","_cardno":"'.$cardnumberStr.'","_ccno":"'.$txtccnumberStr.'","_index":1,"_month":"'.$MonthDropDownListStr.'","_nameoncard":"'.$txtNameonCardStr.'","_year":"'.$YearDropDownListStr.'"},"Comments":"'.$txtSpecialInStr.'","CreatedBy":"portal","CustomerId":"'.$CustId.'","LocalShipCost":"'.$txtShippChargesStr.'","LocalTax":"'.$txtTaxesStr.'","PurchseType":"0","Status":"yes","paymenttype":"'.$txtPaymentMethod.'","paymentgateway":"'.$paymentgateway.'","TransactionID":"'.$tid.'","CorrelationID":"'.$corid.'","ACK":"'.$ack.'","liInventoryPurchasesVM": ['.$liInventoryPurchasesVM.']}';
-//  		var_dump($result);exit;
+
 		
         $msg=json_decode($result);
         
@@ -2274,6 +2283,7 @@ if($priceStr != ""){
         $result=curl_exec($ch);
         
         /** Debug **/
+        
         // echo $url;
         // echo $result;exit;
        
@@ -2387,7 +2397,10 @@ if($priceStr != ""){
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLINFO_HEADER_OUT, true);
         $result=curl_exec($ch);
-        //var_dump($url);exit;
+        
+        // echo $url;
+        // var_dump($url);exit;
+        
         $msg=json_decode($result);
         $i=1;
         foreach($msg->Data as $rg){
@@ -2618,7 +2631,11 @@ if($priceStr != ""){
         curl_setopt($ch, CURLOPT_POSTFIELDS,'{ "CompanyID":"'.$CompanyId.'","Password":"'.$pwd.'","resetToken":"'.$token.'", "CustId":"'.$user.'", "ActivationKey":"123456789"}');
         curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
 		$result=curl_exec($ch);
-        //var_dump($result);exit;
+        
+        //**Debug
+    //  	echo $url;
+    //     echo '{ "CompanyID":"'.$CompanyId.'","Password":"'.$pwd.'","resetToken":"'.$token.'", "CustId":"'.$user.'", "ActivationKey":"123456789"}';
+    //     var_dump($result);exit;
         $msg=json_decode($result);
         return $msg;
     }
@@ -5472,6 +5489,7 @@ if($priceStr != ""){
         
         $ch = curl_init();
         $url=$content_params->get( 'webservice' )."/api/ImgUpldFTP/ConvertResxXmlToJson?companyId=".$CompanyId."&language=".$langSel;
+        //$url=$content_params->get( 'webservice' )."/api/ImgUpldFTP/GetdataForLS?companyId=".$CompanyId."&language=".$langSel;
         curl_setopt($ch, CURLOPT_URL,$url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $resp = curl_exec($ch);
@@ -5619,18 +5637,18 @@ if($priceStr != ""){
                  
             if($promocode->Transactions > 0){   
                 if($promocode->MinThreshold && $promocode->MaxDiscount){
-                         if($discountAmt > $promocode->MinThreshold && $discountAmt < $promocode->MaxDiscount){
+                         if($discountAmt < $promocode->MinThreshold){
                             $respStr .='<div class="cupn-cde-lst-bg-gray">
                                <h4><strong>'.$promocode->Promo_CouponCode.'</strong></h4>
                                <p>You can save $'.$discountAmt.'<a class="applyCode" style="cursor: pointer;" data-code="'.$promocode->Promo_CouponCode.'" data-val="'.$discountAmt.'" >Apply Coupon</a></p>
-                               <p style="display:none;">You can save $'.$discountAmt.'<a class="removeCode" style="cursor: pointer;" data-code="'.$promocode->Promo_CouponCode.'" data-val="'.$discountAmt.'">Applied - Remove Coupon</a></p>
+                               <p style="display:none;">You can save $'.$discountAmt.'<a class="removeCode" style="cursor: pointer;" data-code="'.$promocode->Promo_CouponCode.'" data-val="'.$discountAmt.'">Applied <i class="fa fa-times-circle" aria-hidden="true"></i> </a></p>
                             </div>';
                          }
                 }else{
                     $respStr .='<div class="cupn-cde-lst-bg-gray">
                                <h4><strong>'.$promocode->Promo_CouponCode.'</strong></h4>
                                <p >You can save $'.$discountAmt.'<a class="applyCode" style="cursor: pointer;" data-code="'.$promocode->Promo_CouponCode.'" data-val="'.$discountAmt.'" >Apply Coupon</a></p>
-                               <p style="display:none;">You can save $'.$discountAmt.'<a class="removeCode" style="cursor: pointer;" data-code="'.$promocode->Promo_CouponCode.'" data-val="'.$discountAmt.'">Applied - Remove Coupon</a></p>
+                               <p style="display:none;">You can save $'.$discountAmt.'<a class="removeCode" style="cursor: pointer;" data-code="'.$promocode->Promo_CouponCode.'" data-val="'.$discountAmt.'">Applied <i class="fa fa-times-circle" aria-hidden="true"></i> </a></p>
                             </div>';
                 }
             }
