@@ -993,4 +993,4 @@ $joomla(document).ready(function(){
         
 		</div>
 	</div>
-</div>x
+</div>
