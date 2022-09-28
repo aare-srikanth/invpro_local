@@ -380,9 +380,9 @@ $joomla(document).ready(function(){
           txtHeight: "<?php echo $assArr['height_error']; ?>",
          txtValuemetric: "Please enter item Length",
          txtNotes:"Please enter Notes",
-          "txtItemName[]": "<?php echo Jtext::_("COM_USERPROFILE_QUOTATION_SELECT_ITEM_NAME")  ?>",
+          "txtItemName[]": "<?php echo $assArr['item_name_error']; ?>",
           "txtPackageList[]": "<?php echo Jtext::_("COM_USERPROFILE_QUOTATION_SELECT_PACKAGE")  ?>",
-          "txtQuantity[]": "<?php echo Jtext::_("COM_USERPROFILE_QUOTATION_SELECT_QUANTITY")  ?>",
+          "txtQuantity[]": "<?php echo $assArr['quAntity_error']; ?>",
           "txtWeight[]": "<?php echo Jtext::_("COM_USERPROFILE_QUOTATION_SELECT_WEIGHT")  ?>"
           
         },
@@ -573,11 +573,11 @@ function validation(){
 		<div class="panel-body">
 			<div class="row">
 				<div class="col-sm-12">
-					<h4 class="sub_title"><strong><?php echo Jtext::_('COM_USERPROFILE_QUOTATION_HEADING')  ?> : <?php echo $resWp->Quote_Id;?></strong></h4>
+					<h4 class="sub_title"><strong><?php echo $assArr['Online_Quote_Id'];  ?> : <?php echo $resWp->Quote_Id;?></strong></h4>
 					
 				</div>
 			<div class="col-sm-12 text-right">
-					<p><?php echo Jtext::_('COM_USERPROFILE_QUOTATION_REQUIRED_FIELDS');  ?></p>	
+					<p><?php echo $assArr['Field_with_asterisks_are_required'];  ?></p>	
 			</div>
 			
 			</div>
@@ -671,12 +671,12 @@ function validation(){
             <div class="rdo_cust">
                 <div class="rdo_rd1">
                   <input type="checkbox" name="txtIns" value='true' class="chknew">
-                  <label><?php echo Jtext::_('COM_USERPROFILE_QUOTATION_EQUIPMENT_REQUIRED')  ?>?</label>
+                  <label><?php echo $assArr['If a special equipment required_fill in the Notes'];  ?>?</label>
                 </div>
             </div>
           
             <div class="form-group">
-                <label><?php echo Jtext::_('COM_USERPROFILE_QUOTATION_NOTES')  ?> </label>
+                <label><?php echo $assArr['notes'];  ?> </label>
                <input type="text" class="form-control" name="txtNotes" maxlength="250">  
             </div>
             
@@ -769,10 +769,10 @@ function validation(){
 			<div class="shp-blk1 quot-shiprates">
 				<table width="100%" class="table">
 					<tr>
-						<td><p class="shpprice"> <label><?php echo Jtext::_('COM_USERPROFILE_QUOTATION_TABLE_SHIPPING_COST')  ?> </label><span id="divquotationCost" >$0.00</span> </p></td>
-						<td><p class="shpprice"><label><?php echo Jtext::_('COM_USERPROFILE_QUOTATION_TABLE_ADDITIONAL_COST')  ?> </label><span id="divadditionalCost" >$0.00</span> </p></td>
-						<td><p class="shpprice"><label><?php echo Jtext::_('COM_USERPROFILE_QUOTATION_TABLE_DISCOUNT')  ?> </label><span id="divdiscountCost" >$0.00</span></p></td>
-						<td><p class="shpprice"><label><?php echo Jtext::_('COM_USERPROFILE_QUOTATION_TABLE_FINAL_COST')  ?> </label><span id="divfinalCost" >$0.00</span></p></td>
+						<td><p class="shpprice"> <label><?php echo $assArr['shipping_Cost'];  ?> </label><span id="divquotationCost" >$0.00</span> </p></td>
+						<td><p class="shpprice"><label><?php echo $assArr['additional_Cost'];  ?> </label><span id="divadditionalCost" >$0.00</span> </p></td>
+						<td><p class="shpprice"><label><?php echo $assArr['discount']; ?> </label><span id="divdiscountCost" >$0.00</span></p></td>
+						<td><p class="shpprice"><label><?php echo $assArr['final_Cost']; ?> </label><span id="divfinalCost" >$0.00</span></p></td>
 					</tr>
 				</table>
                     <div id="loading-image" style="display:none" ><img src="/components/com_userprofile/images/loader.gif"></div>
@@ -828,7 +828,7 @@ function validation(){
           <div class="text-right">
           <input type="button" value="Close" data-dismiss="modal" class="btn btn-danger">
           </div>
-          <h4 class="modal-title"><strong>View Shipment</strong></h4>
+          <h4 class="modal-title"><strong><?echo $assArr['view_Shipments'];?></strong></h4>
         </div>
         <div class="modal-body">
           <div class="row">

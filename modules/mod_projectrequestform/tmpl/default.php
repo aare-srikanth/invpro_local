@@ -32,6 +32,15 @@ if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
 		$uri = 'http://';
 	}
 	$uri .= $_SERVER['HTTP_HOST'];
+	
+	// get labels
+    $lang=$session->get('lang_sel');
+    $res=Controlbox::getlabels($lang);
+    $assArr = [];
+    
+    foreach($res->data as $response){
+    $assArr[$response->id]  = $response->text;
+    }
 
 ?>
 
@@ -113,16 +122,16 @@ $joomla(document).ready(function() {
             },
             // Specify validation error messages
             messages: {
-              txtAccountnumber: {required:"Please enter Account Id"},
-              txtAccountname: {required:"Please enter name"/*,alphanumeric:"Please enter alpha characters"*/},
-              txtInventory: {required:"Please check Inventory"},
-              txtProjectname: {required:"Please enter Project Name"},
-              txtProductTitle: {required:"Please enter Product Name"},
-              "txtFnsku[]": {required:"Please enter FNSKU"},
-              "txtFnskuquanity[]": {required:"Please enter quantity"},
+              txtAccountnumber: "<?php echo $assArr['Account_Number_error'];?>",
+              txtAccountname: {required:"<?php echo $assArr['Account Name_error'];?>"/*,alphanumeric:"Please enter alpha characters"*/},
+              txtInventory: {required:"<?php echo $assArr['Inventory_error'];?>"},
+              txtProjectname: {required:"<?php echo $assArr['Project Name_error'];?>"},
+              txtProductTitle: {required:"<?php echo $assArr['Product Name FNSKU Title_error'];?>"},
+              "txtFnsku[]": {required:"<?php echo $assArr['Provide FNSKU ex. X00BT4N3V_error'];?>"},
+              "txtFnskuquanity[]": {required:"<?php echo $assArr[' quantity of product per FNSKU_error'];?>"},
               "txtUPC[]": {required:"Please enter UPC"},
-              "txtService[]": {required:"Please check service"},
-              dateTxt: {required:"Please enter Date"}
+              "txtService[]": {required:"<?php echo $assArr['service_Type_error'];?>"},
+              dateTxt: {required:"<?php echo $assArr['Date Requested_error'];?>"}
               
             },
             // Make sure the form is submitted to the destination defined
@@ -535,15 +544,15 @@ $joomla(document).ready(function() {
         <form name="userprofileFormOne" id="userprofileFormOne" method="post" action="" enctype="multipart/form-data">
         <div class="">
           <div class="acrdin-blk">
-            <div class="accordion"> IPS / RAR <i class="fa fa-caret-down" aria-hidden="true"></i></div>
+            <div class="accordion"><?php echo $assArr['IPS/RAR'];?> <i class="fa fa-caret-down" aria-hidden="true"></i></div>
             <div class="panel acrdin-bdy">
               <div class="col-md-12 form-group">
-                <p><strong><i>Project Request Form: Scope of work</i></strong></p>
+                <p><strong><i><?php echo  $assArr['Project Request Form_Scope of work'];?></i></strong></p>
                 <p><i>Be SMART and be Specific! Clearly define the scope of your project as concisely as possible. Your clear instructions will help us deliver a successful project!</i></p>
               </div>
               <div class="col-md-6">
                 <div class="row col-md-12 form-group">
-                  <label class="col-md-4 col-form-label">Account Number<sub>*</sub></label>
+                  <label class="col-md-4 col-form-label"><?echo $assArr['Account_Number'];?><sub>*</sub></label>
                   <div class="col-md-8">
                     <input type="text" class="form-control" maxlength="50" name="txtAccountnumber" id="txtAccountnumber">
                   </div>
@@ -577,7 +586,7 @@ $joomla(document).ready(function() {
               <div class="col-md-6">
                   <div class="row">
                 <div class="col-md-12 form-group">
-                  <label class="col-md-4 col-form-label">Account Name<sub>*</sub></label>
+                  <label class="col-md-4 col-form-label"><?echo $assArr['Account_Name'];?><sub>*</sub></label>
                   <div class="col-md-8">
                     <input type="text" class="form-control" maxlength="50" name="txtAccountname"  id="txtAccountname">
                   </div>
@@ -598,7 +607,7 @@ $joomla(document).ready(function() {
               </div>
               <div class="form-group col-md-6">
                 <div class="form-group">
-                  <label class="col-md-4 col-form-label">Define Project<sub>*</sub></label>
+                  <label class="col-md-4 col-form-label"><?php echo $assArr['Define_Project'];?><sub>*</sub></label>
                   <div class="col-md-8">
                     <input type="text" class="form-control" maxlength="50"  name="txtProjectname"  id="txtProjectname">
                      <div class="projectNameError"></div>
@@ -610,10 +619,10 @@ $joomla(document).ready(function() {
             </div>
           </div>
           <div class="acrdin-blk">
-            <div class="accordion"> IPS / RAR <i class="fa fa-caret-down" aria-hidden="true"></i></div>
+            <div class="accordion"><?php echo $assArr['IPS/RAR'];?> <i class="fa fa-caret-down" aria-hidden="true"></i></div>
             <div class="panel acrdin-bdy">
                   <div class="form-group col-md-6">
-                      <label class="col-md-4 col-form-label">Product Name (FNSKU Title)<sub>*</sub></label>
+                      <label class="col-md-4 col-form-label"><?php echo $assArr['Product Name_(FNSKU Title)'];?><sub>*</sub></label>
                       <div class="col-md-8">
                        <input type="text" class="form-control" maxlength="50"  name="txtProductTitle"  id="txtProductTitle">
                     </div>
@@ -622,19 +631,19 @@ $joomla(document).ready(function() {
                     <div class="rows">  
                     <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
                       <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12 cls-addcol">
-                          <label class="col-form-label">Provide FNSKU ex. X00BT4N3V<sub>*</sub></label>
+                          <label class="col-form-label"><?echo $assArr['Provide_FNSKU'];?> ex. X00BT4N3V<sub>*</sub></label>
                             <input type="text" class="form-control" maxlength="20"  name="txtFnsku[]"  id="1">
                       </div>
                       <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12 cls-addcol">
-                          <label class="col-form-label">What is the quantity of product per FNSKU?<sub>*</sub></label>
+                          <label class="col-form-label"><?echo $assArr['What is the quantity of product per_FNSKU'];?><sub>*</sub></label>
                             <input type="text" class="form-control" maxlength="5" name="txtFnskuquanity[]" id="2" >
                       </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12 cls-addcol">
-                      <label class="col-form-label">UPC<sub>*</sub></label>
+                      <label class="col-form-label"><?php echo $assArr['upc'];?><sub>*</sub></label>
                         <input type="text" class="form-control" maxlength="20"  name="txtUPC[]"  id="3">
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12 cls-addcol">
-                          <label class="col-form-label">SKU</label>
+                          <label class="col-form-label"><?php echo $assArr['sKU'];?></label>
                             <input type="text" class="form-control" maxlength="20" name="txtSKU[]" id="4" >
                         </div>
                   </div>
@@ -648,14 +657,14 @@ $joomla(document).ready(function() {
             </div>
           </div>
           <div class="acrdin-blk">
-            <div class="accordion"> IPS / RAR <i class="fa fa-caret-down" aria-hidden="true"></i></div>
+            <div class="accordion">  <i class="fa fa-caret-down" aria-hidden="true"></i></div>
         <div class="panel acrdin-bdy">
             
             <div id="getservicesDiv"></div>
             
               <div class="col-md-6">
                 <div class="row col-md-12 form-group dt-pkr-blk">
-                  <label class="col-md-4 col-form-label">Date Requested<sub>*</sub></label>
+                  <label class="col-md-4 col-form-label"><?php echo $assArr['Date_Requested'];?><sub>*</sub></label>
                   <div class="col-md-8">
                     <input type="text" class="form-control" id="dateTxt" name="dateTxt" >
                   </div>
@@ -683,7 +692,7 @@ $joomla(document).ready(function() {
                                     <div class="input-grp srvc-grp col-md-3 col-sm-6 col-xs-6">
                                         <div class="input-group finputfile">
                                             <span class="btn-block"> 
-                                            <span class="btn btn-file"> Choose File                 
+                                            <span class="btn btn-file"> <?php echo $assArr['upload'];?>                 
                                             <input type="file" class="uploadFilenames"  multiple name="uploadFiles[]" id="uploadFiles_1">
                                             </span></span>
                                         </div>
@@ -710,7 +719,7 @@ $joomla(document).ready(function() {
           
           
           <div class="acrdin-blk">
-              <div class="accordion">Project Request Complete<i class="fa fa-caret-down" aria-hidden="true"></i></div>
+              <div class="accordion"><?echo $assArr['Project Request_Complete'];?><i class="fa fa-caret-down" aria-hidden="true"></i></div>
               <div class="panel acrdin-bdy">
                 <div class="col-md-12">
                   <p>Thank you for completing the request form. Upon submission of this form, our warehouse will be notified of your project. If we have any questions or need additional clarification, someone for our Care Team will be in contact with you. </p>

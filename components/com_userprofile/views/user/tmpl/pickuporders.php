@@ -1352,10 +1352,10 @@ function validation(){
         <div class="shp-blk1 quot-shiprates">
 			<table width="100%" class="table">
 				<tr>
-					 <td><p class="shpprice"><label><?php echo Jtext::_('COM_USERPROFILE_ORDER_TABLE_SHIPPING_COST')  ?> </label><span id="divquotationCost" >$0.00</span> </p></td>
-					 <td><p class="shpprice"><label><?php echo Jtext::_('COM_USERPROFILE_ORDER_TABLE_ADDITIONAL_COST')  ?> </label><span id="divadditionalCost" >$0.00</span> </p></td>
-					 <td><p class="shpprice"><label><?php echo Jtext::_('COM_USERPROFILE_ORDER_TABLE_DISCOUNT')  ?> </label><span id="divdiscountCost" >$0.00</span></p></td>
-					 <td><p class="shpprice"><label><?php echo Jtext::_('COM_USERPROFILE_ORDER_TABLE_FINAL_COST')  ?> </label><span id="divfinalCost" >$0.00</span> </p></td>
+					 <td><p class="shpprice"><label><?php echo $assArr['shipping_Cost']; ?> </label><span id="divquotationCost" >$0.00</span> </p></td>
+					 <td><p class="shpprice"><label><?php echo $assArr['additional_Cost'];  ?> </label><span id="divadditionalCost" >$0.00</span> </p></td>
+					 <td><p class="shpprice"><label><?php echo  $assArr['discount']; ?> </label><span id="divdiscountCost" >$0.00</span></p></td>
+					 <td><p class="shpprice"><label><?php echo  $assArr['final_Cost'];  ?> </label><span id="divfinalCost" >$0.00</span> </p></td>
 				</tr>
 			</table>							
 			<div id="loading-image" style="display:none" ><img src="/components/com_userprofile/images/loader.gif"></div>               

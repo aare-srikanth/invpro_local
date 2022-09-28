@@ -195,6 +195,7 @@ $joomla(document).ready(function() {
            
          if($joomla(this).attr('id') == rs){
            htmse+='<tr id="dfg" class="'+rs+'">'+$joomla(this).html()+'</tr>';
+           
          }
        })
        if($joomla(this).val()=='-'){
@@ -206,14 +207,32 @@ $joomla(document).ready(function() {
          }    
      });
 
+////****
+
+$joomla(document).on('change','select[name=M_table_length]',function(){
+  
+  
+  
+   $joomla('.wrchild').each( function () {
+    //   $joomla('.wrchild').trigger('click');
+        if($joomla(this).val()=='-'){
+              $joomla(this).trigger('click');
+           
+         }
+       
+       
+   });
+    
+ });
 
 });
+
 
 
 </script>
 <div class="container">
   <div class="main_panel persnl_panel">
-    <div class="main_heading"><?php echo Jtext::_('COM_USERPROFILE_ALERTS_MAIN_HEADING');?></div>
+    <div class="main_heading"><?php echo $assArr['MY_PACKAGES'];?></div>
     <div class="panel-body">
       <div class="row">
         <div class="col-sm-12 tab_view">
@@ -235,12 +254,13 @@ $joomla(document).ready(function() {
             if($menuCustType == "CUST" || ($menuCustType == "COMP" && $maccarr['FulFillment'] == "False") ){  ?>
                 <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=orderprocessalerts"><?php echo $assArr['my_Pre_Alerts'];?></a> </li>
             <?php }else if($menuCustType == "COMP" && $maccarr['FulFillment'] == "True"){  ?>
-                <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=inventoryalerts"><?php echo $assArr['ready_to_ship'];?></a> </li>
+                <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=inventoryalerts"><?php echo $assArr['inventory_Pre-Alerts'];?></a> </li>
             <?php } ?>
             
-            <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=orderprocess"><?php echo $assArr['shipment_History'];?></a> </li>
+            <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=orderprocess"><?php echo $assArr['ready_to_ship'];?></a> </li>
+            <li> <a class=""  href="index.php?option=com_userprofile&view=user&layout=cod"> <?php echo $assArr['cOD'];?> </a> </li>
             <!--<li> <a class="" href="index.php?option=com_userprofile&view=user&layout=cod">COD</a> </li>-->
-            <li> <a class="active"><?php echo Jtext::_('COM_USERPROFILE_HISTORY_TITLE3');?></a> </li>
+            <li> <a class="active"><?php echo $assArr['shipment_History'];?></a> </li>
           </ul>
         </div>
       </div>
