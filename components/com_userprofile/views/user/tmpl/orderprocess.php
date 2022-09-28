@@ -615,8 +615,6 @@ margin: 0 auto;
         
          $joomla(document).on('click','.discardShip',function(){
              
-            
-             
              var wrhsStr = $joomla(this).closest("tr").find(".warehouseStr").html();
              var disSno = $joomla(this).attr("data-sno");
              var discardRes = false;
@@ -1089,6 +1087,9 @@ margin: 0 auto;
        });
        
       $joomla('.btn-close1,#step1 .btn-danger,#step2 .btn-danger,#step3 .btn-danger,.not_same_error').on("click",function(){
+            $joomla(".cupn-cde p").hide();
+            $joomla(".cupn-cde a").show();
+            $joomla(".cupn-cdes").hide();
           $joomla(".paypalCreditDebit").hide();
           if($joomla("#exampleModal").css('display')=="block"){
               console.log('exampleModal');
@@ -2657,7 +2658,7 @@ margin: 0 auto;
        			}
        		});*/
                $joomla('#ord_keep .modal-body').hide();
-               $joomla('#ord_keep .modal-body2').html('<img src="/components/com_userprofile/images/loader.gif">');
+               $joomla('#ord_keep .modal-body2').html('<img src="<?php echo JURI::base(); ?>/components/com_userprofile/images/loader.gif">');
              form.submit();
            }
            });    
@@ -2709,16 +2710,6 @@ margin: 0 auto;
        });
        
        
-       
-       
-   
-      
-           
-      
-       
-       
-       
-   
       $joomla("input[name='priceStr[]']").live('keypress',function (e) {
        if(e.which == 46){
            if($joomla(this).val().indexOf('.') != -1) {
@@ -2873,9 +2864,10 @@ margin: 0 auto;
    	
    	// getcouponcodes data and promocodes
    	
-   $joomla('.cupn-cde a').on('click',function(e){
+   $joomla(document).on('click','.cupn-cde a',function(e){
    	    e.preventDefault();
    	    $joomla('.cupn-cde p').show();
+   	    
    	   $joomla.ajax({
    	        url: "<?php echo JURI::base(); ?>index.php?option=com_userprofile&task=user.get_ajax_data&jpath=<?php echo urlencode(JPATH_SITE); ?>&pseudoParam="+new Date().getTime(),
    			data: { "getcouponcodeflag":1,"user":"<?php echo $user; ?>","amount":$joomla("input[name='amount']").val(),"volmetStr":$joomla("input[name='volmetStr']").val(),"volStr":$joomla("input[name='volStr']").val(),"qtyStr":$joomla("input[name='qtyStr']").val(),"wtStr":$joomla("input[name='weightStr']").val(),"shippingCost":$joomla("input[name='shipmentCost']").val()},
@@ -2886,11 +2878,27 @@ margin: 0 auto;
                    },    
    			success: function(data){
    			    $joomla(".page_loader").hide();
+   			    $joomla(".cupn-cdes").show();
    			    $joomla(".cupn-cdes").html(data);
    			}
    		}); 
    		$joomla(this).hide();
    	});
+   	
+   	//get alert
+  
+
+ 
+ 
+
+//  $joomla("#j_table").on('click','.discardShip',function(){
+//       $joomla(this).closest('td').remove();
+//      });
+
+
+ 
+  
+
    	
    	
            // Initialize form validation on the registration form.
@@ -3430,6 +3438,7 @@ margin: 0 auto;
                   <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=inventoryalerts"><?php echo $assArr['my_Pre_Alerts'];?></a> </li>
                   <?php } ?>
                   <li> <a class="active" href="index.php?option=com_userprofile&view=user&layout=orderprocess"><?php echo $assArr['ready_to_ship'];?></a> </li>
+                  <li> <a class=""  href="index.php?option=com_userprofile&view=user&layout=cod"> <?php echo $assArr['cOD'];?> </a> </li>
                   <!--<li> <a class="" href="index.php?option=com_userprofile&view=user&layout=cod">COD</a> </li>-->
                   <li> <a class="" href="index.php?option=com_userprofile&view=user&layout=shiphistory"><?php echo $assArr['shipment_History'];;?></a> </li>
                </ul>
@@ -3766,8 +3775,8 @@ margin: 0 auto;
                                        echo '<tr style="display:none;">
                                                 <td></td>
                                         		<td class="action_btns">
-                                        		<input type="checkbox"  name="txtId" class="txtId selinpt-chksub" data-sno="item_wr_'.$i.'"  value="'.$rg->ItemName.':'.$res->BillFormNo.':'.$rg->ItemQuantity.':'.$res->TrackingId.':'.$rg->ItemIdk.':'.$rg->cost.':'.$rg->cost.':'.$idf.':'.$volres.':'.$res->ServiceType.':'.$res->Source.':'.$res->Dest_Cntry.':'.$res->MeasureUnits.':'.$res->Length.':'.$res->Width.':'.$res->Height.':'.$res->Weight.':'.$res->WeightUnit.':'.$sim.':'.$res->ShipmentType.':'.$res->SourceHub.':'.$res->DestinationCountryName.':'.$res->DestinationHubName.':'.$rg->Insurance.':'.$rg->ItemPrice.':'.$sim1.':'.$sim2.':'.$sim3.':'.$res->BusinessType.':'.$rg->Volume.':'.$rg->VolumetricWeight.'">
-                                        		 <input type="button" name="ship" class="ship" data-sno="'.$idf.'" data-id="'.$rg->ItemName.':'.$res->BillFormNo.':'.$rg->ItemQuantity.':'.$res->TrackingId.':'.$rg->ItemIdk.':'.$rg->cost.':'.$rg->cost.':'.$idf.':'.$volres.':'.$res->ServiceType.':'.$res->Source.':'.$res->Dest_Cntry.':'.$res->MeasureUnits.':'.$res->Length.':'.$res->Width.':'.$res->Height.':'.$res->Weight.':'.$res->WeightUnit.':'.$sim.':'.$res->ShipmentType.':'.$res->SourceHub.':'.$res->DestinationCountryName.':'.$res->DestinationHubName.':'.$rg->Insurance.':'.$rg->ItemPrice.':'.$sim1.':'.$sim2.':'.$sim3.':'.$res->BusinessType.':'.$rg->Volume.':'.$rg->VolumetricWeight.'" data-target="#ord_ship" title="'.Jtext::_('COM_USERPROFILE_SHIP_HISTORY_STATUS_SHIP').'">';
+                                        		<input type="checkbox"  name="txtId" class="txtId selinpt-chksub" data-sno="item_wr_'.$idf.'"  value="'.$rg->ItemName.':'.$res->BillFormNo.':'.$rg->ItemQuantity.':'.$res->TrackingId.':'.$rg->ItemIdk.':'.$rg->cost.':'.$rg->cost.':item_wr_'.$idf.':'.$volres.':'.$res->ServiceType.':'.$res->Source.':'.$res->Dest_Cntry.':'.$res->MeasureUnits.':'.$res->Length.':'.$res->Width.':'.$res->Height.':'.$res->Weight.':'.$res->WeightUnit.':'.$sim.':'.$res->ShipmentType.':'.$res->SourceHub.':'.$res->DestinationCountryName.':'.$res->DestinationHubName.':'.$rg->Insurance.':'.$rg->ItemPrice.':'.$sim1.':'.$sim2.':'.$sim3.':'.$res->BusinessType.':'.$rg->Volume.':'.$rg->VolumetricWeight.'">
+                                        		 <input type="button" name="ship" class="ship" data-sno="item_wr_'.$idf.'" data-id="'.$rg->ItemName.':'.$res->BillFormNo.':'.$rg->ItemQuantity.':'.$res->TrackingId.':'.$rg->ItemIdk.':'.$rg->cost.':'.$rg->cost.':item_wr_'.$idf.':'.$volres.':'.$res->ServiceType.':'.$res->Source.':'.$res->Dest_Cntry.':'.$res->MeasureUnits.':'.$res->Length.':'.$res->Width.':'.$res->Height.':'.$res->Weight.':'.$res->WeightUnit.':'.$sim.':'.$res->ShipmentType.':'.$res->SourceHub.':'.$res->DestinationCountryName.':'.$res->DestinationHubName.':'.$rg->Insurance.':'.$rg->ItemPrice.':'.$sim1.':'.$sim2.':'.$sim3.':'.$res->BusinessType.':'.$rg->Volume.':'.$rg->VolumetricWeight.'" data-target="#ord_ship" title="'.Jtext::_('COM_USERPROFILE_SHIP_HISTORY_STATUS_SHIP').'">';
                                         			if($elem['Hold'][1] == "ACT")
                                         			echo '<input type="button" name="Return" class="return" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-id="'.$res->BillFormNo.':'.$rg->ItemId.':'.$rg->ItemQuantity.'" data-target="#ord_return"" title="'.Jtext::_('COM_USERPROFILE_SHIP_HISTORY_STATUS_RETURN').'">';
                                         			if($elem['Return'][1] == "ACT")
@@ -4371,8 +4380,8 @@ margin: 0 auto;
                            <p> <?php echo Jtext::_('COM_USERPROFILE_SHIP_POPUP_INCLUDES');?>:</p>
                            <br/>
                           <div class="cupn-cde">
-                               <a href="">Apply Coupons</a>
-                               <p style="display:none;">Apply Coupons</p>
+                               <a href="">Apply Coupons/Promocodes</a>
+                               <p style="display:none;">Available Coupons/Promocodes</p>
                            </div>
                            <div class="cupn-detals">
                            <div class="cupn-cdes">
