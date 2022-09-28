@@ -3768,24 +3768,30 @@ margin: 0 auto;
                                  if(0){
                                      $grosswtTd = "<td>".$res->weight."</td>";
                                  }  
+                                 $readonltTxt = "";
+                                 if($rg->InhouseRepacklbl !=''){
+                                    $readonltTxt = "readonly";
+                                 }
                                  
                                  // class="check-invisable"
                                        echo '<tr style="display:none;">
                                                 <td></td>
                                         		<td class="action_btns">
-                                        		<input type="checkbox"  name="txtId" class="txtId selinpt-chksub" data-sno="item_wr_'.$i.'"  value="'.$rg->ItemName.':'.$res->BillFormNo.':'.$rg->ItemQuantity.':'.$res->TrackingId.':'.$rg->ItemIdk.':'.$rg->cost.':'.$rg->cost.':'.$idf.':'.$volres.':'.$res->ServiceType.':'.$res->Source.':'.$res->Dest_Cntry.':'.$res->MeasureUnits.':'.$res->Length.':'.$res->Width.':'.$res->Height.':'.$res->Weight.':'.$res->WeightUnit.':'.$sim.':'.$res->ShipmentType.':'.$res->SourceHub.':'.$res->DestinationCountryName.':'.$res->DestinationHubName.':'.$rg->Insurance.':'.$rg->ItemPrice.':'.$sim1.':'.$sim2.':'.$sim3.':'.$res->BusinessType.':'.$rg->Volume.':'.$rg->VolumetricWeight.':'.$rg->InhouseRepacklbl.':'.$res->ServiceId.'">
-                                        		 <input type="button" name="ship" class="ship" data-sno="'.$idf.'" data-id="'.$rg->ItemName.':'.$res->BillFormNo.':'.$rg->ItemQuantity.':'.$res->TrackingId.':'.$rg->ItemIdk.':'.$rg->cost.':'.$rg->cost.':'.$idf.':'.$volres.':'.$res->ServiceType.':'.$res->Source.':'.$res->Dest_Cntry.':'.$res->MeasureUnits.':'.$res->Length.':'.$res->Width.':'.$res->Height.':'.$res->Weight.':'.$res->WeightUnit.':'.$sim.':'.$res->ShipmentType.':'.$res->SourceHub.':'.$res->DestinationCountryName.':'.$res->DestinationHubName.':'.$rg->Insurance.':'.$rg->ItemPrice.':'.$sim1.':'.$sim2.':'.$sim3.':'.$res->BusinessType.':'.$rg->Volume.':'.$rg->VolumetricWeight.':'.$rg->InhouseRepacklbl.':'.$res->ServiceId.'" data-target="#ord_ship" title="'.Jtext::_('COM_USERPROFILE_SHIP_HISTORY_STATUS_SHIP').'">';
+                                        		<input type="checkbox"  name="txtId" class="txtId selinpt-chksub" data-sno="item_wr_'.$idf.'"  value="'.$rg->ItemName.':'.$res->BillFormNo.':'.$rg->ItemQuantity.':'.$res->TrackingId.':'.$rg->ItemIdk.':'.$rg->cost.':'.$rg->cost.':item_wr_'.$idf.':'.$volres.':'.$res->ServiceType.':'.$res->Source.':'.$res->Dest_Cntry.':'.$res->MeasureUnits.':'.$res->Length.':'.$res->Width.':'.$res->Height.':'.$res->Weight.':'.$res->WeightUnit.':'.$sim.':'.$res->ShipmentType.':'.$res->SourceHub.':'.$res->DestinationCountryName.':'.$res->DestinationHubName.':'.$rg->Insurance.':'.$rg->ItemPrice.':'.$sim1.':'.$sim2.':'.$sim3.':'.$res->BusinessType.':'.$rg->Volume.':'.$rg->VolumetricWeight.':'.$rg->InhouseRepacklbl.':'.$res->ServiceId.'">
+                                        		 <input type="button" name="ship" class="ship" data-sno="item_wr_'.$idf.'" data-id="'.$rg->ItemName.':'.$res->BillFormNo.':'.$rg->ItemQuantity.':'.$res->TrackingId.':'.$rg->ItemIdk.':'.$rg->cost.':'.$rg->cost.':item_wr_'.$idf.':'.$volres.':'.$res->ServiceType.':'.$res->Source.':'.$res->Dest_Cntry.':'.$res->MeasureUnits.':'.$res->Length.':'.$res->Width.':'.$res->Height.':'.$res->Weight.':'.$res->WeightUnit.':'.$sim.':'.$res->ShipmentType.':'.$res->SourceHub.':'.$res->DestinationCountryName.':'.$res->DestinationHubName.':'.$rg->Insurance.':'.$rg->ItemPrice.':'.$sim1.':'.$sim2.':'.$sim3.':'.$res->BusinessType.':'.$rg->Volume.':'.$rg->VolumetricWeight.':'.$rg->InhouseRepacklbl.':'.$res->ServiceId.'" data-target="#ord_ship" title="'.Jtext::_('COM_USERPROFILE_SHIP_HISTORY_STATUS_SHIP').'">';
                                         			if($elem['Hold'][1] == "ACT")
                                         			echo '<input type="button" name="Return" class="return" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-id="'.$res->BillFormNo.':'.$rg->ItemId.':'.$rg->ItemQuantity.'" data-target="#ord_return"" title="'.Jtext::_('COM_USERPROFILE_SHIP_HISTORY_STATUS_RETURN').'">';
                                         			if($elem['Return'][1] == "ACT")
                                         			echo '<input type="button" name="Keep" class="keep" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-id="'.$res->BillFormNo.':'.$rg->ItemId.':'.$rg->ItemQuantity.'" data-target="#ord_keep" " title="'.Jtext::_('COM_USERPROFILE_SHIP_HISTORY_STATUS_HOLD').'">';
-                                                echo '<input type="button" name="unpack"   value="unpack" data-target="#ord_unpack" data-toggle="modal" class="btn btn-warning shipsubmit">';
+                                                if($rg->InhouseRepacklbl !='')
+                                                //if(1)
+                                                echo '<input type="button" name="unpack" class="unpack"  data-target="#ord_unpack" data-toggle="modal" class="btn btn-warning">';
 
                                                 echo '</td>
                                         		<td>'.$rg->ItemName.'</td>
                                         		<td>'.$rg->ItemQuantity.'</td>
                                         		<td><input type="hidden" name="ItemIdkTxt" value="'.$rg->ItemIdk.'"><input type="hidden" name="ItemQtyTxt" value="'.$rg->ItemQuantity.'"><input type="hidden" name="ItemQtyEdit" value="'.$rg->ItemQuantity.'">
-                                                <input type="text" class="form-control" name="txtQty" value="'.$rg->ItemQuantity.'"></td>
+                                                <input type="text" class="form-control" name="txtQty" value="'.$rg->ItemQuantity.'" '.$readonltTxt.' ></td>
                                                 <td>'.$res->TrackingId.'</td>
                                         		<td>'.$res->MerchantName.'</td>
                                         		<td>'.$rg->OrderID.'</td>
