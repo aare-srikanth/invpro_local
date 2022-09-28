@@ -2535,6 +2535,7 @@ function PPHttpPost($methodName, $nvpStr) {
         $couponCodeStr = JRequest::getVar('couponCodeStr', '', 'get');
         $couponDiscAmt = JRequest::getVar('couponDiscAmt', '', 'get');
         $TxnId = JRequest::getVar('TxnId', '', 'get');
+        $InhouseIdkstr = JRequest::getVar('InhouseIdkstr', '', 'get');
         
       
         
@@ -2607,7 +2608,7 @@ function PPHttpPost($methodName, $nvpStr) {
         }
         
        
-        $status=Controlbox::submitpayment($amtStr,$cardnumberStr,$txtccnumberStr,$MonthDropDownListStr,$txtNameonCardStr,$YearDropDownListStr,$invidkStr,$qtyStr,$wherhourecStr,$CustId,$specialinstructionStr,$cc,$paymentgateway,$shipservtStr,$consignidStr,$invf,$filenameStr,$articleStr,$priceStr,$TxnId,$inhouseNo,'',$ratetypeStr,$Conveniencefees,$addSerStr,$addSerCostStr,$companyId,$insuranceCost,$extAddSer,$lengthStr,$widthStr,$heightStr,$grosswtStr,$volumeStr,$volumetwtStr,$shipmentCost,$totalDecVal,$couponCodeStr,$couponDiscAmt);
+        $status=Controlbox::submitpayment($amtStr,$cardnumberStr,$txtccnumberStr,$MonthDropDownListStr,$txtNameonCardStr,$YearDropDownListStr,$invidkStr,$qtyStr,$wherhourecStr,$CustId,$specialinstructionStr,$cc,$paymentgateway,$shipservtStr,$consignidStr,$invf,$filenameStr,$articleStr,$priceStr,$TxnId,$inhouseNo,$InhouseIdkstr,$ratetypeStr,$Conveniencefees,$addSerStr,$addSerCostStr,$companyId,$insuranceCost,$extAddSer,$lengthStr,$widthStr,$heightStr,$grosswtStr,$volumeStr,$volumetwtStr,$shipmentCost,$totalDecVal,$couponCodeStr,$couponDiscAmt);
         $input = JFactory::getApplication()->input;
         $input->set('invoice', $status);
         
