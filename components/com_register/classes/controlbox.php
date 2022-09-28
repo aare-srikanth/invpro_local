@@ -344,8 +344,8 @@ class Controlbox{
         curl_setopt($ch, CURLINFO_HEADER_OUT, true);
         $result=curl_exec($ch);
         
-        echo $url;
-        var_dump($result);exit;
+        // echo $url;
+        // var_dump($result);exit;
         
         $rescities = json_decode($result); 
         //$cities='';
