@@ -268,7 +268,11 @@ if(!empty($_POST['cardnumberStr']) && !empty($_POST['MonthDropDownListStr']) && 
                     $insuranceCost="";
                     $extAddSer="";
                     
+<<<<<<< HEAD
                     $status=Controlbox::submitpayment($itemPrice,$card_number,$txtccnumberStr,$card_exp_month,$txtNameonCardStr,$card_exp_year,$invidkStr,$qtyStr,$wherhourecStr,$CustId,$specialinstructionStr,$cc,$pg,$shipservtStr,$consignidStr,$file,$filenameStr,$articleStr,$priceStr,$transaction_id,$Inhouse,$InhouseIdk,$rateType,$Conveniencefees,$addSerStr,$addSerCost,$CompanyId,$insuranceCost,$extAddSer,'','','','','','','','','','','');
+=======
+                    $status=Controlbox::submitpayment($itemPrice,$card_number,$txtccnumberStr,$card_exp_month,$txtNameonCardStr,$card_exp_year,$invidkStr,$qtyStr,$wherhourecStr,$CustId,$specialinstructionStr,$cc,$pg,$shipservtStr,$consignidStr,$file,$filenameStr,$articleStr,$priceStr,$transaction_id,$Inhouse,$InhouseIdk,$rateType,$Conveniencefees,$addSerStr,$addSerCost,$CompanyId,$insuranceCost,$extAddSer,'','','','','','','','','','');
+>>>>>>> 2607634330749e28e562d989e237ba262c5b6c97
                    
                 }
                 
