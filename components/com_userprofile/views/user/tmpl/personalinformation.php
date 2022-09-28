@@ -933,7 +933,7 @@ $joomla('#typeuserTxt').on('change',function(){
                  required: "<?php echo $assArr['identification_value_error'];?>"
                 },
                 emailTxt:{
-                  required: "<?php echo Jtext::_('COM_USERPROFILE_PI_MODAL_EMAIL_ERROR');?>"
+                  required: "<?php echo $assArr['Email_error'];?>"
                     
                 }
                 
@@ -1113,13 +1113,13 @@ $joomla('#typeuserTxt').on('change',function(){
         <form name="userprofileFormOne" id="userprofileFormOne" method="post" action=""  enctype="multipart/form-data">
         <div class="row">
           <div class="col-sm-12 text-right">
-			<input value="<?php echo Jtext::_('COM_USERPROFILE_PI_UPDATE_PROFILE');?>" style="" class="btn btn-primary" type="submit" >
+			<input value="<?php echo $assArr['PROFILE_UPDATE'];?>" style="" class="btn btn-primary" type="submit" >
 		  </div>
         </div>  
         <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <h4 class="sub_title"><b><?php echo Jtext::_('COM_USERPROFILE_PI_PROFILE_PICTURE');?></b></h4>
+                <h4 class="sub_title"><b><?php echo $assArr['Profile_picture'];?></b></h4>
               </div>
               <div class="row">
              <div class="col-sm-12 col-md-6">
@@ -1174,7 +1174,7 @@ $joomla('#typeuserTxt').on('change',function(){
             
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
-                <h4 class="sub_title"><b><?php echo Jtext::_('COM_USERPROFILE_PI_TELEPHONE');?></b></h4>
+                <h4 class="sub_title"><b><?php echo $assArr['Telephone_number'];?></b></h4>
               </div>
               <div class="form-group">
                 <label><?php echo $assArr['primary_number'];?> <span class="error">*</span></label>
@@ -1395,12 +1395,12 @@ $joomla('#typeuserTxt').on('change',function(){
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <h4 class="sub_title"><b><?php echo Jtext::_('COM_USERPROFILE_PI_ADDITIONAL_ADDRESS');?></b> </h4>
+                <h4 class="sub_title"><b><?php echo $assArr['additional_address'];?></b> </h4>
               </div>
             </div>
             <div class="col-md-12">
               <div class="form-group">
-                <input type="button" id="addusers" class="btn btn-primary" value="<?php echo Jtext::_('COM_USERPROFILE_PI_ADDITIONAL_ADDRESS');?>" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#exampleModal">
+                <input type="button" id="addusers" class="btn btn-primary" value="<?php echo $assArr['additional_address'];?>" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#exampleModal">
               </div>
             </div>
 
@@ -1542,10 +1542,10 @@ $joomla('#typeuserTxt').on('change',function(){
           <div class="row">
             <div class="col-sm-12 col-md-12">
               <div class="form-group">
-                <h4 class="sub_title"><b><?php echo Jtext::_('COM_USERPROFILE_MYDOC_UPLOAD_DOC');?></b></h4>
-                <h5><strong><?php echo Jtext::_('COM_USERPROFILE_MYDOC_SELECT_DOC'); ?>: (<?php echo Jtext::_('COM_USERPROFILE_MYDOC_PHOTO_ID'); ?>, <?php echo Jtext::_('COM_USERPROFILE_MYDOC_FORM'); ?> 1583, <?php echo Jtext::_('COM_USERPROFILE_MYDOC_UTILITY_BILLS'); ?> , <?php echo Jtext::_('COM_USERPROFILE_MYDOC_OTHERS'); ?> )</strong></h5>
-                <p><?php echo Jtext::_('COM_USERPROFILE_MYDOC_FILE_SIZE_LIMT_STR'); ?></p>
-                <p>JPG,PNG,GIF,PDF <?php echo Jtext::_('COM_USERPROFILE_MYDOC_ACCEPTED_STR_STR'); ?></P>
+                <h4 class="sub_title"><b><?php echo $assArr['Upload_Documents'];?></b></h4>
+                <h5><strong><?php echo $assArr['Select_document']; ?>: (<?php echo $assArr['Select_document_list']; ?>)</strong></h5>
+                <p><?php echo $assArr['Select_document_document']; ?></p>
+               
               </div>
             </div>
           </div>
@@ -1746,7 +1746,7 @@ $joomla('#typeuserTxt').on('change',function(){
                 </div>    
                 <div class="col-md-6">
                     <div class="form-group">
-                                 <label><?php echo Jtext::_('COM_REGISTER_IDENTIFICATION_VALUE_LABEL');?><span class="error">*</span></label>
+                                 <label><?php echo $assArr['identification_value'];?><span class="error">*</span></label>
                                  <input type="text" class="form-control" name="idvalueTxt" id="idvalueTxt">
                               </div>
                 </div>
@@ -1783,7 +1783,7 @@ $joomla('#typeuserTxt').on('change',function(){
     <div class="modal-content">
       <div class="modal-header">       
           <input type="button" data-dismiss="modal" value="x" class="btn-close1">        
-        <h4 class="modal-title"><strong><?php echo Jtext::_('COM_USERPROFILE_PI_ADDITIONAL_ADDRESS_TITLE'); ?></strong></h4>
+        <h4 class="modal-title"><strong><?php echo $assArr['additional_address']; ?></strong></h4>
       </div>
       <form name="userprofileFormFive" id="userprofileFormFive" method="post" action=""  enctype="multipart/form-data">
         <div class="modal-body">
