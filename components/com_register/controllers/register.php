@@ -38,6 +38,8 @@ class RegisterControllerRegister extends JControllerLegacy
         if($uname!="" &&  $paswd!=""){
            require_once JPATH_ROOT.'/components/com_register/helpers/register.php';
            $status=RegisterHelpersRegister::getLogin($uname,$paswd);
+            $session = JFactory::getSession();
+		   $session->set('msg', 1);
         }
         if($status){
             $session = JFactory::getSession();
