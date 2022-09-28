@@ -95,19 +95,19 @@ $joomla(document).ready(function() {
 			// Specify validation error messages
 			messages: {
 			   txtAccountnumber:{
-				required: "Please enter Account Number"
+				required: "<?php echo $assArr['Account_Number_error'];?>"
 			  },
 			   txtAccountname:{
-				required: "Please enter Account Name"
+				required: "<?php echo $assArr['Account Name_error'];?>"
 			  },
 			   txtInventory:{
 				required: "Please enter Inventory"
 			  },
 			   txtProjectname:{
-				required: "Please enter Project Name"
+				required: "<?php echo $assArr['Project Name_error'];?>"
 			  },
 			   txtProductTitle:{
-				required: "Please enter Product Name"
+				required: "<?php echo $assArr['Product Name FNSKU Title_error'];?>"
 			  },
 			   "txtFnsku[]":{
 				required: "Please enter FNSKU Number"
@@ -122,7 +122,7 @@ $joomla(document).ready(function() {
 				required: "Please check Service"
 			  },
 			   dateTxt:{
-				required: "Please enter Date"
+				required: "<?php echo $assArr['Date Requested_error'];?>"
 			  }
       
 			},
@@ -255,19 +255,19 @@ $joomla(document).ready(function() {
 				required: "Please select Inventory"
 			  },
 			   ProjectnameTxt:{
-				required: "Please enter Project Name"
+				required: "<?php echo $assArr['Project Name_error'];?>"
 			  },
 			   productnameTxt:{
-				required: "Please enter Product Name"
+				required: "<?php echo $assArr['Product Name FNSKU Title_error'];?>"
 			  },
 			  OrderDateTxt:{
-				required: "Please enter Date"
+				required: "<?php echo $assArr['order_date_error'];?>"
 			  },
 			   "FnskuTxt[]":{
-				required: "Please enter FNSKU Number"
+				required: "<?php echo $assArr['Provide FNSKU ex. X00BT4N3V_error'];?>"
 			  },
 			   "FnskuquanityTxt[]":{
-				required: "Please enter FNSKU quantity "
+				required: "<?php echo $assArr[' quantity of product per FNSKU_error'];?> "
 			  },
 			   "upcTxt[]":{
 				required: "Please enter UPC "
@@ -860,7 +860,7 @@ function ltrim(str, chr) {
             <div class="cpl-blk">      
                     <!-- Panel Body Start -->
             <div class="col-md-12 rq-txt">
-            <p class="pull-right"> Required<span class="error">*</span></p>
+            <p class="pull-right"> <?php echo $assArr['Required'];?><span class="error">*</span></p>
             </div>
             <div class="clearfix"></div>
             
@@ -868,18 +868,18 @@ function ltrim(str, chr) {
                 <div class="panel-body">
                     
                     <div class="acrdin-blk">
-                        <div class="accordion"> IPS / RAR <i class="fa fa-caret-down pull-right" aria-hidden="true"></i></div>
+                        <div class="accordion"><?php echo $assArr['IPS/RAR'];?> <i class="fa fa-caret-down pull-right" aria-hidden="true"></i></div>
                          <div class="panel acrdin-bdy">
                              
                             <div class="col-md-12 form-group">
-                            <p><strong><i>Project Request Form: Scope of work</i></strong></p>
+                            <p><strong><i><?php echo $assArr['Project Request Form_Scope of work'];?></i></strong></p>
                             <p><i>Be SMART and be Specific! Clearly define the scope of your project as concisely as possible. Your clear instructions will help us deliver a successful project!</i></p>
                             </div>
                             
                             <div class="col-md-6">
                                 <div class="row">
                                 <div class="col-md-12 form-group">
-                                <label class="col-md-4 col-form-label">Account Number<sub>*</sub></label>
+                                <label class="col-md-4 col-form-label"><?php echo $assArr['Account_Number'];?><sub>*</sub></label>
                                 <div class="col-md-8">
                                 <input type="text" class="form-control" name="txtAccountnumber" name="txtAccountnumber" value="<?php echo $user;?>" readonly>
                                 </div>
@@ -936,7 +936,7 @@ function ltrim(str, chr) {
                             <div class="col-md-6">
                                 <div class="row">
                                     <div class="col-md-12 form-group">
-                                        <label class="col-md-4 col-form-label">Account Name<sub>*</sub></label>
+                                        <label class="col-md-4 col-form-label"><?php echo $assArr['Account_Name'];?><sub>*</sub></label>
                                         <div class="col-md-8">
                                             <input type="text" class="form-control" name="txtAccountname"  id="txtAccountname" value="<?php echo $UserView->UserName;?>" readonly>
                                         </div>
@@ -949,7 +949,7 @@ function ltrim(str, chr) {
                     </div>
                     
                     <div class="acrdin-blk">
-                        <div class="accordion"> IPS / RAR <i class="fa fa-caret-down pull-right" aria-hidden="true"></i></div>
+                        <div class="accordion"><?php echo $assArr['IPS/RAR']?><i class="fa fa-caret-down pull-right" aria-hidden="true"></i></div>
                         <div class="panel acrdin-bdy">
                             
                             <div class="col-md-12 form-group">
@@ -961,7 +961,7 @@ function ltrim(str, chr) {
                             
                             <div class="form-group col-md-6">
                                 <div class="form-group">
-                                    <label class="col-md-4 col-form-label">Define Project<sub>*</sub></label>
+                                    <label class="col-md-4 col-form-label"><?php echo $assArr['Project_Name'];?><sub>*</sub></label>
                                     <div class="col-md-8">
                                          <input type="text" class="form-control"  name="txtProjectname" maxlength="50"  id="txtProjectname" autocomplete="off">
                                          <div class="projectNameError"></div>
@@ -972,10 +972,10 @@ function ltrim(str, chr) {
                     </div>
                     
                     <div class="acrdin-blk">
-                        <div class="accordion"> IPS/RAR <i class="fa fa-caret-down pull-right" aria-hidden="true"></i></div>
+                        <div class="accordion"><?php echo $assArr['IPS/RAR'];?><i class="fa fa-caret-down pull-right" aria-hidden="true"></i></div>
                         <div class="panel acrdin-bdy">
                         <div class="form-group col-md-6 prdut-nme">
-                        <label class="col-md-4 col-form-label">Product Name (FNSKU Title)<span class="error">*</span></label>
+                        <label class="col-md-4 col-form-label"><?php echo $assArr['Product Name_(FNSKU Title)'];?><span class="error">*</span></label>
                         <div class="col-md-8">
                         <input type="text" class="form-control" maxlength="50"  name="txtProductTitle"  id="txtProductTitle" autocomplete="off">
                         </div>
@@ -986,22 +986,22 @@ function ltrim(str, chr) {
                             <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
                                 
                                 <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12 cls-addcol">
-                                <label class="col-form-label">Provide FNSKU ex. X00BT4N3V<span class="error">*</span></label>
+                                <label class="col-form-label"><?php echo $assArr['Provide_FNSKU'];?> ex. X00BT4N3V<span class="error">*</span></label>
                                 <input type="text" class="form-control rowValidate" maxlength="20"  name="txtFnsku[]"  id="1" autocomplete="off">
                                 </div>
                                 
                                 <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12 cls-addcol">
-                                <label class="col-form-label">What is the quantity of product per FNSKU?<span class="error">*</span></label>
+                                <label class="col-form-label"><?php echo $assArr['What is the quantity of product per_FNSKU'];?><span class="error">*</span></label>
                                 <input type="text" class="form-control rowValidate" maxlength="5" name="txtFnskuquanity[]" id="2" >
                                 </div>
                                 
                                 <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12 cls-addcol">
-                                <label class="col-form-label">UPC<span class="error">*</span></label>
+                                <label class="col-form-label"><?php echo $assArr['upc'];?><span class="error">*</span></label>
                                 <input type="text" class="form-control rowValidate" maxlength="20"  name="txtUPC[]"  id="3">
                                 </div>
                                 
                                 <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12 cls-addcol">
-                                <label class="col-form-label">SKU</label>
+                                <label class="col-form-label"><?php echo $assArr['sKU'];?></label>
                                 <input type="text" class="form-control" maxlength="20" name="txtSKU[]" id="4">
                                 </div>
                                 
@@ -1019,7 +1019,7 @@ function ltrim(str, chr) {
                     </div>
                     
                     <div class="acrdin-blk">
-                            <div class="accordion"> IPS / RAR <i class="fa fa-caret-down pull-right" aria-hidden="true"></i></div>
+                            <div class="accordion"><?php echo $assArr['IPS/RAR'];?> <i class="fa fa-caret-down pull-right" aria-hidden="true"></i></div>
                             <div class="panel acrdin-bdy">
                                 <div class="col-md-12">
                                 <h4>Service(s) Requested</h4>
@@ -1043,7 +1043,7 @@ function ltrim(str, chr) {
                                     
                                     <div class="col-md-7">
                                     <div class="row col-md-12 form-group dt-pkr-blk">
-                                    <label class="col-md-5 col-form-label">Date Requested<sub>*</sub></label>
+                                    <label class="col-md-5 col-form-label"><?php echo $assArr['Date_Requested'];?><sub>*</sub></label>
                                     <div class="col-md-7">
                                     <input type="text" class="form-control" id="dateTxt" name="dateTxt" >
                                     </div>
@@ -1067,7 +1067,7 @@ function ltrim(str, chr) {
                                         <div class="input-grp srvc-grp col-md-3 col-sm-6 col-xs-6">
                                              <div class="input-group finputfile">
                                                   <span class="btn-block"> 
-                                                    <span class="btn btn-file"> Choose File 
+                                                    <span class="btn btn-file"> <?php echo $assArr['choose_file'];?> 
                                                         <input type="file" multiple class="uploadFilenames" name="uploadFiles[]"  id="uploadFiles_1" > <!--onchange="javascript:updateList()"-->
                                                     </span>
                                                    </span>
@@ -1078,7 +1078,7 @@ function ltrim(str, chr) {
                                         </div>
                                         
                                         <div class="clearfix"></div>
-                                        <div id="fileList" class="col-md-12 col-sm-12 col-xs-12">(Upload extension type png,jpg,gif and pdf Below 2Mb file)</div>
+                                        <div id="fileList" class="col-md-12 col-sm-12 col-xs-12">(<?php echo $assArr['file_error'];?>)</div>
                                         <div class="clearfix"></div>
                                        
                                 </div>
@@ -1089,7 +1089,7 @@ function ltrim(str, chr) {
                         </div>
                         
                     <div class="acrdin-blk">
-                        <div class="accordion">Project Request Complete<i class="fa fa-caret-down pull-right" aria-hidden="true"></i></div>
+                        <div class="accordion"><?php echo $assArr['Project Request_Complete'];?><i class="fa fa-caret-down pull-right" aria-hidden="true"></i></div>
                         <div class="panel acrdin-bdy">
                         <div class="col-md-12">
                             <p>Thank you for completing the request form. Upon submission of this form, our warehouse will be notified of your project. If we have any questions or need additional clarification, someone for our Care Team will be in contact with you. </p>
@@ -1132,7 +1132,7 @@ function ltrim(str, chr) {
                      </div>
                     <div class="col-sm-6 form-group text-right">
                         <a style="color:white;" class="form-group text-right btn btn-primary" id="showdiv">Add Project</a>		
-                        <a style="color:white;" href="<?php echo JURI::base(); ?>/csvdata/prf_list.csv" class="btn btn-primary csvDownload export-csv">Export CSV</a>
+                        <a style="color:white;" href="<?php echo JURI::base(); ?>/csvdata/prf_list.csv" class="btn btn-primary csvDownload export-csv"><?php echo $assArr['eXPORT_CSV'];?></a>
                     </div>
                 </div>
         </div>
@@ -1141,12 +1141,12 @@ function ltrim(str, chr) {
                 <table class="table table-bordered theme_table" id="N_table"  data-page-length='50'>
                 <thead>
                 <tr>
-                  <th><?php echo Jtext::_('COM_USERPROFILE_PRF_ACTIONS');?></th>
-                  <th><?php echo Jtext::_('COM_USERPROFILE_PRF_ACCOUNT_NUMBER');?></th>
-                  <th><?php echo Jtext::_('COM_USERPROFILE_PRF_ACCOUNT_NAME');?></th>
-                  <th><?php echo Jtext::_('COM_USERPROFILE_PRF_PROJECT_NAME');?></th>
+                  <th><?php echo $assArr['action'];?></th>
+                  <th><?php echo $assArr['Account_Number'];?></th>
+                  <th><?php echo $assArr['Account_Name'];?></th>
+                  <th><?php echo $assArr['Project_Name'];?></th>
                   <th><?php echo Jtext::_('COM_USERPROFILE_PRF_INVENTORY');?></th>
-                  <th><?php echo Jtext::_('COM_USERPROFILE_PRF_DATE_REQUESTED');?></th>
+                  <th><?php echo $assArr['Date_Requested'];?></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -1190,13 +1190,13 @@ function ltrim(str, chr) {
           <div class="row">
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
-                <label>Account Number<span class="error">*</span></label>
+                <label><?php echo $assArr['Account_Number'];?><span class="error">*</span></label>
                 <input type="text" class="form-control" name="AccountNumberTxt" >
               </div>
             </div>
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
-                <label>Account Name <span class="error">*</span></label>
+                <label> <?php echo $assArr['Account_Name'];?><span class="error">*</span></label>
                 <input type="text" class="form-control"  name="AccountNameTxt" >
               </div>
             </div>
@@ -1243,7 +1243,7 @@ function ltrim(str, chr) {
             </div>
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
-                <label>Define Project <span class="error">*</span></label>
+                <label><?php echo $assArr['Define_Project'];?><span class="error">*</span></label>
                 <input type="hidden" class="form-control" maxlength="250" name="Projectnamehidden" id="Projectnamehidden" >
                 <input type="text" class="form-control" maxlength="250" name="ProjectnameTxt" id="ProjectnameTxt" >
                 <div class="editProjectNameError"></div>
@@ -1254,13 +1254,13 @@ function ltrim(str, chr) {
            <div class="row">
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
-                <label>Order Date <span class="error">*</span></label>
+                <label><?php echo $assArr['order_date'];?> <span class="error">*</span></label>
                 <input type="text" class="form-control"  name="OrderDateTxt" id="OrderDateTxt" >
               </div>
             </div>
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
-                <label>Product Name <span class="error">*</span></label>
+                <label><?php echo $assArr['Product_Name'];?>  <span class="error">*</span></label>
                 <input type="text" class="form-control" maxlength="50"  name="productnameTxt" id="productnameTxt" >
               </div>
             </div>
@@ -1301,7 +1301,7 @@ function ltrim(str, chr) {
                             <div class="input-grp srvc-grp col-md-3 col-sm-6 col-xs-6">
                                 <div class="input-group finputfile">
                                             <span class="btn-block"> 
-                                                <span class="btn btn-file"> Choose File   
+                                                <span class="btn btn-file"> <?php echo $assArr['choose_file'];?>  
                                                     <input type="file" class="form-control uploadFilenames_edit" multiple  name="editUploadFiles[]" id="editUploadFiles_1">
                                                 </span>
                                             </span>
@@ -1323,7 +1323,7 @@ function ltrim(str, chr) {
         
         <div class="row">
             <div class="col-md-12 text-center">
-              (Upload extension type png,jpg,gif and pdf Below 2Mb file)
+              (<?php echo $assArr['file_error'];?>)
             </div>
           </div>
       </div>
